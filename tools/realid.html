@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL ID 文件检查器 - Toolku</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="../index.html" class="navbar-brand">
+        <div class="logo-icon">T</div>
+        Toolku
+    </a>
+    <div class="navbar-links">
+        <a href="../index.html">首页</a>
+        <a href="currency.html">汇率换算</a>
+        <a href="dmv-6points.html">DMV 6 Points</a>
+        <a href="realid.html" class="active">REAL ID</a>
+        <a href="checklist.html">文件检查</a>
+        <a href="expense.html">开支记录</a>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+</nav>
+
+<div class="container">
+    <div class="tool-page">
+        <h2>🆔 REAL ID 文件检查器</h2>
+        <p class="subtitle">逐项检查你是否带齐了申请 REAL ID 所需的所有文件，避免白跑一趟 DMV</p>
+
+        <div class="info-box" style="margin-bottom:24px;">
+            <strong>REAL ID 是什么？</strong>
+            从 2025 年 5 月起，美国联邦机构（包括机场安检）将只接受 REAL ID 认证的驾照和身份证。如果你还没有 REAL ID，建议尽早申请。纽约州的 REAL ID 需要在 DMV 柜台亲自办理。
+        </div>
+
+        <h3 style="margin-bottom:16px;color:var(--primary-dark);">文件清单（逐项打勾）</h3>
+
+        <div class="form-group">
+            <label style="font-size:13px;color:var(--text-light);margin-bottom:8px;">身份证明（需 2 份）</label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="rid-identity" onchange="checkRealID()"> 美国护照 (US Passport) 或护照卡
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="rid-identity2" onchange="checkRealID()"> 出生证明 (Birth Certificate) 认证副本
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="rid-identity3" onchange="checkRealID()"> 有效驾照 (如来自其他州)
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label style="font-size:13px;color:var(--text-light);margin-bottom:8px;">社会安全号 (SSN)</label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="rid-ssn" onchange="checkRealID()"> 社会安全卡 (SSN Card)
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="rid-ssn-alt" onchange="checkRealID()"> W-2 表 或 驾照申请时声明无法申请 SSN
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label style="font-size:13px;color:var(--text-light);margin-bottom:8px;">纽约州地址证明（需 2 份）</label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="rid-address1" onchange="checkRealID()"> 水电费账单 (Utility Bill) — 最近 60 天内
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="rid-address2" onchange="checkRealID()"> 银行对账单 / 信用卡账单 — 最近 60 天内
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="rid-address3" onchange="checkRealID()"> 租约 / 物业账单 / 税单
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label style="font-size:13px;color:var(--text-light);margin-bottom:8px;">合法身份文件</label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="rid-legal" onchange="checkRealID()"> 绿卡 (Green Card) / 签证 + I-94 / 其他有效移民文件
+            </label>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="checkRealID()">检查文件</button>
+            <button class="btn btn-outline" onclick="resetRealID()">重置</button>
+        </div>
+
+        <div id="realid-progress" style="margin-top:24px;"></div>
+        <div class="result-box" id="realid-result" style="margin-top:16px;">
+            <div class="result-value">0/5</div>
+            <div class="result-label">请勾选文件并点击"检查文件"</div>
+        </div>
+
+        <div id="realid-checklist" style="margin-top:16px;"></div>
+
+        <div class="tip-box" style="margin-top:24px;">
+            <strong>注意事项</strong>
+            1. 所有文件必须是原件或认证副本，复印件不被接受。<br>
+            2. 地址证明文件必须是最近 60 天内签发的。<br>
+            3. 如姓名变更（如结婚），还需提供结婚证等法律文件。<br>
+            4. 建议提前在 DMV 官网预约，减少排队时间。
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>Toolku.com — 美国华人常用工具库 &nbsp;|&nbsp; 由 <a href="https://openaa.com" target="_blank">OpenAA</a> 提供</p>
+</footer>
+
+<script src="../js/tools.js"></script>
+<script>
+function resetRealID() {
+    document.querySelectorAll('#realid-checklist input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+    });
+    checkRealID();
+}
+
+function toggleMobileMenu() {
+    const links = document.querySelector('.navbar-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    if (links.style.display === 'flex') {
+        links.style.position = 'absolute';
+        links.style.top = '64px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.background = 'white';
+        links.style.flexDirection = 'column';
+        links.style.padding = '16px';
+        links.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        links.style.borderTop = '1px solid #E5E7EB';
+    }
+}
+</script>
+</body>
+</html>
