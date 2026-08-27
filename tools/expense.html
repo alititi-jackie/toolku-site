@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活开支记录 - Toolku</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="../index.html" class="navbar-brand">
+        <div class="logo-icon">T</div>
+        Toolku
+    </a>
+    <div class="navbar-links">
+        <a href="../index.html">首页</a>
+        <a href="currency.html">汇率换算</a>
+        <a href="dmv-6points.html">DMV 6 Points</a>
+        <a href="realid.html">REAL ID</a>
+        <a href="checklist.html">文件检查</a>
+        <a href="expense.html" class="active">开支记录</a>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+</nav>
+
+<div class="container">
+    <div class="tool-page">
+        <h2>💰 生活开支记录</h2>
+        <p class="subtitle">手机端快速记一笔，帮你管好每一笔花销（数据保存在浏览器本地）</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="expense-total">0.00</div>
+                <div class="stat-label">总支出 ($)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="expense-count">0</div>
+                <div class="stat-label">记录笔数</div>
+            </div>
+        </div>
+
+        <h3 style="margin:24px 0 12px;color:var(--primary-dark);">新增支出</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label>支出项目</label>
+                <input type="text" id="expense-item" placeholder="例如：超市购物、加油、午餐">
+            </div>
+            <div class="form-group">
+                <label>金额 ($)</label>
+                <input type="number" id="expense-amount" placeholder="0.00" step="0.01" min="0">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>类别</label>
+                <select id="expense-category">
+                    <option value="food">🍜 餐饮</option>
+                    <option value="transport">🚗 交通</option>
+                    <option value="shopping">🛒 购物</option>
+                    <option value="bill">📄 账单</option>
+                    <option value="health">🏥 医疗</option>
+                    <option value="other">📦 其他</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>日期</label>
+                <input type="date" id="expense-date">
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="saveExpense()">添加记录</button>
+            <button class="btn btn-outline" onclick="clearAllExpenses()">清空全部</button>
+        </div>
+
+        <h3 style="margin:32px 0 12px;color:var(--primary-dark);">支出明细</h3>
+        <div id="expense-list"></div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>Toolku.com — 美国华人常用工具库 &nbsp;|&nbsp; 由 <a href="https://openaa.com" target="_blank">OpenAA</a> 提供</p>
+    <p style="margin-top:6px;font-size:12px;">数据仅保存在你的浏览器中，清除浏览器数据将丢失记录。</p>
+</footer>
+
+<script src="../js/tools.js"></script>
+<script>
+function clearAllExpenses() {
+    if (confirm('确定要清空所有支出记录吗？此操作不可撤销。')) {
+        localStorage.removeItem('toolku_expenses');
+        renderExpenses();
+    }
+}
+
+function toggleMobileMenu() {
+    const links = document.querySelector('.navbar-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    if (links.style.display === 'flex') {
+        links.style.position = 'absolute';
+        links.style.top = '64px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.background = 'white';
+        links.style.flexDirection = 'column';
+        links.style.padding = '16px';
+        links.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        links.style.borderTop = '1px solid #E5E7EB';
+    }
+}
+
+// 设置默认日期为今天
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('expense-date').valueAsDate = new Date();
+});
+</script>
+</body>
+</html>
