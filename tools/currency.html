@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美金汇率换算 - Toolku</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="../index.html" class="navbar-brand">
+        <div class="logo-icon">T</div>
+        Toolku
+    </a>
+    <div class="navbar-links">
+        <a href="../index.html">首页</a>
+        <a href="currency.html" class="active">汇率换算</a>
+        <a href="dmv-6points.html">DMV 6 Points</a>
+        <a href="realid.html">REAL ID</a>
+        <a href="checklist.html">文件检查</a>
+        <a href="expense.html">开支记录</a>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+</nav>
+
+<div class="container">
+    <div class="tool-page">
+        <h2>💱 美金汇率换算</h2>
+        <p class="subtitle">支持美元、人民币、欧元、日元、港币、英镑之间的快速换算</p>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>金额</label>
+                <input type="number" id="currency-amount" value="100" placeholder="输入金额" oninput="convertCurrency()">
+            </div>
+            <div class="form-group">
+                <label>从</label>
+                <select id="currency-from" onchange="convertCurrency()">
+                    <option value="USD">🇺🇸 美元 (USD)</option>
+                    <option value="CNY">🇨🇳 人民币 (CNY)</option>
+                    <option value="EUR">🇪🇺 欧元 (EUR)</option>
+                    <option value="JPY">🇯🇵 日元 (JPY)</option>
+                    <option value="HKD">🇭🇰 港币 (HKD)</option>
+                    <option value="GBP">🇬🇧 英镑 (GBP)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>到</label>
+                <select id="currency-to" onchange="convertCurrency()">
+                    <option value="CNY">🇨🇳 人民币 (CNY)</option>
+                    <option value="USD">🇺🇸 美元 (USD)</option>
+                    <option value="EUR">🇪🇺 欧元 (EUR)</option>
+                    <option value="JPY">🇯🇵 日元 (JPY)</option>
+                    <option value="HKD">🇭🇰 港币 (HKD)</option>
+                    <option value="GBP">🇬🇧 英镑 (GBP)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="result-box" id="currency-result">
+            <div class="result-value">¥725.00</div>
+            <div class="result-label">100 美元 = 725.00 人民币</div>
+        </div>
+
+        <div class="tip-box">
+            <strong>提示</strong>
+            汇率为参考值，实际交易以银行或兑换点汇率为准。建议转账前确认实时汇率。
+        </div>
+
+        <h3 style="margin-top:32px;margin-bottom:16px;">常用汇率速查</h3>
+        <div class="stats-grid" id="quick-rates"></div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>Toolku.com — 美国华人常用工具库 &nbsp;|&nbsp; 由 <a href="https://openaa.com" target="_blank">OpenAA</a> 提供</p>
+</footer>
+
+<script src="../js/tools.js"></script>
+<script>
+// 常用汇率速查
+const baseRates = [
+    { from: 'USD', to: 'CNY', rate: 7.25, label: '1 美元 → 人民币' },
+    { from: 'USD', to: 'EUR', rate: 0.92, label: '1 美元 → 欧元' },
+    { from: 'USD', to: 'JPY', rate: 149.50, label: '1 美元 → 日元' },
+    { from: 'USD', to: 'HKD', rate: 7.82, label: '1 美元 → 港币' },
+    { from: 'USD', to: 'GBP', rate: 0.79, label: '1 美元 → 英镑' },
+    { from: 'CNY', to: 'USD', rate: 0.138, label: '1 人民币 → 美元' },
+];
+
+const symbols = { USD: '$', CNY: '¥', EUR: '€', JPY: '¥', HKD: 'HK$', GBP: '£' };
+
+function renderQuickRates() {
+    const container = document.getElementById('quick-rates');
+    container.innerHTML = baseRates.map(r => 
+        '<div class="stat-card">' +
+        '<div class="stat-value">' + symbols[r.to] + (r.rate < 10 ? r.rate.toFixed(3) : r.rate.toFixed(2)) + '</div>' +
+        '<div class="stat-label">' + r.label + '</div></div>'
+    ).join('');
+}
+
+renderQuickRates();
+convertCurrency();
+
+function toggleMobileMenu() {
+    const links = document.querySelector('.navbar-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    if (links.style.display === 'flex') {
+        links.style.position = 'absolute';
+        links.style.top = '64px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.background = 'white';
+        links.style.flexDirection = 'column';
+        links.style.padding = '16px';
+        links.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        links.style.borderTop = '1px solid #E5E7EB';
+    }
+}
+</script>
+</body>
+</html>
