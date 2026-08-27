@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMV 6 Points 计算器 - Toolku</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="../index.html" class="navbar-brand">
+        <div class="logo-icon">T</div>
+        Toolku
+    </a>
+    <div class="navbar-links">
+        <a href="../index.html">首页</a>
+        <a href="currency.html">汇率换算</a>
+        <a href="dmv-6points.html" class="active">DMV 6 Points</a>
+        <a href="realid.html">REAL ID</a>
+        <a href="checklist.html">文件检查</a>
+        <a href="expense.html">开支记录</a>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+</nav>
+
+<div class="container">
+    <div class="tool-page">
+        <h2>📊 纽约 DMV 6 Points 计算器</h2>
+        <p class="subtitle">选择你的违章项目，自动计算积分，检查是否满足驾照或 Learner Permit 申请要求</p>
+
+        <div class="info-box">
+            <strong>什么是 6 Points 制度？</strong>
+            纽约州 DMV 采用积分制度管理驾照。申请 Learner Permit 或 Driver License 时，如果你的 Driving Record 积分超过 6 分，可能无法申请或需要完成交通安全课程。以下工具帮你快速估算积分。
+        </div>
+
+        <h3 style="margin:24px 0 12px;color:var(--primary-dark);">违章项目（勾选适用的）</h3>
+
+        <div class="form-group">
+            <label style="font-size:13px;color:var(--text-light);margin-bottom:8px;">严重违章（5分）</label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-red_light" onchange="calculatePoints()"> 闯红灯 (Red Light) — 5分
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-reckless" onchange="calculatePoints()"> 危险驾驶 (Reckless Driving) — 5分
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label style="font-size:13px;color:var(--text-light);margin-bottom:8px;">中等违章（3-4分）</label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-speeding_1" onchange="calculatePoints()"> 超速 1-10mph (Speeding 1-10mph) — 4分
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-speeding_2" onchange="calculatePoints()"> 超速 11-20mph (Speeding 11-20mph) — 3分
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-accident" onchange="calculatePoints()"> 交通事故 (At-fault Accident) — 3分
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-insurance" onchange="calculatePoints()"> 无保险驾驶 (No Insurance) — 3分
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label style="font-size:13px;color:var(--text-light);margin-bottom:8px;">轻微违章（1-2分）</label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-seatbelt" onchange="calculatePoints()"> 未系安全带 (Seatbelt) — 2分
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-device" onchange="calculatePoints()"> 使用手机/电子设备 (Device) — 2分
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-registration" onchange="calculatePoints()"> 车牌/注册过期 (Registration) — 2分
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;">
+                <input type="checkbox" id="point-other" onchange="calculatePoints()"> 其他违章 (Other) — 1分
+            </label>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="calculatePoints()">计算积分</button>
+            <button class="btn btn-outline" onclick="resetPoints()">重置</button>
+        </div>
+
+        <div class="result-box" id="points-result">
+            <div class="result-value">0</div>
+            <div class="result-label">请选择违章项目并点击"计算积分"</div>
+        </div>
+
+        <div class="tip-box" style="margin-top:24px;">
+            <strong>注意事项</strong>
+            1. 完成 NY DMV 认可的交通安全课程 (Traffic School) 可最多减免 4 分。<br>
+            2. 此计算器仅供参考，实际积分以 DMV 官方记录为准。<br>
+            3. 积分每 2 年滚动计算，旧违章会自动过期。
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>Toolku.com — 美国华人常用工具库 &nbsp;|&nbsp; 由 <a href="https://openaa.com" target="_blank">OpenAA</a> 提供</p>
+</footer>
+
+<script src="../js/tools.js"></script>
+<script>
+function resetPoints() {
+    document.querySelectorAll('#points-result input[type="checkbox"]').forEach(cb => cb.checked = false);
+    calculatePoints();
+}
+
+function toggleMobileMenu() {
+    const links = document.querySelector('.navbar-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    if (links.style.display === 'flex') {
+        links.style.position = 'absolute';
+        links.style.top = '64px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.background = 'white';
+        links.style.flexDirection = 'column';
+        links.style.padding = '16px';
+        links.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        links.style.borderTop = '1px solid #E5E7EB';
+    }
+}
+</script>
+</body>
+</html>
