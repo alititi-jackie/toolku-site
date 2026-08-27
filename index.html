@@ -1,137 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toolku - 美国华人常用工具库</title>
-    <meta name="description" content="Toolku 为美国华人整理常用在线工具，包括美元人民币汇率换算、纽约 DMV 6 Points 计算器、REAL ID 检查器、DMV 文件清单和证件准备工具。">
-    <meta name="keywords" content="美国华人工具, 华人工具导航, DMV 工具, REAL ID 检查器, 6 Points 计算器, 美元人民币汇率, 纽约 DMV">
-    <link rel="canonical" href="https://toolku.com/">
-    <meta property="og:title" content="Toolku - 美国华人常用工具库">
-    <meta property="og:description" content="美国华人常用在线工具导航：汇率换算、DMV 6 Points、REAL ID、文件检查等。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://toolku.com/">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-<!-- 导航栏 -->
-<nav class="navbar">
-    <a href="index.html" class="navbar-brand">
-        <div class="logo-icon">T</div>
-        Toolku
-    </a>
-    <div class="navbar-links">
-        <a href="index.html" class="active">首页</a>
-        <a href="tools/currency.html">汇率换算</a>
-        <a href="tools/dmv-6points.html">DMV 6 Points</a>
-        <a href="tools/realid.html">REAL ID</a>
-        <a href="tools/checklist.html">文件检查</a>
-        <a href="tools/expense.html">开支记录</a>
-    </div>
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-</nav>
-
-<div class="container">
-
-    <!-- Hero -->
-    <div class="hero">
-        <h1>Toolku 工具库</h1>
-        <p>为在美华人整理的实用在线工具，汇率换算、DMV 驾照、REAL ID、开支记录，一站式搞定。</p>
-    </div>
-
-    <!-- 快速入口 -->
-    <div class="quick-links">
-        <a href="tools/currency.html" class="quick-link">💱 汇率换算</a>
-        <a href="tools/dmv-6points.html" class="quick-link">🚗 DMV 6 Points</a>
-        <a href="tools/realid.html" class="quick-link">🆔 REAL ID</a>
-        <a href="tools/checklist.html" class="quick-link">📋 文件检查</a>
-        <a href="tools/expense.html" class="quick-link">💰 开支记录</a>
-    </div>
-
-    <!-- 常用工具 -->
-    <h2 class="section-title"><span class="icon">🔧</span>常用工具</h2>
-    <div class="tools-grid">
-        <a href="tools/currency.html" class="tool-card">
-            <div class="tool-card-icon blue">💱</div>
-            <h3>美金汇率换算</h3>
-            <p>美元、人民币、欧元、日元、港币、英镑实时换算，方便日常消费和转账。</p>
-            <span class="arrow">开始使用 →</span>
-        </a>
-        <a href="tools/expense.html" class="tool-card">
-            <div class="tool-card-icon orange">💰</div>
-            <h3>生活开支记录</h3>
-            <p>手机端快速记一笔，按类别统计日常开销，帮你管好每一笔花销。</p>
-            <span class="arrow">开始记录 →</span>
-        </a>
-    </div>
-
-    <!-- DMV 工具 -->
-    <h2 class="section-title"><span class="icon">🚗</span>DMV 工具</h2>
-    <div class="tools-grid">
-        <a href="tools/dmv-6points.html" class="tool-card">
-            <div class="tool-card-icon blue">📊</div>
-            <h3>6 Points 计算器</h3>
-            <p>按违章项目自动计算积分，检查是否满足驾照或 Learner Permit 申请要求。</p>
-            <span class="arrow">计算积分 →</span>
-        </a>
-        <a href="tools/realid.html" class="tool-card">
-            <div class="tool-card-icon green">🆔</div>
-            <h3>REAL ID 文件检查器</h3>
-            <p>逐项检查身份证明、SSN、地址证明和合法身份文件是否齐全，不再跑空。</p>
-            <span class="arrow">检查文件 →</span>
-        </a>
-        <a href="tools/checklist.html" class="tool-card">
-            <div class="tool-card-icon purple">📋</div>
-            <h3>DMV 证件准备清单</h3>
-            <p>整理 DMV 办证前需要准备的常见文件清单，逐项打勾，一目了然。</p>
-            <span class="arrow">查看清单 →</span>
-        </a>
-    </div>
-
-    <!-- 证件对比 -->
-    <h2 class="section-title"><span class="icon">📑</span>证件对比</h2>
-    <div class="tools-grid">
-        <a href="tools/realid-compare.html" class="tool-card">
-            <div class="tool-card-icon red">🔍</div>
-            <h3>REAL ID / Standard / Enhanced 对比</h3>
-            <p>对比纽约不同证件类型的用途、区别和适用场景，帮你选对证件类型。</p>
-            <span class="arrow">查看对比 →</span>
-        </a>
-    </div>
-
-    <!-- 关于 -->
-    <div class="info-box" style="margin-top:40px;">
-        <strong>关于 Toolku</strong>
-        Toolku 是 OpenAA 旗下的工具导航页面，主要面向在美国生活的华人用户，优先整理中文说明清晰、手机端好用、无需安装 App 的实用工具。后续可以继续加入税务、保险、地址、电话号码、单位换算、生活费用和美国本地办事相关工具，统一放在这个工具入口下管理。
-    </div>
-
-</div>
-
-<!-- 页脚 -->
-<footer class="footer">
-    <p>Toolku.com — 美国华人常用工具库 &nbsp;|&nbsp; 由 <a href="https://openaa.com" target="_blank">OpenAA</a> 提供</p>
-    <p style="margin-top:6px;font-size:12px;">工具仅供参考，具体以 DMV 官方要求为准。</p>
-</footer>
-
-<script src="js/tools.js"></script>
-<script>
-function toggleMobileMenu() {
-    const links = document.querySelector('.navbar-links');
-    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-    if (links.style.display === 'flex') {
-        links.style.position = 'absolute';
-        links.style.top = '64px';
-        links.style.left = '0';
-        links.style.right = '0';
-        links.style.background = 'white';
-        links.style.flexDirection = 'column';
-        links.style.padding = '16px';
-        links.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-        links.style.borderTop = '1px solid #E5E7EB';
-    }
-}
-</script>
-</body>
-</html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ToolKu 美国华人生活工具箱｜免费在线计算器与换算工具</title>
+<meta name="description" content="ToolKu 是为在美国生活的华人打造的免费在线工具箱：小费、工资、房贷、汽车、汇率、单位换算、时间日期、尺码等，手机打开即可使用。">
+<meta name="keywords" content="美国华人工具,美国生活工具,小费计算器,工资计算器,房贷计算器,汽车计算器,单位换算,美元人民币,华人生活">
+<link rel="canonical" href="https://toolku.com/"><link rel="stylesheet" href="css/style.css">
+</head><body>
+<header class="site-header"><a class="brand" href="/"><span class="brand-mark">T</span><span>ToolKu</span></a><nav><a href="#popular">热门</a><a href="#categories">分类</a><a href="https://openaa.com" target="_blank" rel="noopener">OpenAA</a></nav></header>
+<main class="wrap">
+<section class="hero"><div class="eyebrow">🇺🇸 为在美华人打造</div><h1>美国华人生活工具箱</h1><p>遇到美国生活里的小问题，先来 ToolKu。免费、快速、无需注册，手机直接算。</p><div class="search"><span>⌕</span><input id="tool-search" placeholder="搜索工具，例如：小费、工资、华氏度、房贷…" autocomplete="off"></div></section>
+<section id="popular"><div class="section-head"><h2>🔥 华人常用</h2><span>打开即用</span></div><div class="grid" id="popular-grid"></div></section>
+<section id="categories"><div class="section-head"><h2>全部工具</h2><span>持续增加中</span></div><div id="category-list"></div></section>
+<section class="trust"><div><strong>为什么做 ToolKu？</strong><p>专门针对美国华人常见场景，把复杂的英文规则、单位和计算变成简单的中文工具。</p></div><div class="trust-items"><span>✓ 中文界面</span><span>✓ 免费使用</span><span>✓ 无需注册</span><span>✓ 数据尽量在本机计算</span></div></section>
+</main><footer>ToolKu.com · 美国华人生活工具箱 · <a href="https://openaa.com" target="_blank" rel="noopener">OpenAA</a><br><small>计算结果仅供参考；税务、DMV、贷款等事项请以官方机构及专业人士信息为准。</small></footer>
+<script src="js/tools.js"></script></body></html>
