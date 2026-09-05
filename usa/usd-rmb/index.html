@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>美元人民币汇率记录工具 | 美金换人民币计算器 | 汇率记录与Excel导出</title>
+  <meta name="description" content="免费美元人民币汇率记录工具，支持美金金额输入、汇率计算、人民币自动换算、月度统计、年度统计、本地保存数据和Excel导出。适合海外华人记录换汇、工资、转账和美元收入。" />
+  <meta name="keywords" content="美元人民币汇率,美金换人民币,汇率计算器,美元汇率记录,人民币换算,美元收入记录,换汇记录,汇率统计,Excel汇率表,海外华人工具,美国华人工具" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://tools.openaa.com/usa/usd-rmb/" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="美元人民币汇率记录工具 | OpenAA" />
+  <meta property="og:description" content="免费美元人民币汇率记录工具，支持美金换人民币自动计算、月度年度统计、本地保存数据和Excel导出。" />
+  <meta property="og:url" content="https://tools.openaa.com/usa/usd-rmb/" />
+  <meta property="og:image" content="https://tools.openaa.com/openaa-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="美元人民币汇率记录工具 | OpenAA" />
+  <meta name="twitter:description" content="本地保存、自动计算、月度年度汇总、导出Excel的手机汇率记录工具。" />
+  <meta name="twitter:image" content="https://tools.openaa.com/openaa-logo.png" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#3b82f6" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "美元人民币汇率记录工具",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "url": "https://tools.openaa.com/usa/usd-rmb/",
+    "description": "免费美元人民币汇率记录工具，支持美金金额输入、人民币自动换算、月度统计、年度统计、本地保存数据和Excel导出。",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "OpenAA", "url": "https://tools.openaa.com/" }
+  }
+  </script>
+
+
+  <!-- =========================================================
+    OpenAA 通用静态页面模板 · openaa-app 版
+    Template Version: 1.0.0
+    Primary Domain: https://openaa.com
+    Image Domain:   https://img.openaa.com
+
+    一、站长自己改的地方：只改下面 OPENAA_CONFIG
+    1. version：模板版本号，方便以后确认文件是否为最新版。
+    2. pageType：页面类型标记，只作识别和后续扩展，不改变当前视觉效果。
+       可用建议："standard" / "guide" / "notice" / "ad" / "topic"
+    3. banners：广告图片地址 + 点击广告打开的链接。
+    4. modules：控制广告轮播、滚动动态、8宫格、实用工具显示或隐藏。
+       true  = 显示
+       false = 隐藏
+       隐藏后页面会自动收紧，不会留下大空白。
+    5. templateLinkMode：控制“模板固定区域”的链接打开方式。
+       "new"  = 新窗口打开
+       "same" = 当前页面打开（默认）
+       只控制：顶部 Logo、顶部快捷导航、广告图、滚动动态、8宫格、实用工具、底部导航。
+       不控制：中间正文内容里的链接。
+
+    二、发给 AI 写内容时，请告诉 AI：
+    1. 保留模板整体效果，不要重做设计。
+    2. 不要修改 OPENAA_CONFIG，广告、板块显示隐藏、链接打开方式由站长自己改。
+    3. AI 只修改 head 里的 SEO 和“页面内容开始/页面内容结束”之间的正文。
+    4. 正文直接写进本 HTML，不要做外部动态加载内容页。
+    5. 正文建议用 <article class="template-card"> 包住，保持卡片风格统一。
+    6. 正文里的链接按内容需要设置，不受 templateLinkMode 控制。
+    7. 正式页面的 title、description、keywords、canonical、OG、Twitter、结构化数据都要按当前内容改好，不要写“模板”。
+
+    三、防误改边界：
+    1. 不要改顶部 Header、Logo、快捷导航、广告轮播、滚动动态、8宫格、实用工具、底部导航、回到顶部。
+    2. 不要把模板里的主站链接 https://openaa.com 改成旧站或其它域名。
+    3. 信息滚动条读取 openaa-app 首页同源动态。
+    4. 如需调整模板结构，请另存为新版本，不要直接覆盖旧版本。
+  ========================================================== -->
+  <script>
+    const OPENAA_CONFIG = {
+      // 0）模板版本与页面类型：只作识别和后续扩展，不改变当前视觉效果
+      version: "1.0.0",
+      pageType: "standard",
+
+      // 1）广告轮播：图片地址 + 点击图片打开的链接
+      banners: [
+        {
+          image: "https://img.openaa.com/img/banners/6e374654-6816-4da8-9736-bd374ea70b04.png",
+          link: "https://openaa.com/jobs",
+          alt: "OpenAA 招聘求职"
+        },
+        {
+          image: "https://img.openaa.com/img/banners/71a8312c-c4b2-4bde-bc4e-c35032223fde.png",
+          link: "https://openaa.com/housing",
+          alt: "OpenAA 房屋租售"
+        },
+        {
+          image: "https://img.openaa.com/img/banners/1215d9b3-f38c-4173-ad87-aa0792690bd8.png",
+          link: "https://openaa.com/secondhand",
+          alt: "OpenAA 二手闲置"
+        },
+        {
+          image: "https://img.openaa.com/img/banners/17588ab5-0248-47ae-a9a2-b0e02e06ea5b.png",
+          link: "https://openaa.com/dmv",
+          alt: "OpenAA DMV 笔试模拟"
+        },
+        {
+          image: "https://img.openaa.com/img/banners/b720c8f2-d90c-451b-87fc-bec4179d7d61.png",
+          link: "https://openaa.com/services",
+          alt: "OpenAA 本地服务"
+        }
+      ],
+
+      // 2）常用板块显示 / 隐藏
+      modules: {
+        showBanner: false,   // 广告轮播：true显示，false隐藏
+        showTicker: true,   // 滚动动态：true显示，false隐藏
+        showGridMenu: false, // 8宫格：true显示，false隐藏
+        showTools: false     // 实用工具：true显示，false隐藏
+      },
+
+      // 3）模板固定区域链接打开方式
+      // "new"  = 新窗口打开
+      // "same" = 当前页面打开
+      // 只控制模板固定区域链接，不控制正文内容里的链接
+      templateLinkMode: "same"
+    };
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(90deg, #d9dce3 0%, #eef0f4 28%, #eef0f4 72%, #d9dce3 100%);
+      color: #18181b;
+      min-height: 100vh;
+      padding-bottom: calc(72px + env(safe-area-inset-bottom));
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    [hidden] { display: none !important; }
+
+    :root {
+      --app-shell-width: 560px;
+      --app-bg: #f4f4f7;
+      --app-blue: #3b82f6;
+      --app-text: #18181b;
+      --app-muted: #71717a;
+      --app-border: #e4e4e7;
+      --app-side-shadow: -32px 0 44px rgba(15, 23, 42, .14), 32px 0 44px rgba(15, 23, 42, .14);
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: var(--app-shell-width);
+      min-height: 100vh;
+      margin: 0 auto;
+      background: var(--app-bg);
+      position: relative;
+      box-shadow: var(--app-side-shadow);
+    }
+
+    .app-header {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: var(--app-shell-width);
+      z-index: 100;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(228,228,235,.8);
+      box-shadow: var(--app-side-shadow);
+    }
+    .header-inner {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      position: relative;
+    }
+    .header-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      color: #3f3f46;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 4px;
+      border-radius: 8px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .header-location svg { width: 14px; height: 14px; color: #3b82f6; }
+    .header-location .chevron { width: 12px; height: 12px; color: #2563eb; stroke-width: 3; }
+    .header-logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    .header-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+    .header-logo-text { font-size: 20px; font-weight: 800; letter-spacing: -.5px; line-height: 1; }
+    .logo-blue { color: #3b82f6; }
+    .logo-dark { color: #18181b; }
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+    .round-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #e4e4e7;
+      border-radius: 50%;
+      background: #f4f4f5;
+      color: #52525b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .round-btn svg { width: 17px; height: 17px; }
+    .header-spacer { height: 56px; }
+
+
+    .top-links-panel {
+      position: fixed;
+      top: 56px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      width: 100%;
+      max-width: var(--app-shell-width);
+      z-index: 98;
+      background: rgba(255,255,255,.98);
+      border-bottom: 1px solid #e4e4e7;
+      box-shadow: 0 10px 24px rgba(15,23,42,.08);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .top-links-panel.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .top-links-scroller {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 12px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .top-links-scroller::-webkit-scrollbar { display: none; }
+    .top-link-chip {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      color: #334155;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .top-link-chip:active { background: #eff6ff; color: #2563eb; }
+
+    .banner-section { background: #fff; padding: 16px 16px 12px; }
+    .banner-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #e4e4e7;
+      box-shadow: 0 12px 40px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.05);
+      touch-action: pan-y;
+      user-select: none;
+    }
+    .banner-track {
+      display: flex;
+      transition: transform .42s cubic-bezier(.25,.46,.45,.94);
+      will-change: transform;
+    }
+    .banner-slide { flex: 0 0 100%; width: 100%; display: block; }
+    .banner-slide img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      background: #e4e4e7;
+      -webkit-user-drag: none;
+    }
+    .banner-dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 8px;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+    .banner-dot {
+      width: 6px;
+      height: 6px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.58);
+      transition: all .25s;
+      cursor: pointer;
+    }
+    .banner-dot.active { width: 18px; border-radius: 999px; background: #fff; }
+
+    .quick-strip {
+      margin-top: 12px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid #eef2f7;
+      box-shadow: 0 4px 16px rgba(15,23,42,.04);
+      color: #334155;
+      font-size: 14px;
+      overflow: hidden;
+    }
+    .quick-strip svg { width: 18px; height: 18px; color: #3b82f6; flex: 0 0 auto; }
+    .quick-strip-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }
+    .quick-strip-arrow { color: #94a3b8; font-size: 22px; line-height: 1; }
+
+    .content-wrap { padding: 14px 12px 18px; }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 4px 12px;
+      font-size: 17px;
+      font-weight: 800;
+      color: #18181b;
+    }
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 18px;
+      border-radius: 999px;
+      background: #3b82f6;
+    }
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 8px 4px 12px;
+    }
+    .section-title-row .section-title {
+      margin: 0;
+    }
+    .fx-title-back {
+      min-width: 76px;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b83ff;
+    }
+    .template-card {
+      background: #fff;
+      border: 1px solid #eceef3;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    }
+    .template-card h1 { font-size: 22px; line-height: 1.28; margin-bottom: 10px; letter-spacing: -.3px; }
+    .template-card h2 { font-size: 17px; margin-bottom: 8px; }
+    .template-card p { font-size: 15px; color: #52525b; line-height: 1.75; margin-bottom: 8px; }
+    .template-card p:last-child { margin-bottom: 0; }
+    .notice-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #f8fbff 100%);
+      border: 1px solid #dbeafe;
+      border-radius: 14px;
+      padding: 12px;
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .mini-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+    .mini-card { background: #f8fafc; border: 1px solid #eef2f7; border-radius: 14px; padding: 12px; }
+    .mini-card strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .mini-card span { display: block; color: #64748b; font-size: 13px; line-height: 1.45; }
+
+
+
+    /* ===================================================
+       OpenAA 首页 8 宫格 + 实用工具
+       样式按 openaa-app 首页效果整理
+       =================================================== */
+    .home-grid-section {
+      background: #f4f4f5;
+      border-top: 1px solid #e4e4e7;
+      border-bottom: 1px solid #e4e4e7;
+      padding: 22px 16px 20px;
+    }
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px 8px;
+    }
+    .home-grid-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: #111827;
+      font-size: 14px;
+      font-weight: 500;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform .15s ease;
+    }
+    .home-grid-item:active { transform: scale(.94); }
+    .home-grid-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(15,23,42,.06);
+    }
+    .home-grid-icon svg { width: 26px; height: 26px; }
+    .home-grid-icon.blue { background:#eff6ff; border:1px solid #bfdbfe; color:#3b82f6; }
+    .home-grid-icon.green { background:#ecfdf5; border:1px solid #bbf7d0; color:#10b981; }
+    .home-grid-icon.purple { background:#f5f3ff; border:1px solid #ddd6fe; color:#8b5cf6; }
+    .home-grid-icon.yellow { background:#fffbeb; border:1px solid #fde68a; color:#f59e0b; }
+    .home-grid-icon.red { background:#fff1f2; border:1px solid #fecdd3; color:#f43f5e; }
+    .home-grid-icon.cyan { background:#ecfeff; border:1px solid #bae6fd; color:#06b6d4; }
+    .home-grid-icon.orange { background:#fff7ed; border:1px solid #fed7aa; color:#f97316; }
+    .home-grid-icon.teal { background:#f0fdfa; border:1px solid #99f6e4; color:#14b8a6; }
+
+    .tools-section {
+      background: #fff;
+      padding: 18px 16px 16px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .tools-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 17px;
+      font-weight: 800;
+      color: #111827;
+    }
+    .tools-title::before {
+      content: '';
+      width: 4px;
+      height: 18px;
+      border-radius: 999px;
+      background: #3b82f6;
+      display: block;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .tool-card {
+      min-height: 122px;
+      border-radius: 16px;
+      padding: 12px;
+      border: 1px solid rgba(59,130,246,.12);
+      box-shadow: 0 2px 10px rgba(15,23,42,.05);
+      overflow: hidden;
+      position: relative;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .tool-card:active { transform: scale(.98); }
+    .tool-card.blue {
+      background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+      border-color: #bfdbfe;
+    }
+    .tool-card.orange {
+      background: linear-gradient(135deg, #fff7ed 0%, #fee2e2 100%);
+      border-color: #fed7aa;
+    }
+    .tool-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .tool-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(255,255,255,.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tool-icon svg { width: 20px; height: 20px; }
+    .tool-card.blue .tool-icon { color:#2563eb; }
+    .tool-card.orange .tool-icon { color:#f97316; }
+    .tool-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .tool-card.orange .tool-action { color:#ea580c; }
+    .tool-name {
+      font-size: 17px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .tool-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.35;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 360px) {
+      .home-grid-section { padding-left: 12px; padding-right: 12px; }
+      .home-grid-icon { width: 50px; height: 50px; }
+      .home-grid-item { font-size: 13px; }
+      .tools-section { padding-left: 12px; padding-right: 12px; }
+      .tool-card { padding: 10px; }
+      .tool-name { font-size: 16px; }
+      .tool-action { font-size: 11px; }
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: var(--app-shell-width);
+      z-index: 100;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid #e4e4e7;
+      display: flex;
+      align-items: stretch;
+      padding-bottom: env(safe-area-inset-bottom);
+      box-shadow: -32px 0 44px rgba(15,23,42,.14), 32px 0 44px rgba(15,23,42,.14), 0 -1px 8px rgba(0,0,0,.04);
+    }
+    .bottom-nav-item {
+      flex: 1;
+      min-width: 0;
+      min-height: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 7px 4px 9px;
+      color: var(--app-muted);
+      font-size: 13px;
+      line-height: 1.05;
+      font-weight: 500;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .bottom-nav-item svg { width: 24px; height: 24px; stroke: currentColor; flex: 0 0 auto; }
+    .bottom-nav-item.active { color: var(--app-blue); font-weight: 700; }
+
+    .back-top {
+      position: fixed;
+      right: calc((100vw - min(100vw, var(--app-shell-width))) / 2 + 14px);
+      bottom: calc(78px + env(safe-area-inset-bottom));
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid #dbeafe;
+      background: rgba(255,255,255,.95);
+      color: #2563eb;
+      box-shadow: 0 8px 24px rgba(15,23,42,.16);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 90;
+      cursor: pointer;
+    }
+    .back-top.show { display: flex; }
+    .back-top svg { width: 20px; height: 20px; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(88px + env(safe-area-inset-bottom));
+      transform: translateX(-50%);
+      z-index: 999;
+      background: rgba(24,24,27,.9);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+    }
+
+
+    @media (min-width: 768px) { :root { --app-shell-width: 760px; } }
+    @media (min-width: 1024px) { :root { --app-shell-width: 960px; } }
+    @media (min-width: 1280px) { :root { --app-shell-width: 1040px; } }
+
+    @media (min-width: 480px) { .banner-slide img { height: 180px; } }
+    @media (min-width: 600px) { .banner-slide img { height: 200px; } }
+    @media (min-width: 768px) {
+      .header-inner { height: 46px; }
+      .header-spacer { height: 46px; }
+      .top-links-panel { top: 46px; }
+      .banner-slide img { height: 200px; }
+    }
+    @media (max-width: 600px) {
+      body { background: #f4f4f7; }
+      .app-shell, .app-header, .bottom-nav { box-shadow: none; }
+      .back-top { right: 14px; }
+    }
+    /* ===================================================
+       美元人民币汇率记录工具：正文 App 样式
+       =================================================== */
+    .fx-app { display: block; }
+    .fx-hero {
+      background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 20px 16px;
+      box-shadow: 0 12px 28px rgba(37,99,235,.22);
+      margin-bottom: 12px;
+    }
+    .fx-hero h1 { font-size: 23px; line-height: 1.25; margin-bottom: 8px; letter-spacing: -.4px; }
+    .fx-hero p { color: rgba(255,255,255,.92); font-size: 14px; line-height: 1.65; margin: 0; }
+    .fx-home-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-bottom: 12px; }
+    .fx-big-btn {
+      min-height: 88px;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      background: #fff;
+      padding: 14px;
+      text-align: left;
+      box-shadow: 0 2px 10px rgba(15,23,42,.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fx-big-btn:active { transform: scale(.98); background: #f8fafc; }
+    .fx-big-btn strong { font-size: 18px; color: #111827; }
+    .fx-big-btn span { font-size: 13px; color: #64748b; line-height: 1.35; }
+    .fx-view { display: none; }
+    .fx-view.active { display: block; }
+    .fx-page-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 2px 0 12px; }
+    .fx-page-title h2 { font-size: 20px; margin: 0; }
+    .fx-small-btn, .fx-primary-btn, .fx-danger-btn {
+      min-height: 44px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      padding: 0 16px;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .fx-primary-btn { background: #2563eb; color: #fff; border-color: #2563eb; box-shadow: 0 8px 18px rgba(37,99,235,.18); }
+    .fx-danger-btn { background: #fff1f2; color: #e11d48; border-color: #fecdd3; }
+    .fx-form { display: grid; gap: 12px; }
+    .fx-field label { display: block; font-weight: 800; color: #111827; margin-bottom: 7px; font-size: 14px; }
+    .fx-input {
+      width: 100%;
+      height: 52px;
+      border-radius: 14px;
+      border: 1px solid #dbe2ea;
+      background: #fff;
+      padding: 0 13px;
+      font-size: 17px;
+      outline: none;
+    }
+    .fx-input:focus { border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(96,165,250,.18); }
+    .fx-result-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .fx-result-box span { color: #64748b; font-size: 13px; }
+    .fx-result-box strong { display:block; color:#1d4ed8; font-size: 28px; margin-top:4px; }
+    .fx-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+    .fx-filter-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .fx-filter-row-single { grid-template-columns: 1fr; }
+    .fx-summary { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-bottom: 12px; }
+    .fx-stat { background: #fff; border: 1px solid #eceef3; border-radius: 16px; padding: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.04); }
+    .fx-stat span { display:block; font-size:12px; color:#64748b; margin-bottom:5px; }
+    .fx-stat strong { font-size:18px; color:#111827; word-break:break-all; }
+    .fx-list { display: grid; gap: 10px; }
+    .fx-record {
+      background: #fff;
+      border: 1px solid #eceef3;
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.04);
+    }
+    .fx-record-top { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px; }
+    .fx-record-date { font-weight: 900; color:#111827; }
+    .fx-record-meta { color:#64748b; font-size: 13px; line-height: 1.6; }
+    .fx-record-money { color:#2563eb; font-weight:900; font-size: 18px; }
+    .fx-record-actions { display:flex; gap:8px; margin-top:10px; }
+    .fx-chip-btn { border:0; border-radius:999px; background:#f1f5f9; color:#334155; padding:8px 12px; font-size:13px; font-weight:800; }
+    .fx-empty { text-align:center; color:#71717a; background:#fff; border:1px dashed #d4d4d8; border-radius:16px; padding:28px 12px; }
+    .fx-tools-grid { display:grid; grid-template-columns:1fr; gap:10px; }
+
+    .fx-action-btn {
+      min-height: 72px;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      padding: 12px 16px;
+      text-align: left;
+      box-shadow: 0 2px 10px rgba(15,23,42,.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fx-action-btn:active { transform: scale(.99); background:#f8fafc; }
+    .fx-action-btn strong { font-size: 17px; color:#111827; font-weight:900; }
+    .fx-action-btn span { font-size: 13px; color:#64748b; line-height:1.35; }
+    .fx-action-btn.fx-action-primary { border-color:#bfdbfe; background:#eff6ff; }
+    .fx-action-btn.fx-action-primary strong { color:#1d4ed8; }
+    .fx-sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      background: rgba(15,23,42,.38);
+      padding: 16px 12px calc(16px + env(safe-area-inset-bottom));
+    }
+    .fx-sheet-backdrop.open { display: flex; }
+    .fx-action-sheet {
+      width: 100%;
+      max-width: min(520px, calc(100vw - 24px));
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 24px 60px rgba(15,23,42,.28);
+      padding: 16px;
+    }
+    .fx-action-sheet h3 { font-size:18px; color:#111827; margin:0 0 6px; }
+    .fx-action-sheet p { font-size:13px; color:#64748b; line-height:1.55; margin:0 0 12px; }
+    .fx-sheet-grid { display:grid; grid-template-columns:1fr; gap:10px; }
+    .fx-sheet-grid button, .fx-sheet-grid label {
+      min-height:48px;
+      border-radius:999px;
+      border:1px solid #e5e7eb;
+      background:#fff;
+      font-size:15px;
+      font-weight:900;
+      color:#111827;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    .fx-sheet-grid .primary { background:#2563eb; color:#fff; border-color:#2563eb; }
+    .fx-sheet-grid .cancel { color:#64748b; background:#f8fafc; }
+
+    .fx-help { color:#64748b; font-size:13px; line-height:1.65; margin-top:8px; }
+    .fx-safety-note {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      border: 1px solid #fde68a;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fffbeb 0%, #fff7ed 100%);
+      color: #92400e;
+      padding: 12px;
+      margin-top: 12px;
+      box-shadow: 0 1px 4px rgba(245,158,11,.08);
+    }
+    .fx-safety-note svg { width: 19px; height: 19px; flex: 0 0 auto; margin-top: 2px; color: #d97706; }
+    .fx-safety-note strong { display: block; color: #78350f; font-size: 14px; margin-bottom: 4px; }
+    .fx-safety-note p { color: #92400e; font-size: 13px; line-height: 1.65; margin: 0; }
+    .fx-tools-home-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 4px 14px rgba(37,99,235,.08);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fx-tools-home-link:active { transform: scale(.99); background:#dbeafe; }
+    .fx-title-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+    .fx-type-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+    }
+    .fx-type-btn {
+      min-height: 34px;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 12px;
+      background: transparent;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fx-type-btn.active[data-type-value="add"] {
+      background: #2563eb;
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(37,99,235,.18);
+    }
+    .fx-type-btn.active[data-type-value="subtract"] {
+      background: #dc2626;
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(220,38,38,.18);
+    }
+    .fx-negative { color: #dc2626 !important; }
+    .fx-type-badge {
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 12px;
+      font-weight: 900;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .fx-type-badge.subtract {
+      background: #fef2f2;
+      color: #dc2626;
+    }
+    .fx-input-warning {
+      display: none;
+      margin-top: 7px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid #fed7aa;
+      background: #fff7ed;
+      color: #c2410c;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .fx-input-warning.show { display: block; }
+    @media (max-width: 360px) {
+      .fx-home-grid, .fx-summary, .fx-filter-row, .fx-actions { grid-template-columns: 1fr; }
+      .fx-big-btn { min-height: 76px; }
+    }
+
+
+    .fx-seo-card h2 { font-size: 18px; margin-bottom: 10px; color: #111827; }
+    .fx-seo-card h3 { font-size: 15px; margin: 14px 0 6px; color: #111827; }
+    .fx-seo-card p { font-size: 14px; line-height: 1.8; color: #52525b; margin-bottom: 9px; }
+    .fx-seo-card .faq-item { border-top: 1px solid #eef2f7; padding-top: 10px; margin-top: 10px; }
+    .fx-seo-card .faq-item:first-of-type { border-top: 0; padding-top: 0; }
+
+    .fx-share-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      border: 1px solid #dbeafe;
+      border-radius: 16px;
+      background: linear-gradient(90deg, #eff6ff 0%, #ffffff 52%, #f0f9ff 100%);
+      padding: 16px;
+      margin: 16px 0 14px;
+      box-shadow: 0 1px 3px rgba(15,23,42,.08), 0 10px 24px rgba(37,99,235,.08);
+      cursor: pointer;
+      text-align: left;
+      color: inherit;
+      transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fx-share-card:hover {
+      border-color: #bfdbfe;
+      box-shadow: 0 12px 28px rgba(15,23,42,.12), 0 2px 8px rgba(37,99,235,.08);
+    }
+    .fx-share-card:active { transform: scale(.99); }
+    .fx-share-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      background: #fff;
+      color: #2563eb;
+      border: 1px solid #dbeafe;
+      box-shadow: 0 1px 3px rgba(15,23,42,.10), 0 8px 18px rgba(37,99,235,.10);
+    }
+    .fx-share-icon svg { width: 18px; height: 18px; }
+    .fx-share-text { min-width: 0; flex: 1; }
+    .fx-share-text strong { display: block; font-size: 14px; font-weight: 700; line-height: 1.25; color: #0f172a; margin-bottom: 4px; }
+    .fx-share-text span { display: block; font-size: 12px; line-height: 1.65; color: #64748b; }
+    .fx-share-arrow {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      color: #60a5fa;
+      transition: transform .2s ease;
+    }
+    .fx-share-card:hover .fx-share-arrow { transform: translateX(2px); }
+
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="header-inner">
+        <button class="header-location" id="topLinksToggle" type="button" aria-label="打开顶部快捷导航" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>纽约</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+
+        <a class="header-logo" href="https://openaa.com/" aria-label="OpenAA 首页">
+          <img src="https://img.openaa.com/logo.png" alt="OpenAA" />
+          <span class="header-logo-text"><span class="logo-blue">Open</span><span class="logo-dark">AA</span></span>
+        </a>
+
+        <div class="header-actions">
+          <a class="round-btn" href="https://openaa.com/search" aria-label="搜索">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </a>
+          <button class="round-btn" type="button" aria-label="分享" onclick="shareOpenAA()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98"/><path d="M15.41 6.51 8.59 10.49"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="top-links-panel" id="topLinksPanel" aria-label="顶部快捷导航">
+      <div class="top-links-scroller" id="topLinksScroller">
+        <a class="top-link-chip" href="https://openaa.com/navigation" target="_self">导航</a>
+        <a class="top-link-chip" href="https://openaa.com/dmv" target="_self">DMV</a>
+        <a class="top-link-chip" href="https://openaa.com/jobs" target="_self">招聘</a>
+        <a class="top-link-chip" href="https://openaa.com/housing" target="_self">房屋</a>
+        <a class="top-link-chip" href="https://openaa.com/secondhand" target="_self">二手</a>
+        <a class="top-link-chip" href="https://openaa.com/news" target="_self">新闻</a>
+        <a class="top-link-chip" href="https://openaa.com/services" target="_self">本地服务</a>
+      </div>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <main>
+      <section class="banner-section" id="bannerSection" aria-label="OpenAA 广告轮播">
+        <div class="banner-wrapper" id="bannerWrapper" data-template-module="banner">
+          <div class="banner-track" id="bannerTrack"></div>
+          <div class="banner-dots" id="bannerDots"></div>
+        </div>
+        <a class="quick-strip" id="latestStrip" data-template-module="ticker" href="https://openaa.com/news" target="_self">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 11-14h-8l1-6Z"/></svg>
+          <span class="quick-strip-text" id="latestStripText">正在读取 OpenAA 最新动态...</span>
+          <span class="quick-strip-arrow">›</span>
+        </a>
+      </section>
+
+      <!-- OpenAA 首页 8 宫格入口 -->
+      <section class="home-grid-section" data-template-module="gridMenu" aria-label="OpenAA 快捷入口">
+        <div class="home-grid">
+          <a class="home-grid-item" href="https://openaa.com/jobs" target="_self">
+            <div class="home-grid-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12h.01"></path><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path><path d="M22 13a18.15 18.15 0 0 1-20 0"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg>
+            </div>
+            <span>招聘</span>
+          </a>
+          <a class="home-grid-item" href="https://openaa.com/housing" target="_self">
+            <div class="home-grid-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h4"></path><path d="M10 8h4"></path><path d="M14 21v-3a2 2 0 0 0-4 0v3"></path><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"></path><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path></svg>
+            </div>
+            <span>房屋</span>
+          </a>
+          <a class="home-grid-item" href="https://openaa.com/secondhand" target="_self">
+            <div class="home-grid-icon purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg>
+            </div>
+            <span>二手</span>
+          </a>
+          <a class="home-grid-item" href="https://openaa.com/dmv" target="_self">
+            <div class="home-grid-icon yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8"></path><path d="M7 14h.01"></path><path d="M17 14h.01"></path><rect width="18" height="8" x="3" y="10" rx="2"></rect><path d="M5 18v2"></path><path d="M19 18v2"></path></svg>
+            </div>
+            <span>DMV</span>
+          </a>
+          <a class="home-grid-item" href="https://openaa.com/news" target="_self">
+            <div class="home-grid-icon red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18h-5"></path><path d="M18 14h-8"></path><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"></path><rect width="8" height="4" x="10" y="6" rx="1"></rect></svg>
+            </div>
+            <span>新闻</span>
+          </a>
+          <a class="home-grid-item" href="https://openaa.com/navigation" target="_self">
+            <div class="home-grid-icon cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg>
+            </div>
+            <span>导航</span>
+          </a>
+          <a class="home-grid-item" href="https://openaa.com/news?category=新手指南" target="_self">
+            <div class="home-grid-icon orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V7"></path><path d="m16 12 2 2 4-4"></path><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"></path></svg>
+            </div>
+            <span>新手指南</span>
+          </a>
+          <a class="home-grid-item" href="https://openaa.com/services" target="_self">
+            <div class="home-grid-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"></path><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"></path><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"></path></svg>
+            </div>
+            <span>本地服务</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- OpenAA 首页实用工具 -->
+      <section class="tools-section" data-template-module="tools" aria-label="实用工具">
+        <div class="tools-title">实用工具</div>
+        <div class="tools-grid">
+          <a class="tool-card blue" href="https://openaa.com/dmv" target="_self">
+            <div class="tool-top">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h18l-2-5a3 3 0 0 0-3-2H8a3 3 0 0 0-3 2l-2 5Z"/><path d="M5 13v5"/><path d="M19 13v5"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+              </div>
+              <span class="tool-action">开始练习 ›</span>
+            </div>
+            <div class="tool-name">DMV 笔试模拟</div>
+            <div class="tool-desc">纽约 Learner Permit 中文练习</div>
+          </a>
+          <a class="tool-card orange" href="https://openaa.com/dmv/tickets" target="_self">
+            <div class="tool-top">
+              <div class="tool-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              </div>
+              <span class="tool-action">点击查询 ›</span>
+            </div>
+            <div class="tool-name">罚单查询</div>
+            <div class="tool-desc">停车 / 闯红灯 / 超速拍照</div>
+          </a>
+        </div>
+      </section>
+
+
+      <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
+
+      <section class="content-wrap">
+        <div class="section-title-row" id="fxSectionTitleRow"><div class="section-title">OpenAA 汇率工具</div><a class="fx-small-btn fx-title-back" href="/">返回</a></div>
+
+        <div id="fxApp" class="fx-app">
+          <section class="fx-view active" data-view="home">
+            <div class="fx-hero">
+              <h1>美元人民币汇率记录</h1>
+              <p>单机本地保存。输入日期、美金和汇率，自动计算人民币；可查看全部、月度年度汇总，并导出 WPS 可打开的数据。</p>
+            </div>
+            <div class="fx-home-grid">
+              <button class="fx-big-btn" type="button" data-goto="input"><strong>输入</strong><span>日期 / 美金 / 汇率</span></button>
+              <button class="fx-big-btn" type="button" data-goto="all"><strong>查看</strong><span>全部记录、编辑删除</span></button>
+              <button class="fx-big-btn" type="button" data-goto="month"><strong>按月</strong><span>月度合计与平均汇率</span></button>
+              <button class="fx-big-btn" type="button" data-goto="year"><strong>年度</strong><span>年度合计与记录行数</span></button>
+              <button class="fx-big-btn" type="button" data-goto="export"><strong>导出/分享</strong><span>Excel、汇总复制、清空数据</span></button>
+              <button class="fx-big-btn" type="button" id="installAppBtn"><strong>下载安装到手机</strong><span>添加到桌面，像 App 一样打开</span></button>
+            </div>
+            <div class="template-card">
+              <h2>当前数据</h2>
+              <div id="homeSummary" class="fx-summary"></div>
+              <div class="fx-safety-note" role="note" aria-label="数据安全说明">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                <div>
+                  <strong>数据安全说明</strong>
+                  <p>OpenAA 重视用户隐私与数据安全。本工具不会上传、存储或同步任何记录到服务器，所有数据仅保存在您当前使用的浏览器中。如果更换浏览器、清理浏览器缓存、清除网站数据、重装浏览器或更换设备，记录将无法恢复。重要数据建议定期导出 Excel 保存。</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="fx-view" data-view="input">
+            <div class="fx-page-title">
+              <div class="fx-title-left">
+                <h2 id="inputTitle">输入记录</h2>
+                <div class="fx-type-toggle" role="group" aria-label="记录类型">
+                  <button class="fx-type-btn active" type="button" id="fxTypeAddBtn" data-type-value="add">新增</button>
+                  <button class="fx-type-btn" type="button" id="fxTypeSubtractBtn" data-type-value="subtract">减去</button>
+                </div>
+              </div>
+              <button class="fx-small-btn" type="button" data-goto="home">返回</button>
+            </div>
+            <div class="template-card">
+              <form id="fxForm" class="fx-form">
+                <input type="hidden" id="editId" />
+                <input type="hidden" id="fxType" value="add" />
+                <div class="fx-field"><label for="fxDate">日期</label><input class="fx-input" id="fxDate" type="date" required /></div>
+                <div class="fx-field"><label for="fxUsd">美金金额</label><input class="fx-input" id="fxUsd" type="number" min="0" step="0.01" inputmode="decimal" placeholder="例如 100" required /><div class="fx-input-warning" id="fxUsdWarning">⚠️ 美金金额看起来可能有误，请确认是否输入正确。</div></div>
+                <div class="fx-field"><label for="fxRate">汇率</label><input class="fx-input" id="fxRate" type="number" min="0" step="0.0001" inputmode="decimal" placeholder="例如 7.25" required /><div class="fx-input-warning" id="fxRateWarning">⚠️ 汇率看起来可能有误，请确认是否输入正确。</div></div>
+                <div class="fx-field"><label for="fxNote">备注（可不填）</label><input class="fx-input" id="fxNote" type="text" placeholder="例如 转账、工资、兑换" /></div>
+                <div class="fx-result-box"><span>人民币金额自动计算</span><strong id="fxCnyPreview">¥0.00</strong></div>
+                <div class="fx-actions">
+                  <button class="fx-small-btn" type="button" data-goto="home">取消</button>
+                  <button class="fx-primary-btn" type="submit">保存</button>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <section class="fx-view" data-view="saved">
+            <div class="template-card">
+              <h1>保存成功</h1>
+              <p>这条记录已保存到手机本地。</p>
+              <div class="fx-actions">
+                <button class="fx-small-btn" type="button" data-goto="home">返回首页</button>
+                <button class="fx-primary-btn" type="button" id="continueAddBtn">继续添加</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="fx-view" data-view="all">
+            <div class="fx-page-title"><h2>全部记录</h2><button class="fx-small-btn" type="button" data-goto="home">返回</button></div>
+            <div id="allSummary" class="fx-summary"></div>
+            <div id="allList" class="fx-list"></div>
+          </section>
+
+          <section class="fx-view" data-view="month">
+            <div class="fx-page-title"><h2>按月查看</h2><button class="fx-small-btn" type="button" data-goto="home">返回</button></div>
+            <div class="fx-filter-row fx-filter-row-single">
+              <input class="fx-input" id="monthPicker" type="month" />
+            </div>
+            <div id="monthSummary" class="fx-summary"></div>
+            <div id="monthList" class="fx-list"></div>
+          </section>
+
+          <section class="fx-view" data-view="year">
+            <div class="fx-page-title"><h2>年度汇总</h2><button class="fx-small-btn" type="button" data-goto="home">返回</button></div>
+            <div class="fx-filter-row">
+              <input class="fx-input" id="yearPicker" type="number" inputmode="numeric" placeholder="例如 2026" />
+              <button class="fx-small-btn" type="button" id="clearYearBtn">全部年份</button>
+            </div>
+            <div id="yearSummary" class="fx-summary"></div>
+            <div id="yearList" class="fx-list"></div>
+          </section>
+
+          <section class="fx-view" data-view="export">
+            <div class="fx-page-title"><h2>导出 / 分享</h2><button class="fx-small-btn" type="button" data-goto="home">返回</button></div>
+            <div class="fx-safety-note" role="note" aria-label="数据保存说明">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+              <div>
+                <strong>数据保存说明</strong>
+                <p>OpenAA 不会收集、上传或存储您的汇率记录。为了保护用户隐私，所有记录仅保存在当前浏览器中，不会同步到服务器。如果更换浏览器、清理浏览器缓存、清除网站数据、重装浏览器或更换设备，记录将被清空且无法恢复。建议定期导出 Excel 文件或数据备份保存重要数据。</p>
+              </div>
+            </div>
+            <div class="fx-tools-grid">
+              <button class="fx-primary-btn" type="button" id="excelFileBtn">📊 导出 Excel</button>
+              <button class="fx-small-btn" type="button" id="backupFileBtn">📦 数据备份</button>
+              <button class="fx-small-btn" type="button" id="copySummaryBtn">📋 复制汇总内容</button>
+              <button class="fx-small-btn" type="button" id="installAppBtnExport">📱 安装到手机</button>
+              <button class="fx-danger-btn" type="button" id="clearDataBtn">🗑️ 清空全部数据</button>
+            </div>
+            <input id="importBackupInput" type="file" accept=".json,.backup,application/json" hidden />
+            <p class="fx-help">Excel 文件适合查看、打印和转发；数据备份适合清理缓存、换浏览器或换设备后恢复记录。复制汇总内容后，可直接到微信聊天框粘贴发送。</p>
+          </section>
+
+          <div class="fx-sheet-backdrop" id="excelActionSheet" aria-hidden="true">
+            <div class="fx-action-sheet" role="dialog" aria-modal="true" aria-label="Excel 文件操作">
+              <h3>Excel 文件</h3>
+              <p>选择下载到本机，或调用系统分享菜单发送给微信、短信、邮件等。</p>
+              <div class="fx-sheet-grid">
+                <button class="primary" type="button" id="downloadXlsBtn">📊 下载 Excel</button>
+                <button type="button" id="shareXlsBtn">📎 分享 Excel</button>
+                <button class="cancel" type="button" data-close-sheet>取消</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="fx-sheet-backdrop" id="backupActionSheet" aria-hidden="true">
+            <div class="fx-action-sheet" role="dialog" aria-modal="true" aria-label="数据备份操作">
+              <h3>数据备份</h3>
+              <p>备份文件用于恢复本工具数据。清缓存、换浏览器或换设备前，建议先导出或分享备份文件。</p>
+              <div class="fx-sheet-grid">
+                <button class="primary" type="button" id="downloadBackupBtn">📦 下载数据备份</button>
+                <button type="button" id="shareBackupBtn">📤 分享数据备份</button>
+                <label for="importBackupInput">📥 导入数据备份</label>
+                <button class="cancel" type="button" data-close-sheet>取消</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+
+        <button class="fx-share-card" type="button" onclick="shareOpenAA()" aria-label="分享给朋友">
+          <span class="fx-share-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98"/><path d="M15.41 6.51 8.59 10.49"/></svg>
+          </span>
+          <span class="fx-share-text">
+            <strong>分享给朋友</strong>
+            <span>一键调用系统分享，不支持时会自动复制链接</span>
+          </span>
+          <svg class="fx-share-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+
+        <article class="template-card fx-seo-card" aria-labelledby="fxFaqTitle">
+          <h2 id="fxFaqTitle">常见问题</h2>
+          <div class="faq-item">
+            <h3>美元换人民币怎样计算？</h3>
+            <p>人民币金额 = 美金金额 × 汇率。你只需要输入日期、美金金额和当时使用的汇率，工具会自动计算人民币金额，并保存到当前设备浏览器中。</p>
+          </div>
+          <div class="faq-item">
+            <h3>数据会上传服务器吗？</h3>
+            <p>不会。这个美元人民币汇率记录工具是单机本地保存工具，记录数据默认只保存在当前手机或电脑浏览器里，不需要登录，也不会上传到 OpenAA 服务器。</p>
+          </div>
+          <div class="faq-item">
+            <h3>可以导出 Excel 吗？</h3>
+            <p>可以。工具支持导出 Excel 文件，里面包含全部记录、月度记录和年度记录，并自动生成美金总金额、平均汇率、人民币总金额、记录行数、有记录月份和每月平均金额等汇总数据。</p>
+          </div>
+          <div class="faq-item">
+            <h3>换手机如何保留数据？</h3>
+            <p>换手机、换浏览器、清理浏览器缓存、清除网站数据或重装浏览器前，建议先导出 Excel 文件保存。因为数据存放在当前设备浏览器中，一旦浏览器数据被清理，本地记录可能会被清空且无法恢复。</p>
+          </div>
+        </article>
+
+        <article class="template-card fx-seo-card" aria-labelledby="fxSeoTitle">
+          <h2 id="fxSeoTitle">美元人民币汇率记录与美金换人民币计算工具</h2>
+          <p>这个美元人民币汇率记录工具适合在美国生活、工作、做生意或经常需要记录美元收入的华人使用。日常生活中，很多人会遇到工资、转账、换汇、汇款、现金兑换、家庭账目或生意收入需要换算成人民币的情况。使用普通计算器虽然可以临时计算，但时间久了很难查找每一笔记录，也不方便按月份或年份统计。</p>
+          <p>通过这个美金换人民币计算器，你可以手动输入日期、美金金额和汇率，系统会自动计算人民币金额。所有记录会保存在本地浏览器中，手机打开也能使用，适合随手记录美元收入、换汇记录和人民币换算结果。工具提供全部记录、按月查看和年度记录，方便查看每个月美金总金额、平均汇率、人民币总金额和记录行数。</p>
+          <p>导出 Excel 功能适合需要长期保存数据的人使用。导出的表格包含全部记录、月度记录和年度记录，金额统一保留两位小数，数字右对齐，汇总数据加粗突出，使用 WPS 表格或 Microsoft Excel 都可以打开。对于海外华人来说，这类汇率记录表可以用于整理个人收入、家庭转账、换汇流水、工资记录和年度统计。</p>
+          <p>本工具不自动联网获取汇率，汇率由用户自己输入，适合记录真实使用的兑换汇率。不同银行、转账平台或现金兑换点使用的汇率可能不同，手动输入可以让记录更准确。建议每次换汇或转账后立即记录日期、金额和汇率，月底或年底再通过导出的 Excel 查看整体情况。</p>
+          <p>如果你在手机上使用，可以把本页面添加到主屏幕，像 App 一样打开。由于数据保存在当前浏览器中，建议定期导出 Excel 做备份，避免更换手机、清理缓存、清除网站数据或更换浏览器后找不到历史记录。</p>
+        </article>
+
+        <a class="fx-tools-home-link" href="/">返回工具首页</a>
+
+      <!-- 中间内容结束 -->
+    </main>
+  </div>
+
+  <nav class="bottom-nav" role="navigation" aria-label="底部导航">
+    <a href="https://openaa.com/" class="bottom-nav-item active" target="_self">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>首页</span>
+    </a>
+    <a href="https://openaa.com/jobs" class="bottom-nav-item" target="_self">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12h.01"></path><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path><path d="M22 13a18.15 18.15 0 0 1-20 0"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg><span>招聘</span>
+    </a>
+    <a href="https://openaa.com/housing" class="bottom-nav-item" target="_self">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h4"></path><path d="M10 8h4"></path><path d="M14 21v-3a2 2 0 0 0-4 0v3"></path><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"></path><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path></svg><span>房屋</span>
+    </a>
+    <a href="https://openaa.com/news" class="bottom-nav-item" target="_self">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18h-5"></path><path d="M18 14h-8"></path><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"></path><rect width="8" height="4" x="10" y="6" rx="1"></rect></svg><span>新闻</span>
+    </a>
+    <a href="https://openaa.com/profile" class="bottom-nav-item" target="_self">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M20 21a8 8 0 0 0-16 0"></path></svg><span>我的</span>
+    </a>
+  </nav>
+
+  <button class="back-top" id="backTop" type="button" aria-label="回到顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script>
+
+    function getTemplateTarget() {
+      return OPENAA_CONFIG.templateLinkMode === 'same' ? '_self' : '_blank';
+    }
+
+    function applyTemplateIdentity() {
+      document.documentElement.setAttribute('data-openaa-template', 'universal-static');
+      document.documentElement.setAttribute('data-template-version', OPENAA_CONFIG.version || '1.0.0');
+      document.documentElement.setAttribute('data-page-type', OPENAA_CONFIG.pageType || 'standard');
+    }
+
+    function getTemplateRel() {
+      return getTemplateTarget() === '_blank' ? 'noopener noreferrer' : '';
+    }
+
+    function applyTemplateLinkMode() {
+      const target = getTemplateTarget();
+      const rel = getTemplateRel();
+      const selectors = [
+        '.app-header a',
+        '.top-links-panel a',
+        '.banner-section a',
+        '.home-grid-section a',
+        '.tools-section a',
+        '.bottom-nav a'
+      ];
+      document.querySelectorAll(selectors.join(',')).forEach(a => {
+        a.target = target;
+        if (rel) a.rel = rel;
+        else a.removeAttribute('rel');
+      });
+    }
+
+    function applyModuleVisibility() {
+      const modules = OPENAA_CONFIG.modules || {};
+      const banner = document.getElementById('bannerWrapper');
+      const ticker = document.getElementById('latestStrip');
+      const bannerSection = document.getElementById('bannerSection');
+      const grid = document.querySelector('[data-template-module="gridMenu"]');
+      const tools = document.querySelector('[data-template-module="tools"]');
+
+      if (banner) banner.hidden = modules.showBanner === false;
+      if (ticker) ticker.hidden = modules.showTicker === false;
+      if (grid) grid.hidden = modules.showGridMenu === false;
+      if (tools) tools.hidden = modules.showTools === false;
+      if (bannerSection) bannerSection.hidden = modules.showBanner === false && modules.showTicker === false;
+    }
+
+    const APP_BASE_URL = 'https://openaa.com';
+    const HOME_STATIC_TEMPLATE_API = APP_BASE_URL + '/api/home/static-template';
+    // Ticker reuses the same home data source as openaa-app.
+    const FALLBACK_TICKER_ITEMS = [
+      { label: 'OpenAA 纽约站已上线，欢迎发布招聘、房屋、二手和本地服务信息', href: '/news' }
+    ];
+    const FALLBACK_TICKER_SETTINGS = {
+      global: { isEnabled: true, intervalSeconds: 4 }
+    };
+
+
+    const ADS = Array.isArray(OPENAA_CONFIG.banners) ? OPENAA_CONFIG.banners : [];
+
+    (function initBanner() {
+      const track = document.getElementById('bannerTrack');
+      const dots = document.getElementById('bannerDots');
+      const wrapper = document.getElementById('bannerWrapper');
+      if (!track || !dots || !wrapper || !ADS.length) return;
+
+      let index = 0;
+      let pos = 1;
+      let timer = null;
+      let isAnimating = false;
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let dragX = 0;
+      let dragging = false;
+      const total = ADS.length;
+
+      function slide(ad, eager) {
+        const a = document.createElement('a');
+        a.className = 'banner-slide';
+        a.href = ad.link || '#';
+        a.target = getTemplateTarget();
+        if (getTemplateRel()) a.rel = getTemplateRel();
+        const img = document.createElement('img');
+        img.src = ad.image;
+        img.alt = ad.alt || 'OpenAA 广告';
+        img.loading = eager ? 'eager' : 'lazy';
+        img.draggable = false;
+        a.appendChild(img);
+        return a;
+      }
+
+      function build() {
+        track.innerHTML = '';
+        dots.innerHTML = '';
+        track.appendChild(slide(ADS[total - 1], false));
+        ADS.forEach((ad, i) => track.appendChild(slide(ad, i === 0)));
+        track.appendChild(slide(ADS[0], false));
+        ADS.forEach((_, i) => {
+          const b = document.createElement('button');
+          b.className = 'banner-dot' + (i === 0 ? ' active' : '');
+          b.type = 'button';
+          b.setAttribute('aria-label', '第 ' + (i + 1) + ' 张广告');
+          b.addEventListener('click', () => goTo(i + 1, true));
+          dots.appendChild(b);
+        });
+        jump(1);
+      }
+
+      function updateDots() {
+        dots.querySelectorAll('.banner-dot').forEach((d, i) => d.classList.toggle('active', i === index));
+      }
+      function setTransition(on) { track.style.transition = on ? '' : 'none'; }
+      function move(p) { track.style.transform = 'translateX(-' + (p * 100) + '%)'; }
+      function jump(p) { setTransition(false); move(p); track.offsetHeight; setTransition(true); }
+      function goTo(p, user) {
+        if (isAnimating) return;
+        if (user) restart();
+        isAnimating = true;
+        pos = p;
+        if (pos === 0) index = total - 1;
+        else if (pos === total + 1) index = 0;
+        else index = pos - 1;
+        updateDots();
+        move(pos);
+      }
+      function next() { goTo(pos + 1, false); }
+      function start() { clearInterval(timer); if (total > 1) timer = setInterval(next, 4000); }
+      function restart() { start(); }
+
+      track.addEventListener('transitionend', () => {
+        if (pos === 0) { pos = total; index = total - 1; jump(pos); updateDots(); }
+        if (pos === total + 1) { pos = 1; index = 0; jump(pos); updateDots(); }
+        isAnimating = false;
+      });
+
+      wrapper.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        dragging = false;
+        dragX = 0;
+        clearInterval(timer);
+      }, { passive: true });
+      wrapper.addEventListener('touchmove', e => {
+        const dx = e.touches[0].clientX - touchStartX;
+        const dy = e.touches[0].clientY - touchStartY;
+        if (!dragging && Math.abs(dy) > Math.abs(dx)) return;
+        dragging = true;
+        dragX = dx;
+        setTransition(false);
+        track.style.transform = 'translateX(calc(-' + (pos * 100) + '% + ' + dragX + 'px))';
+      }, { passive: true });
+      wrapper.addEventListener('touchend', () => {
+        setTransition(true);
+        if (dragging) {
+          const threshold = wrapper.offsetWidth * 0.2;
+          if (dragX < -threshold) goTo(pos + 1, true);
+          else if (dragX > threshold) goTo(pos - 1, true);
+          else move(pos);
+        }
+        dragging = false;
+        start();
+      });
+      document.addEventListener('visibilitychange', () => document.hidden ? clearInterval(timer) : start());
+
+      build();
+      applyTemplateLinkMode();
+      start();
+    })();
+
+
+    function normalizeTopLinks(payload) {
+      const raw = Array.isArray(payload) ? payload : (payload && (payload.topQuickLinks || payload.data || payload.links || payload.items)) || [];
+      return raw
+        .filter(item => item && (item.name || item.title || item.label) && (item.url || item.href || item.link_url))
+        .map(item => ({
+          name: item.name || item.title || item.label,
+          url: toAppUrl(item.url || item.href || item.link_url, '/'),
+          openMode: item.open_mode || item.openMode || item.target || 'auto'
+        }));
+    }
+
+    function isInternalOpenAA(url) {
+      try {
+        const u = new URL(url, location.href);
+        return u.hostname === 'openaa.com' || u.hostname.endsWith('.openaa.com');
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function renderTopLinks(links) {
+      const box = document.getElementById('topLinksScroller');
+      if (!box || !links.length) return;
+      box.innerHTML = links.map(link => {
+        const target = getTemplateTarget();
+        const rel = target === '_blank' ? ' rel="noopener noreferrer"' : '';
+        return '<a class="top-link-chip" href="' + escapeHtml(link.url) + '" target="' + target + '"' + rel + '>' + escapeHtml(link.name) + '</a>';
+      }).join('');
+    }
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/[&<>"]/g, s => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[s]));
+    }
+
+    async function initTopLinksFromApp() {
+      const toggle = document.getElementById('topLinksToggle');
+      const panel = document.getElementById('topLinksPanel');
+      if (!toggle || !panel) return;
+
+      toggle.addEventListener('click', () => {
+        const open = !panel.classList.contains('open');
+        panel.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      panel.addEventListener('touchstart', e => { panel._touchStartY = e.touches[0].clientY; }, { passive: true });
+      panel.addEventListener('touchend', e => {
+        const startY = panel._touchStartY || 0;
+        const endY = e.changedTouches[0].clientY;
+        if (startY - endY > 28) {
+          panel.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }, { passive: true });
+
+      document.addEventListener('click', e => {
+        if (!panel.classList.contains('open')) return;
+        if (panel.contains(e.target) || toggle.contains(e.target)) return;
+        panel.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+
+      try {
+        const res = await fetch(HOME_STATIC_TEMPLATE_API, { mode: 'cors', cache: 'no-store' });
+        if (!res.ok) throw new Error('home static template api failed');
+        const data = await res.json();
+        const links = normalizeTopLinks(data);
+        if (links.length) { renderTopLinks(links); applyTemplateLinkMode(); }
+      } catch (e) {
+        // 读取失败时保留模板里的固定备用快捷入口。
+      }
+    }
+
+    function toAppUrl(value, fallbackPath) {
+      const raw = String(value || fallbackPath || '/').trim() || '/';
+      try {
+        return new URL(raw, APP_BASE_URL).toString();
+      } catch (e) {
+        return new URL(fallbackPath || '/', APP_BASE_URL).toString();
+      }
+    }
+
+    function normalizeLatestItems(payload) {
+      const raw = Array.isArray(payload) ? payload : (payload && (payload.tickerItems || payload.data || payload.items)) || [];
+      return raw
+        .filter(item => item && (item.label || item.title || item.name))
+        .map(item => ({
+          label: item.label || item.title || item.name,
+          href: toAppUrl(item.href || item.url || item.link || item.path, '/news'),
+          module: item.module || null
+        }));
+    }
+
+    function normalizeTickerSettings(payload) {
+      const settings = payload && payload.tickerSettings;
+      const global = settings && settings.global;
+      const enabled = typeof global?.isEnabled === 'boolean' ? global.isEnabled : FALLBACK_TICKER_SETTINGS.global.isEnabled;
+      const seconds = Number(global?.intervalSeconds);
+      const intervalSeconds = Number.isFinite(seconds)
+        ? Math.min(10, Math.max(3, Math.trunc(seconds)))
+        : FALLBACK_TICKER_SETTINGS.global.intervalSeconds;
+      return { global: { isEnabled: enabled, intervalSeconds } };
+    }
+
+    function renderLatestStrip(items, settings) {
+      const strip = document.getElementById('latestStrip');
+      const text = document.getElementById('latestStripText');
+      const normalizedSettings = settings || FALLBACK_TICKER_SETTINGS;
+      if (!strip || !text || !normalizedSettings.global.isEnabled) {
+        if (strip) strip.hidden = true;
+        return;
+      }
+      const tickerItems = items.length > 0
+        ? items
+        : [{ label: 'OpenAA 最新发布，点击右上角放大镜搜索更多内容', href: toAppUrl('/news') }];
+      if (!tickerItems.length) return;
+      let i = 0;
+      function show() {
+        const item = tickerItems[i % tickerItems.length];
+        text.textContent = item.label;
+        strip.href = item.href;
+        strip.target = getTemplateTarget();
+        if (getTemplateRel()) strip.rel = getTemplateRel();
+        else strip.removeAttribute('rel');
+        i += 1;
+      }
+      show();
+      if (tickerItems.length > 1) setInterval(show, normalizedSettings.global.intervalSeconds * 1000);
+    }
+
+    async function initLatestStripFromApp() {
+      try {
+        const res = await fetch(HOME_STATIC_TEMPLATE_API, { mode: 'cors', cache: 'no-store' });
+        if (!res.ok) throw new Error('home static template api failed');
+        const data = await res.json();
+        renderLatestStrip(normalizeLatestItems(data), normalizeTickerSettings(data));
+      } catch (e) {
+        renderLatestStrip(normalizeLatestItems(FALLBACK_TICKER_ITEMS), FALLBACK_TICKER_SETTINGS);
+      }
+    }
+
+    function shareOpenAA() {
+      const data = {
+        title: '美元人民币汇率记录工具',
+        text: '本地保存数据，支持月度统计、年度统计和 Excel 导出。',
+        url: location.href
+      };
+      if (navigator.share) {
+        navigator.share(data).catch(() => {
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(location.href).then(() => showToast('链接已复制 📋'));
+          }
+        });
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(location.href).then(() => showToast('链接已复制 📋'));
+      } else {
+        showToast('请复制当前页面链接');
+      }
+    }
+
+    function showToast(text) {
+      const old = document.querySelector('.toast');
+      if (old) old.remove();
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = text;
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 2400);
+    }
+
+    (function initBackTop() {
+      const btn = document.getElementById('backTop');
+      if (!btn) return;
+      window.addEventListener('scroll', () => btn.classList.toggle('show', window.scrollY > 360), { passive: true });
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+
+    applyTemplateIdentity();
+    applyModuleVisibility();
+    applyTemplateLinkMode();
+    initTopLinksFromApp();
+    initLatestStripFromApp();
+
+    /* 美元人民币汇率记录工具：本地保存 + 导出分享 */
+    (function initFxApp(){
+      const KEY = 'openaa_usd_rmb_records_v1';
+      let deferredInstallPrompt = null;
+      const $ = (id) => document.getElementById(id);
+      const views = () => Array.from(document.querySelectorAll('#fxApp .fx-view'));
+      const money = (n, prefix='') => prefix + (Number(n)||0).toLocaleString('zh-CN',{minimumFractionDigits:2, maximumFractionDigits:2});
+      const fixedMoney = (n) => (Number(n)||0).toLocaleString('zh-CN',{minimumFractionDigits:2, maximumFractionDigits:2});
+      const fixedRate = (n) => (Number(n)||0).toLocaleString('zh-CN',{minimumFractionDigits:2, maximumFractionDigits:2});
+      const num = (v) => Number.parseFloat(v) || 0;
+      const today = () => new Date().toISOString().slice(0,10);
+      function load(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e){ return []; } }
+      function save(rows){ localStorage.setItem(KEY, JSON.stringify(rows)); }
+      function calcCny(row){ return +(num(row.usd) * num(row.rate)).toFixed(2); }
+      function sorted(){ return load().sort((a,b)=> String(b.date).localeCompare(String(a.date)) || String(b.createdAt||'').localeCompare(String(a.createdAt||''))); }
+      function latestMonth(rows){
+        const months = Array.from(new Set((rows || sorted()).map(r => String(r.date || '').slice(0,7)).filter(Boolean))).sort().reverse();
+        return months[0] || '';
+      }
+      function summarize(rows){
+        const addRows = rows.filter(r => num(r.usd) >= 0);
+        const subtractRows = rows.filter(r => num(r.usd) < 0);
+        const addUsd = addRows.reduce((s,r)=>s+Math.abs(num(r.usd)),0);
+        const subtractUsd = subtractRows.reduce((s,r)=>s+Math.abs(num(r.usd)),0);
+        const netUsd = rows.reduce((s,r)=>s+num(r.usd),0);
+        const addCny = addRows.reduce((s,r)=>s+Math.abs(calcCny(r)),0);
+        const subtractCny = subtractRows.reduce((s,r)=>s+Math.abs(calcCny(r)),0);
+        const netCny = rows.reduce((s,r)=>s+calcCny(r),0);
+        const totalAbsUsd = addUsd + subtractUsd;
+        const totalAbsCny = addCny + subtractCny;
+        const rateAvg = totalAbsUsd > 0 ? totalAbsCny / totalAbsUsd : 0;
+        const months = new Set(rows.map(r => String(r.date || '').slice(0,7)).filter(Boolean));
+        const monthCount = months.size;
+        const monthAvgUsd = monthCount ? netUsd / monthCount : 0;
+        const monthAvgCny = monthCount ? netCny / monthCount : 0;
+        return {
+          count: rows.length,
+          addUsd, subtractUsd, netUsd,
+          addCny, subtractCny, netCny,
+          usd: netUsd, cny: netCny,
+          rateAvg, monthCount, monthAvgUsd, monthAvgCny
+        };
+      }
+      function signedMoneyText(n, prefix=''){
+        const value = Number(n) || 0;
+        const sign = value < 0 ? '-' : '';
+        return sign + prefix + Math.abs(value).toLocaleString('zh-CN',{minimumFractionDigits:2, maximumFractionDigits:2});
+      }
+      function hasSubtractSummary(s){
+        return Math.abs(Number(s.subtractUsd) || 0) > 0 || Math.abs(Number(s.subtractCny) || 0) > 0;
+      }
+      function summaryHtml(s, includeMonthlyAverage = true){
+        const hasSubtract = hasSubtractSummary(s);
+        const items = [];
+        if(hasSubtract) {
+          items.push(
+            ['新增美金总金额', money(s.addUsd, '$'), ''],
+            ['减去美金总金额', signedMoneyText(-Math.abs(s.subtractUsd || 0), '$'), 'fx-negative']
+          );
+        }
+        items.push(
+          ['美金净金额', signedMoneyText(s.netUsd, '$'), s.netUsd < 0 ? 'fx-negative' : ''],
+          ['平均汇率', fixedRate(s.rateAvg), '']
+        );
+        if(hasSubtract) {
+          items.push(
+            ['新增人民币总金额', money(s.addCny, '¥'), ''],
+            ['减去人民币总金额', signedMoneyText(-Math.abs(s.subtractCny || 0), '¥'), 'fx-negative']
+          );
+        }
+        items.push(
+          ['人民币净金额', signedMoneyText(s.netCny, '¥'), s.netCny < 0 ? 'fx-negative' : ''],
+          ['记录行数', s.count + ' 行', '']
+        );
+        if(includeMonthlyAverage) {
+          items.push(
+            ['有记录月份', (s.monthCount || 0) + ' 个月', ''],
+            ['每月平均美金', signedMoneyText(s.monthAvgUsd, '$'), s.monthAvgUsd < 0 ? 'fx-negative' : ''],
+            ['每月平均人民币', signedMoneyText(s.monthAvgCny, '¥'), s.monthAvgCny < 0 ? 'fx-negative' : '']
+          );
+        }
+        return items.map(x => '<div class="fx-stat"><span>'+x[0]+'</span><strong class="'+(x[2]||'')+'">'+x[1]+'</strong></div>').join('');
+      }
+      function empty(text){ return '<div class="fx-empty">'+text+'</div>'; }
+      function recordType(row){
+        return num(row.usd) < 0 || row.type === 'subtract' ? 'subtract' : 'add';
+      }
+      function recordTypeLabel(row){
+        return recordType(row) === 'subtract' ? '减去' : '新增';
+      }
+      function recordHtml(r){
+        const type = recordType(r);
+        const isSub = type === 'subtract';
+        const badge = '<span class="fx-type-badge '+(isSub ? 'subtract' : '')+'">'+recordTypeLabel(r)+'</span>';
+        const amountClass = isSub ? ' fx-negative' : '';
+        return '<div class="fx-record"><div class="fx-record-top"><div class="fx-record-date">'+escapeHtml(r.date)+badge+'</div><div class="fx-record-money'+amountClass+'">'+signedMoneyText(calcCny(r), '¥')+'</div></div><div class="fx-record-meta">美金：<span class="'+(isSub?'fx-negative':'')+'">'+signedMoneyText(num(r.usd), '$')+'</span> ｜ 汇率：'+fixedRate(r.rate)+(r.note?' ｜ '+escapeHtml(r.note):'')+'</div><div class="fx-record-actions"><button class="fx-chip-btn" type="button" data-edit="'+r.id+'">编辑</button><button class="fx-chip-btn" type="button" data-delete="'+r.id+'">删除</button></div></div>';
+      }
+      function renderList(containerId, rows, emptyText){
+        const box = $(containerId);
+        if(!box) return;
+        box.innerHTML = rows.length ? rows.map(recordHtml).join('') : empty(emptyText);
+      }
+      function render(){
+        const rows = sorted();
+        const allS = summarize(rows);
+        if($('homeSummary')) $('homeSummary').innerHTML = summaryHtml(allS);
+        if($('allSummary')) $('allSummary').innerHTML = summaryHtml(allS);
+        renderList('allList', rows, '暂无记录，请先输入一条数据。');
+
+        let m = $('monthPicker')?.value || '';
+        if(!m) {
+          m = latestMonth(rows);
+          if($('monthPicker')) $('monthPicker').value = m;
+        }
+        const monthRows = m ? rows.filter(r => String(r.date).slice(0,7) === m) : [];
+        if($('monthSummary')) $('monthSummary').innerHTML = summaryHtml(summarize(monthRows), false);
+        renderList('monthList', monthRows, m ? '这个月份暂无数据。' : '暂无记录。');
+
+        const y = String($('yearPicker')?.value || '').trim();
+        const yearRows = y ? rows.filter(r => String(r.date).slice(0,4) === y) : rows;
+        if($('yearSummary')) $('yearSummary').innerHTML = summaryHtml(summarize(yearRows));
+        renderList('yearList', yearRows, y ? '这个年份暂无数据。' : '暂无记录。');
+      }
+      function goto(name){
+        views().forEach(v => v.classList.toggle('active', v.dataset.view === name));
+        const sectionTitleRow = $('fxSectionTitleRow');
+        if(sectionTitleRow) sectionTitleRow.hidden = name !== 'home';
+        if(name === 'input' && !$('editId').value) {
+          $('fxDate').value = $('fxDate').value || today();
+        }
+        if(name === 'month' && $('monthPicker') && !$('monthPicker').value) {
+          $('monthPicker').value = latestMonth(sorted());
+        }
+        render();
+        window.scrollTo({top:0, behavior:'smooth'});
+      }
+      function setRecordType(type){
+        const value = type === 'subtract' ? 'subtract' : 'add';
+        const input = $('fxType');
+        if(input) input.value = value;
+        document.querySelectorAll('.fx-type-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.typeValue === value));
+        updatePreview();
+      }
+      function resetForm(){
+        $('editId').value = '';
+        $('inputTitle').textContent = '输入记录';
+        $('fxDate').value = today();
+        $('fxUsd').value = '';
+        $('fxRate').value = '';
+        $('fxNote').value = '';
+        setRecordType('add');
+        updatePreview();
+      }
+      function updatePreview(){
+        const sign = $('fxType')?.value === 'subtract' ? -1 : 1;
+        const cny = num($('fxUsd').value) * num($('fxRate').value) * sign;
+        const box = $('fxCnyPreview');
+        if(box) {
+          box.textContent = signedMoneyText(cny, '¥');
+          box.classList.toggle('fx-negative', cny < 0);
+        }
+        updateInputWarnings();
+      }
+      function getInputWarnings(){
+        const warnings = [];
+        const usdRaw = String($('fxUsd')?.value || '').trim();
+        const rateRaw = String($('fxRate')?.value || '').trim();
+        const usd = Number.parseFloat(usdRaw);
+        const rate = Number.parseFloat(rateRaw);
+        if(usdRaw && Number.isFinite(usd) && (usd < 20 || usd > 100000 || usd < 0)) {
+          warnings.push('美金金额看起来可能有误，请确认是否输入正确。');
+        }
+        if(rateRaw && Number.isFinite(rate) && (rate < 5 || rate > 10 || rate <= 0)) {
+          warnings.push('汇率看起来可能有误，请确认是否输入正确。');
+        }
+        return warnings;
+      }
+      function updateInputWarnings(){
+        const usdRaw = String($('fxUsd')?.value || '').trim();
+        const rateRaw = String($('fxRate')?.value || '').trim();
+        const usd = Number.parseFloat(usdRaw);
+        const rate = Number.parseFloat(rateRaw);
+        const usdWarning = $('fxUsdWarning');
+        const rateWarning = $('fxRateWarning');
+        if(usdWarning) usdWarning.classList.toggle('show', !!usdRaw && Number.isFinite(usd) && (usd < 20 || usd > 100000 || usd < 0));
+        if(rateWarning) rateWarning.classList.toggle('show', !!rateRaw && Number.isFinite(rate) && (rate < 5 || rate > 10 || rate <= 0));
+      }
+      function confirmInputWarnings(){
+        const warnings = getInputWarnings();
+        if(!warnings.length) return true;
+        return confirm('输入数据看起来可能有误。\n\n' + warnings.map(w => '• ' + w).join('\n') + '\n\n点击“取消”返回修改，点击“确定”仍然保存。');
+      }
+      function editRecord(id){
+        const r = load().find(x => x.id === id);
+        if(!r) return;
+        $('editId').value = r.id;
+        $('inputTitle').textContent = '编辑记录';
+        $('fxDate').value = r.date;
+        $('fxUsd').value = Math.abs(num(r.usd));
+        $('fxRate').value = r.rate;
+        $('fxNote').value = r.note || '';
+        setRecordType(recordType(r));
+        updatePreview();
+        goto('input');
+      }
+      function deleteRecord(id){
+        if(!confirm('确定删除这条记录吗？')) return;
+        save(load().filter(r => r.id !== id));
+        render();
+        showToast('已删除');
+      }
+      function exportRows(){
+        const rows = sorted();
+        const months = groupSummary(rows, 7);
+        const years = groupSummary(rows, 4);
+        return {rows, months, years};
+      }
+      function groupSummary(rows, len){
+        const map = {};
+        rows.forEach(r => {
+          const k = String(r.date).slice(0,len);
+          if(!map[k]) map[k] = [];
+          map[k].push(r);
+        });
+        return Object.keys(map).sort().reverse().map(k => ({period:k, ...summarize(map[k])}));
+      }
+      function monthLabel(period){
+        const parts = String(period || '').split('-');
+        const y = parts[0] || '';
+        const m = Number(parts[1] || 0);
+        return y && m ? (y + '年' + m + '月') : String(period || '');
+      }
+      function escapeXml(value){
+        return String(value ?? '').replace(/[<>&"']/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[ch]));
+      }
+      function utf8Bytes(str){ return new TextEncoder().encode(str); }
+      const CRC_TABLE = (() => {
+        const table = new Uint32Array(256);
+        for (let n = 0; n < 256; n++) {
+          let c = n;
+          for (let k = 0; k < 8; k++) c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+          table[n] = c >>> 0;
+        }
+        return table;
+      })();
+      function crc32(bytes){
+        let c = 0xffffffff;
+        for (let i = 0; i < bytes.length; i++) c = CRC_TABLE[(c ^ bytes[i]) & 0xff] ^ (c >>> 8);
+        return (c ^ 0xffffffff) >>> 0;
+      }
+      function writeU16(arr, value){ arr.push(value & 255, (value >>> 8) & 255); }
+      function writeU32(arr, value){ arr.push(value & 255, (value >>> 8) & 255, (value >>> 16) & 255, (value >>> 24) & 255); }
+      function concatBytes(parts){
+        const total = parts.reduce((sum, part) => sum + part.length, 0);
+        const out = new Uint8Array(total);
+        let offset = 0;
+        parts.forEach(part => { out.set(part, offset); offset += part.length; });
+        return out;
+      }
+      function makeZip(files){
+        const localParts = [];
+        const centralParts = [];
+        let offset = 0;
+        files.forEach(file => {
+          const nameBytes = utf8Bytes(file.name);
+          const dataBytes = utf8Bytes(file.content);
+          const crc = crc32(dataBytes);
+          const local = [];
+          writeU32(local, 0x04034b50); writeU16(local, 20); writeU16(local, 0x0800); writeU16(local, 0);
+          writeU16(local, 0); writeU16(local, 0); writeU32(local, crc); writeU32(local, dataBytes.length); writeU32(local, dataBytes.length);
+          writeU16(local, nameBytes.length); writeU16(local, 0);
+          const localBytes = concatBytes([new Uint8Array(local), nameBytes, dataBytes]);
+          localParts.push(localBytes);
+          const central = [];
+          writeU32(central, 0x02014b50); writeU16(central, 20); writeU16(central, 20); writeU16(central, 0x0800); writeU16(central, 0);
+          writeU16(central, 0); writeU16(central, 0); writeU32(central, crc); writeU32(central, dataBytes.length); writeU32(central, dataBytes.length);
+          writeU16(central, nameBytes.length); writeU16(central, 0); writeU16(central, 0); writeU16(central, 0); writeU16(central, 0); writeU32(central, 0); writeU32(central, offset);
+          centralParts.push(concatBytes([new Uint8Array(central), nameBytes]));
+          offset += localBytes.length;
+        });
+        const centralSize = centralParts.reduce((sum, part) => sum + part.length, 0);
+        const end = [];
+        writeU32(end, 0x06054b50); writeU16(end, 0); writeU16(end, 0); writeU16(end, files.length); writeU16(end, files.length);
+        writeU32(end, centralSize); writeU32(end, offset); writeU16(end, 0);
+        return concatBytes([...localParts, ...centralParts, new Uint8Array(end)]);
+      }
+      function excelCol(index){
+        let s = '';
+        index += 1;
+        while(index > 0){
+          const mod = (index - 1) % 26;
+          s = String.fromCharCode(65 + mod) + s;
+          index = Math.floor((index - mod) / 26);
+        }
+        return s;
+      }
+      function cellXml(cell, r, c){
+        const obj = (cell && typeof cell === 'object' && !Array.isArray(cell)) ? cell : {v: cell};
+        const v = obj.v ?? '';
+        const style = obj.s ? ' s="' + obj.s + '"' : '';
+        const ref = excelCol(c) + r;
+        const isNumber = typeof v === 'number' && isFinite(v);
+        if(v === '') return '<c r="'+ref+'"'+style+'/>';
+        return '<c r="'+ref+'"'+style+' t="'+(isNumber?'n':'inlineStr')+'">' + (isNumber ? '<v>'+v+'</v>' : '<is><t>'+escapeXml(v)+'</t></is>') + '</c>';
+      }
+      function sheetXmlAdvanced(rows){
+        return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">' +
+          '<cols><col min="1" max="1" width="14" customWidth="1"/><col min="2" max="2" width="16" customWidth="1"/><col min="3" max="8" width="16" customWidth="1"/><col min="9" max="9" width="24" customWidth="1"/></cols>' +
+          '<sheetData>' + rows.map((row, rIdx) => '<row r="'+(rIdx+1)+'">' + row.map((cell, cIdx) => cellXml(cell, rIdx+1, cIdx)).join('') + '</row>').join('') + '</sheetData></worksheet>';
+      }
+      function headerRow(labels){ return labels.map(v => ({v, s:1})); }
+      function blankRow(){ return ['', '', '', '', '', '', '', '', '']; }
+      function summaryRows(title, summary, includeMonthlyAverage){
+        const hasSubtract = hasSubtractSummary(summary);
+        const rows = [
+          [{v:title, s:2}, '', '', '', '', '', '', '', '']
+        ];
+        if(hasSubtract) {
+          rows.push(
+            [{v:'新增美金总金额', s:3}, {v:fixedMoney(summary.addUsd), s:4}, '', '', '', '', '', '', ''],
+            [{v:'减去美金总金额', s:3}, {v:signedMoneyText(-Math.abs(summary.subtractUsd || 0)), s:6}, '', '', '', '', '', '', '']
+          );
+        }
+        rows.push(
+          [{v:'美金净金额', s:3}, {v:signedMoneyText(summary.netUsd), s:summary.netUsd < 0 ? 6 : 4}, '', '', '', '', '', '', ''],
+          [{v:'平均汇率', s:3}, {v:fixedRate(summary.rateAvg), s:4}, '', '', '', '', '', '', '']
+        );
+        if(hasSubtract) {
+          rows.push(
+            [{v:'新增人民币总金额', s:3}, {v:fixedMoney(summary.addCny), s:4}, '', '', '', '', '', '', ''],
+            [{v:'减去人民币总金额', s:3}, {v:signedMoneyText(-Math.abs(summary.subtractCny || 0)), s:6}, '', '', '', '', '', '', '']
+          );
+        }
+        rows.push(
+          [{v:'人民币净金额', s:3}, {v:signedMoneyText(summary.netCny), s:summary.netCny < 0 ? 6 : 4}, '', '', '', '', '', '', ''],
+          [{v:'记录行数', s:3}, {v:summary.count + ' 行', s:4}, '', '', '', '', '', '', '']
+        );
+        if(includeMonthlyAverage) {
+          rows.push(
+            [{v:'有记录月份', s:3}, {v:(summary.monthCount || 0) + ' 个月', s:4}, '', '', '', '', '', '', ''],
+            [{v:'每月平均美金', s:3}, {v:signedMoneyText(summary.monthAvgUsd), s:summary.monthAvgUsd < 0 ? 6 : 4}, '', '', '', '', '', '', ''],
+            [{v:'每月平均人民币', s:3}, {v:signedMoneyText(summary.monthAvgCny), s:summary.monthAvgCny < 0 ? 6 : 4}, '', '', '', '', '', '', '']
+          );
+        }
+        return rows;
+      }
+      function recordRow(r){
+        const isSub = recordType(r) === 'subtract';
+        const valueStyle = isSub ? 7 : 5;
+        return [
+          {v:recordTypeLabel(r), s:isSub ? 8 : 0},
+          {v:r.date, s:0},
+          {v:signedMoneyText(num(r.usd)), s:valueStyle},
+          {v:fixedRate(r.rate), s:5},
+          {v:signedMoneyText(calcCny(r)), s:valueStyle},
+          {v:r.note || '', s:0}
+        ];
+      }
+      function buildAllSheetRows(rows){
+        const out = [headerRow(['类型','日期','美金','汇率','人民币','备注'])];
+        rows.forEach(r => out.push(recordRow(r)));
+        out.push(blankRow());
+        out.push(...summaryRows('总汇总', summarize(rows), true));
+        return out;
+      }
+      function buildMonthSheetRows(rows){
+        const groups = {};
+        rows.forEach(r => {
+          const key = String(r.date).slice(0,7);
+          if(!groups[key]) groups[key] = [];
+          groups[key].push(r);
+        });
+        const months = Object.keys(groups).sort().reverse();
+        const out = [];
+        months.forEach((month, idx) => {
+          if(idx > 0) out.push(blankRow());
+          out.push([{v:monthLabel(month), s:2}, '', '', '', '']);
+          out.push(headerRow(['类型','日期','美金','汇率','人民币','备注']));
+          groups[month].sort((a,b)=>String(b.date).localeCompare(String(a.date))).forEach(r => out.push(recordRow(r)));
+          out.push(blankRow());
+          out.push(...summaryRows(monthLabel(month) + '汇总', summarize(groups[month]), false));
+        });
+        if(!out.length) out.push([{v:'暂无记录', s:2}, '', '', '', '']);
+        return out;
+      }
+      function buildYearSheetRows(rows){
+        const months = groupSummary(rows, 7);
+        const hasSubtract = hasSubtractSummary(summarize(rows));
+        const headers = hasSubtract
+          ? ['月份','新增美金总金额','减去美金总金额','美金净金额','平均汇率','新增人民币总金额','减去人民币总金额','人民币净金额','记录行数']
+          : ['月份','美金净金额','平均汇率','人民币净金额','记录行数'];
+        const out = [headerRow(headers)];
+        months.forEach(r => {
+          if(hasSubtract) {
+            out.push([
+              {v:monthLabel(r.period), s:0},
+              {v:fixedMoney(r.addUsd), s:5},
+              {v:signedMoneyText(-Math.abs(r.subtractUsd || 0)), s:6},
+              {v:signedMoneyText(r.netUsd), s:r.netUsd < 0 ? 6 : 5},
+              {v:fixedRate(r.rateAvg), s:5},
+              {v:fixedMoney(r.addCny), s:5},
+              {v:signedMoneyText(-Math.abs(r.subtractCny || 0)), s:6},
+              {v:signedMoneyText(r.netCny), s:r.netCny < 0 ? 6 : 5},
+              {v:r.count + ' 行', s:5}
+            ]);
+          } else {
+            out.push([
+              {v:monthLabel(r.period), s:0},
+              {v:signedMoneyText(r.netUsd), s:r.netUsd < 0 ? 6 : 5},
+              {v:fixedRate(r.rateAvg), s:5},
+              {v:signedMoneyText(r.netCny), s:r.netCny < 0 ? 6 : 5},
+              {v:r.count + ' 行', s:5}
+            ]);
+          }
+        });
+        out.push(blankRow());
+        out.push(...summaryRows('年度总汇总', summarize(rows), true));
+        return out;
+      }
+      function xlsxStylesXml(){
+        return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' +
+          '<fonts count="6"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/><color rgb="FFFFFFFF"/></font><font><b/><sz val="16"/><name val="Calibri"/><color rgb="FF1D4ED8"/></font><font><b/><sz val="12"/><name val="Calibri"/><color rgb="FF334155"/></font><font><b/><sz val="15"/><name val="Calibri"/><color rgb="FFDC2626"/></font><font><sz val="11"/><name val="Calibri"/><color rgb="FFDC2626"/></font></fonts>' +
+          '<fills count="4"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF2563EB"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFFFF7ED"/><bgColor indexed="64"/></patternFill></fill></fills>' +
+          '<borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color rgb="FFD1D5DB"/></left><right style="thin"><color rgb="FFD1D5DB"/></right><top style="thin"><color rgb="FFD1D5DB"/></top><bottom style="thin"><color rgb="FFD1D5DB"/></bottom><diagonal/></border></borders>' +
+          '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>' +
+          '<cellXfs count="9"><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"><alignment horizontal="left"/></xf><xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/><xf numFmtId="0" fontId="3" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/><xf numFmtId="0" fontId="4" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"><alignment horizontal="right"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1"><alignment horizontal="right"/></xf><xf numFmtId="0" fontId="4" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1"><alignment horizontal="right"/></xf><xf numFmtId="0" fontId="5" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1"><alignment horizontal="right"/></xf><xf numFmtId="0" fontId="5" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1"/></cellXfs>' +
+          '<cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>' +
+          '</styleSheet>';
+      }
+      function makeXlsxBlob(){
+        const rows = sorted();
+        const files = [
+          {name:'[Content_Types].xml', content:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/worksheets/sheet2.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/worksheets/sheet3.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>'},
+          {name:'_rels/.rels', content:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'},
+          {name:'xl/workbook.xml', content:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="全部记录" sheetId="1" r:id="rId1"/><sheet name="月度记录" sheetId="2" r:id="rId2"/><sheet name="年度记录" sheetId="3" r:id="rId3"/></sheets></workbook>'},
+          {name:'xl/_rels/workbook.xml.rels', content:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet3.xml"/><Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'},
+          {name:'xl/styles.xml', content:xlsxStylesXml()},
+          {name:'xl/worksheets/sheet1.xml', content:sheetXmlAdvanced(buildAllSheetRows(rows))},
+          {name:'xl/worksheets/sheet2.xml', content:sheetXmlAdvanced(buildMonthSheetRows(rows))},
+          {name:'xl/worksheets/sheet3.xml', content:sheetXmlAdvanced(buildYearSheetRows(rows))}
+        ];
+        return new Blob([makeZip(files)], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+      }
+      function makeCsvBlob(){
+        const rows = sorted();
+        const csv = ['日期,美金,汇率,人民币,备注'].concat(rows.map(r => [r.date, num(r.usd).toFixed(2), fixedRate(r.rate), calcCny(r).toFixed(2), '"'+String(r.note||'').replace(/"/g,'""')+'"'].join(','))).join('\n');
+        return new Blob(['\ufeff', csv], {type:'text/csv;charset=utf-8'});
+      }
+      function downloadBlob(blob, name){
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+      }
+      async function shareBlob(blob, name, title){
+        const ua = navigator.userAgent.toLowerCase();
+        const file = new File([blob], name, {type: blob.type});
+        if(/micromessenger/.test(ua)) {
+          downloadBlob(blob, name);
+          showToast('微信里已改为下载文件');
+          alert('微信内置浏览器通常不能直接分享文件。文件已下载；如需转发，请在微信聊天里选择文件发送，或用 Safari/Chrome 打开本页再分享。');
+          return;
+        }
+        if(navigator.canShare && navigator.canShare({files:[file]})) {
+          await navigator.share({title, text:title, files:[file]});
+        } else {
+          downloadBlob(blob, name);
+          showToast('当前浏览器不支持直接分享文件，已改为下载');
+        }
+      }
+      async function copyText(text){
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch(e) {
+          const area = document.createElement('textarea');
+          area.value = text;
+          area.style.position = 'fixed';
+          area.style.left = '-9999px';
+          document.body.appendChild(area);
+          area.focus();
+          area.select();
+          document.execCommand('copy');
+          area.remove();
+        }
+      }
+      function filename(ext){ return '美元人民币汇率记录_' + today().replaceAll('-','') + ext; }
+
+      function backupFilename(){
+        return '汇率数据备份_' + today().replaceAll('-','') + '.json';
+      }
+      function makeBackupBlob(){
+        const data = {
+          app: 'OpenAA USD RMB Rate Records',
+          version: 1,
+          exportedAt: new Date().toISOString(),
+          records: load()
+        };
+        return new Blob([JSON.stringify(data, null, 2)], {type:'application/json;charset=utf-8'});
+      }
+      function normalizeBackupRows(data){
+        const rows = Array.isArray(data) ? data : (data && Array.isArray(data.records) ? data.records : null);
+        if(!rows) throw new Error('bad backup');
+        return rows.map((r) => ({
+          id: String(r.id || ('r_' + Date.now() + '_' + Math.random().toString(16).slice(2))),
+          date: String(r.date || '').slice(0,10),
+          type: (r.type === 'subtract' || num(r.usd) < 0) ? 'subtract' : 'add',
+          usd: num(r.usd),
+          rate: num(r.rate),
+          note: String(r.note || ''),
+          createdAt: String(r.createdAt || new Date().toISOString())
+        })).filter(r => r.date && r.usd !== 0 && r.rate !== 0);
+      }
+      function mergeBackupRows(current, incoming){
+        const seen = new Set();
+        const keyOf = (r) => String(r.id || '') + '|' + String(r.date || '') + '|' + Number(r.usd || 0).toFixed(2) + '|' + Number(r.rate || 0).toFixed(4) + '|' + String(r.note || '');
+        const merged = [];
+        current.forEach(r => {
+          const key = keyOf(r);
+          seen.add(key);
+          if(r.id) seen.add('id:' + r.id);
+          merged.push(r);
+        });
+        incoming.forEach(r => {
+          const key = keyOf(r);
+          const idKey = r.id ? ('id:' + r.id) : '';
+          if((idKey && seen.has(idKey)) || seen.has(key)) return;
+          seen.add(key);
+          if(idKey) seen.add(idKey);
+          merged.push(r);
+        });
+        return merged;
+      }
+      async function importBackupFile(file){
+        try {
+          const text = await file.text();
+          const incoming = normalizeBackupRows(JSON.parse(text));
+          if(!incoming.length) {
+            alert('备份文件里没有可导入的记录。');
+            return;
+          }
+          const current = load();
+          if(current.length) {
+            const choice = prompt('检测到当前浏览器已有 ' + current.length + ' 条记录，备份文件有 ' + incoming.length + ' 条记录。\n\n请输入导入方式：\n1 = 覆盖当前数据\n2 = 合并数据\n0 = 取消');
+            if(choice === '1') {
+              save(incoming);
+              showToast('已覆盖导入');
+            } else if(choice === '2') {
+              save(mergeBackupRows(current, incoming));
+              showToast('已合并导入');
+            } else {
+              showToast('已取消导入');
+              return;
+            }
+          } else {
+            save(incoming);
+            showToast('导入成功');
+          }
+          render();
+          goto('home');
+        } catch(err) {
+          alert('导入失败，请选择正确的数据备份文件。');
+        }
+      }
+
+
+      function openActionSheet(id){
+        const sheet = $(id);
+        if(!sheet) return;
+        sheet.classList.add('open');
+        sheet.setAttribute('aria-hidden', 'false');
+      }
+      function closeActionSheets(){
+        document.querySelectorAll('.fx-sheet-backdrop.open').forEach(sheet => {
+          sheet.classList.remove('open');
+          sheet.setAttribute('aria-hidden', 'true');
+        });
+      }
+      async function shareBackupFile(){
+        await shareBlob(makeBackupBlob(), backupFilename(), '汇率数据备份');
+      }
+
+      window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredInstallPrompt = e; });
+      document.addEventListener('click', (e) => {
+        const go = e.target.closest('[data-goto]');
+        if(go){ if(go.dataset.goto === 'input') resetForm(); goto(go.dataset.goto); }
+        const edit = e.target.closest('[data-edit]');
+        if(edit) editRecord(edit.dataset.edit);
+        const del = e.target.closest('[data-delete]');
+        if(del) deleteRecord(del.dataset.delete);
+      });
+      ['fxUsd','fxRate'].forEach(id => $(id)?.addEventListener('input', updatePreview));
+      document.querySelectorAll('.fx-type-btn').forEach(btn => btn.addEventListener('click', () => setRecordType(btn.dataset.typeValue)));
+      $('fxForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        updateInputWarnings();
+        if(!confirmInputWarnings()) return;
+        const rows = load();
+        const id = $('editId').value || ('r_' + Date.now() + '_' + Math.random().toString(16).slice(2));
+        const type = $('fxType')?.value === 'subtract' ? 'subtract' : 'add';
+        const signedUsd = num($('fxUsd').value) * (type === 'subtract' ? -1 : 1);
+        const row = { id, type, date:$('fxDate').value, usd:signedUsd, rate:num($('fxRate').value), note:$('fxNote').value.trim(), createdAt:new Date().toISOString() };
+        const idx = rows.findIndex(r=>r.id===id);
+        if(idx >= 0) rows[idx] = {...rows[idx], ...row}; else rows.push(row);
+        save(rows); resetForm(); goto('saved'); showToast('保存成功');
+      });
+      $('continueAddBtn')?.addEventListener('click', () => { resetForm(); goto('input'); });
+      $('monthPicker')?.addEventListener('change', render);
+      $('yearPicker')?.addEventListener('input', render);
+      $('clearYearBtn')?.addEventListener('click', ()=>{ $('yearPicker').value=''; render(); });
+      $('excelFileBtn')?.addEventListener('click', ()=> openActionSheet('excelActionSheet'));
+      $('backupFileBtn')?.addEventListener('click', ()=> openActionSheet('backupActionSheet'));
+      document.querySelectorAll('[data-close-sheet]').forEach(btn => btn.addEventListener('click', closeActionSheets));
+      document.querySelectorAll('.fx-sheet-backdrop').forEach(sheet => sheet.addEventListener('click', (e)=>{ if(e.target === sheet) closeActionSheets(); }));
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeActionSheets(); });
+      $('downloadXlsBtn')?.addEventListener('click', ()=> { downloadBlob(makeXlsxBlob(), filename('.xlsx')); closeActionSheets(); });
+      $('shareXlsBtn')?.addEventListener('click', async ()=> { await shareBlob(makeXlsxBlob(), filename('.xlsx'), '美元人民币汇率记录'); closeActionSheets(); });
+      async function copySummary(){
+        const s = summarize(sorted());
+        const text = '美元人民币汇率记录\n\n新增美金总金额：$'+money(s.addUsd)+'\n减去美金总金额：'+signedMoneyText(-Math.abs(s.subtractUsd || 0), '$')+'\n美金净金额：'+signedMoneyText(s.netUsd, '$')+'\n平均汇率：'+fixedRate(s.rateAvg)+'\n新增人民币总金额：¥'+money(s.addCny)+'\n减去人民币总金额：'+signedMoneyText(-Math.abs(s.subtractCny || 0), '¥')+'\n人民币净金额：'+signedMoneyText(s.netCny, '¥')+'\n记录行数：'+s.count+' 行\n有记录月份：'+(s.monthCount || 0)+' 个月\n每月平均美金：'+signedMoneyText(s.monthAvgUsd, '$')+'\n每月平均人民币：'+signedMoneyText(s.monthAvgCny, '¥');
+        await copyText(text);
+        showToast('已复制，可到微信粘贴发送');
+        alert('汇总内容已复制。请打开微信聊天窗口，长按输入框粘贴发送。');
+      }
+      $('copySummaryBtn')?.addEventListener('click', copySummary);
+      $('downloadBackupBtn')?.addEventListener('click', ()=> { downloadBlob(makeBackupBlob(), backupFilename()); closeActionSheets(); });
+      $('shareBackupBtn')?.addEventListener('click', async ()=> { await shareBackupFile(); closeActionSheets(); });
+      $('importBackupInput')?.addEventListener('change', async (e)=>{
+        const file = e.target.files && e.target.files[0];
+        if(file) { closeActionSheets(); await importBackupFile(file); }
+        e.target.value = '';
+      });
+      $('installAppBtnExport')?.addEventListener('click', ()=> $('installAppBtn')?.click());
+      $('clearDataBtn')?.addEventListener('click', ()=>{ if(confirm('确定清空全部数据吗？此操作不可恢复。')){ save([]); render(); showToast('已清空'); }});
+      $('installAppBtn')?.addEventListener('click', async ()=>{
+        const ua = navigator.userAgent.toLowerCase();
+        if(deferredInstallPrompt) {
+          deferredInstallPrompt.prompt();
+          await deferredInstallPrompt.userChoice;
+          deferredInstallPrompt = null;
+        } else if(/iphone|ipad|ipod/.test(ua)) {
+          alert('iPhone 安装方法：请用 Safari 打开本页，点击底部“分享”按钮，然后选择“添加到主屏幕”。\n\n如果在微信里，请先点右上角，用 Safari 打开。');
+        } else {
+          alert('请用 Chrome/Edge 打开本页，然后在浏览器菜单选择“安装应用”或“添加到主屏幕”。如果在微信里，请先用浏览器打开。');
+        }
+      });
+      resetForm();
+      if($('monthPicker')) $('monthPicker').value = latestMonth(sorted());
+      render();
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').catch(()=>{});
+      }
+    })();
+
+  </script>
+</body>
+</html>
