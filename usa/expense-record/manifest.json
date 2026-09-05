@@ -1,0 +1,8 @@
+{
+  "name": "生活开支记录工具",
+  "short_name": "开支记录",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "lang": "zh-CN"
+}
