@@ -1,0 +1,42 @@
+name: One-time ToolKu canonical migration
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Move USA tool SEO ownership to ToolKu
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            usa/dmv/6-points-calculator.html
+            usa/dmv/document-checker.html
+            usa/dmv/real-id-checker.html
+            usa/dmv/real-id-vs-standard-vs-enhanced.html
+            usa/usd-rmb/index.html
+            usa/expense-record/index.html
+          )
+          for file in "${files[@]}"; do
+            sed -i 's#https://tools\.openaa\.com/#https://toolku.com/#g' "$file"
+          done
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "${files[@]}"
+          if git diff --cached --quiet; then
+            echo 'No canonical changes needed.'
+            exit 0
+          fi
+          git commit -m 'Fix USA tool canonical and OG URLs for ToolKu'
+          git push
