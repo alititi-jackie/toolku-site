@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Move USA tool SEO ownership to ToolKu
+      - name: Move USA tool SEO ownership to ToolKu and remove migration workflow
         shell: bash
         run: |
           set -euo pipefail
@@ -34,9 +34,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "${files[@]}"
-          if git diff --cached --quiet; then
-            echo 'No canonical changes needed.'
-            exit 0
-          fi
+          rm -f .github/workflows/seo-canonical-migration.yml
+          git add .github/workflows/seo-canonical-migration.yml
           git commit -m 'Fix USA tool canonical and OG URLs for ToolKu'
           git push
