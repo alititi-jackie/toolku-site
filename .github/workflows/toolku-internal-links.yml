@@ -1,7 +1,8 @@
 name: ToolKu internal link upgrade
 
 on:
-  workflow_dispatch:
+  push:
+    branches: ["main"]
 
 permissions:
   contents: write
@@ -43,7 +44,6 @@ jobs:
             'psi-bar': [('hp-kw','HP kW 马力千瓦换算'),('mpg','MPG 油耗换算'),('weight','磅公斤换算')],
             'hp-kw': [('psi-bar','PSI Bar 压力换算'),('car-payment','汽车月供计算器'),('mpg','MPG 油耗换算')],
           }
-
           cta = {
             'tip-calculator': ('openaa.com/services','附近餐厅、外卖、理发和本地服务，可以继续在 OpenAA 查找。'),
             'salary-calculator': ('openaa.com/jobs','算完工资后，可以继续在 OpenAA 查看美国华人招聘和求职信息。'),
@@ -70,64 +70,35 @@ jobs:
             'psi-bar': ('openaa.com/services','汽车、设备维修和本地技术服务，可以继续在 OpenAA 查找。'),
             'hp-kw': ('openaa.com/services','汽车、电机和设备相关的本地服务，可以继续在 OpenAA 查找。'),
           }
-
           for slug, links in related.items():
               path = Path('tools') / slug / 'index.html'
-              if not path.exists():
-                  continue
+              if not path.exists(): continue
               text = path.read_text(encoding='utf-8')
-
               nav_links = ['<a href="/tools/">← 工具导航</a>']
               for target, label in links:
-                  if target == 'usd-rmb':
-                      href = '/usa/usd-rmb/'
-                  else:
-                      href = f'/tools/{target}/'
+                  href = '/usa/usd-rmb/' if target == 'usd-rmb' else f'/tools/{target}/'
                   nav_links.append(f'<a href="{href}">{label}</a>')
               nav = '<div class="tool-nav" aria-label="相关工具">' + ''.join(nav_links) + '</div>'
               pattern = r'<div class="tool-nav"[^>]*>.*?</div>'
-              if re.search(pattern, text, flags=re.S):
-                  text = re.sub(pattern, nav, text, count=1, flags=re.S)
-              else:
-                  text = text.replace('</article>', nav + '</article>', 1)
-
-              if slug in cta:
-                  href, desc = cta[slug]
-                  cta_html = (
-                      '<section class="openaa-cta">'
-                      '<div><div class="cta-eyebrow">🇺🇸 OpenAA · 美国华人生活入口</div>'
-                      '<h2>工具解决问题，OpenAA 解决生活</h2>'
-                      f'<p>{desc}</p></div>'
-                      f'<a class="cta-button" href="https://{href}" target="_blank" rel="noopener noreferrer">进入 OpenAA →</a>'
-                      '</section>'
-                  )
-                  cta_pattern = r'<section class="openaa-cta">.*?</section>'
-                  if re.search(cta_pattern, text, flags=re.S):
-                      text = re.sub(cta_pattern, cta_html, text, count=1, flags=re.S)
-                  else:
-                      text = text.replace('</article>', cta_html + '</article>', 1)
-
+              text = re.sub(pattern, nav, text, count=1, flags=re.S) if re.search(pattern, text, flags=re.S) else text.replace('</article>', nav + '</article>', 1)
+              href, desc = cta[slug]
+              cta_html = '<section class="openaa-cta"><div><div class="cta-eyebrow">🇺🇸 OpenAA · 美国华人生活入口</div><h2>工具解决问题，OpenAA 解决生活</h2><p>' + desc + '</p></div><a class="cta-button" href="https://' + href + '" target="_blank" rel="noopener noreferrer">进入 OpenAA →</a></section>'
+              cta_pattern = r'<section class="openaa-cta">.*?</section>'
+              text = re.sub(cta_pattern, cta_html, text, count=1, flags=re.S) if re.search(cta_pattern, text, flags=re.S) else text.replace('</article>', cta_html + '</article>', 1)
               path.write_text(text, encoding='utf-8')
-
-          # Sitemap freshness: keep all known ToolKu URLs indexable and current.
           sitemap = Path('sitemap.xml')
           if sitemap.exists():
               s = sitemap.read_text(encoding='utf-8')
-              s = re.sub(r'<lastmod>[^<]+</lastmod>', '<lastmod>2026-09-06</lastmod>', s)
-              if '<lastmod>' not in s:
-                  s = s.replace('</loc>', '</loc><lastmod>2026-09-06</lastmod>')
+              if '<lastmod>' in s: s = re.sub(r'<lastmod>[^<]+</lastmod>', '<lastmod>2026-09-06</lastmod>', s)
+              else: s = s.replace('</loc>', '</loc><lastmod>2026-09-06</lastmod>')
               sitemap.write_text(s, encoding='utf-8')
           PY
-
       - name: Commit changes and remove one-time workflow
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tools sitemap.xml
           git rm .github/workflows/toolku-internal-links.yml
-          if git diff --cached --quiet; then
-            echo "No changes"
-            exit 0
-          fi
+          if git diff --cached --quiet; then exit 0; fi
           git commit -m "feat: strengthen tool internal linking and OpenAA funnel"
           git push
