@@ -1,6 +1,8 @@
 name: ToolKu one-time SEO batch
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,110 +13,72 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Upgrade tool pages
         run: |
           python3 <<'PY'
           from pathlib import Path
           import json, re
-
           mapping = {
-            'salary-calculator': ('招聘与工资','找工作、招聘信息和美国华人生活服务，可以继续进入 OpenAA。','https://openaa.com/jobs'),
-            'hourly-to-salary': ('招聘与工资','找工作、招聘信息和美国华人生活服务，可以继续进入 OpenAA。','https://openaa.com/jobs'),
-            'split-bill': ('生活服务','找工作、找房、二手和本地生活服务，可以继续进入 OpenAA。','https://openaa.com'),
-            'sales-tax': ('购物与生活','查找工作、二手、房屋和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'discount': ('购物与生活','查找二手、工作、房屋和本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'currency': ('美国生活','找工作、找房、二手和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'temperature': ('单位换算','需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
-            'weight': ('单位换算','需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
-            'length': ('单位换算','看房、购物和生活中还有更多美国华人实用信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'distance': ('汽车与出行','找车、二手、工作和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'area': ('房屋与面积','找房、租房和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'volume': ('单位换算','需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
-            'mpg': ('汽车与出行','查看二手车、汽车和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'gas-cost': ('汽车与出行','查看二手车、汽车服务和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'car-payment': ('汽车与出行','查看二手车、汽车服务和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'mortgage': ('房屋与住房','找房、租房和美国华人住房信息，可以继续进入 OpenAA。','https://openaa.com/housing'),
-            'china-us-time': ('美国生活','找工作、找房、新闻和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'age': ('时间日期','需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
-            'date-difference': ('时间日期','需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
-            'shoe-size': ('美国生活','购物、二手和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'mattress-size': ('房屋与生活','找房、租房和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com/housing'),
-            'psi-bar': ('技术换算','汽车、工业设备和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'hp-kw': ('技术换算','汽车、工业设备和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
-            'tip-calculator': ('餐饮与生活','找工作、找房、二手和美国华人本地生活服务，可以继续进入 OpenAA。','https://openaa.com'),
+            'salary-calculator': ('找工作、招聘信息和美国华人生活服务，可以继续进入 OpenAA。','https://openaa.com/jobs'),
+            'hourly-to-salary': ('找工作、招聘信息和美国华人生活服务，可以继续进入 OpenAA。','https://openaa.com/jobs'),
+            'split-bill': ('找工作、找房、二手和本地生活服务，可以继续进入 OpenAA。','https://openaa.com'),
+            'sales-tax': ('查找工作、二手、房屋和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'discount': ('查找二手、工作、房屋和本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'currency': ('找工作、找房、二手和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'temperature': ('需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
+            'weight': ('需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
+            'length': ('看房、购物和生活中还有更多美国华人实用信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'distance': ('找车、二手、工作和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'area': ('找房、租房和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com/housing'),
+            'volume': ('需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
+            'mpg': ('查看二手车、汽车和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'gas-cost': ('查看二手车、汽车服务和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'car-payment': ('查看二手车、汽车服务和美国华人本地生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'mortgage': ('找房、租房和美国华人住房信息，可以继续进入 OpenAA。','https://openaa.com/housing'),
+            'china-us-time': ('找工作、找房、新闻和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'age': ('需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
+            'date-difference': ('需要更多美国华人生活服务？可以继续进入 OpenAA。','https://openaa.com'),
+            'shoe-size': ('购物、二手和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'mattress-size': ('找房、租房和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com/housing'),
+            'psi-bar': ('汽车、工业设备和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'hp-kw': ('汽车、工业设备和美国华人生活信息，可以继续进入 OpenAA。','https://openaa.com'),
+            'tip-calculator': ('找工作、找房、二手和美国华人本地生活服务，可以继续进入 OpenAA。','https://openaa.com'),
           }
-
           for p in sorted(Path('tools').glob('*/index.html')):
               slug = p.parent.name
-              if slug not in mapping:
-                  continue
+              if slug not in mapping: continue
               s = p.read_text(encoding='utf-8')
-              category, cta_text, cta_url = mapping[slug]
-
-              title_m = re.search(r'<title>(.*?)</title>', s, re.S)
-              desc_m = re.search(r'<meta name="description" content="(.*?)">', s, re.S)
-              canon_m = re.search(r'<link rel="canonical" href="(.*?)">', s, re.S)
-              h1_m = re.search(r'<h1>(.*?)</h1>', s, re.S)
-              if not (title_m and desc_m and canon_m and h1_m):
-                  print('SKIP incomplete:', p)
-                  continue
-
-              title = title_m.group(1).strip()
-              desc = desc_m.group(1).strip()
-              canon = canon_m.group(1).strip()
-              h1 = re.sub('<[^>]+>', '', h1_m.group(1)).strip()
-
+              cta_text, cta_url = mapping[slug]
+              tm=re.search(r'<title>(.*?)</title>',s,re.S); dm=re.search(r'<meta name="description" content="(.*?)">',s,re.S); cm=re.search(r'<link rel="canonical" href="(.*?)">',s,re.S); hm=re.search(r'<h1>(.*?)</h1>',s,re.S)
+              if not (tm and dm and cm and hm): print('SKIP',p); continue
+              title,desc,canon=[x.group(1).strip() for x in (tm,dm,cm)]
+              h1=re.sub('<[^>]+>','',hm.group(1)).strip()
               if 'property="og:title"' not in s:
-                  insert = (f'<meta property="og:type" content="website"><meta property="og:locale" content="zh_CN">'
-                            f'<meta property="og:title" content="{title}"><meta property="og:description" content="{desc}">'
-                            f'<meta property="og:url" content="{canon}"><meta name="twitter:card" content="summary">'
-                            f'<meta name="twitter:title" content="{title}"><meta name="twitter:description" content="{desc}">')
-                  s = s.replace(f'<link rel="canonical" href="{canon}">', f'<link rel="canonical" href="{canon}">{insert}', 1)
-
+                  tags=f'<meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="{title}"><meta property="og:description" content="{desc}"><meta property="og:url" content="{canon}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{title}"><meta name="twitter:description" content="{desc}">'
+                  s=s.replace(f'<link rel="canonical" href="{canon}">',f'<link rel="canonical" href="{canon}">{tags}',1)
               if 'class="openaa-cta"' not in s:
-                  cta = (f'<section class="openaa-cta"><div><div class="cta-eyebrow">🇺🇸 OpenAA · 美国华人生活入口</div>'
-                         f'<h2>工具解决问题，OpenAA 解决生活</h2><p>{cta_text}</p></div>'
-                         f'<a class="cta-button" href="{cta_url}" target="_blank" rel="noopener noreferrer">进入 OpenAA →</a></section>')
-                  if '<div class="tool-nav">' in s:
-                      s = s.replace('<div class="tool-nav">', cta + '<div class="tool-nav">', 1)
-                  else:
-                      s = s.replace('</article>', cta + '</article>', 1)
-
+                  cta=f'<section class="openaa-cta"><div><div class="cta-eyebrow">🇺🇸 OpenAA · 美国华人生活入口</div><h2>工具解决问题，OpenAA 解决生活</h2><p>{cta_text}</p></div><a class="cta-button" href="{cta_url}" target="_blank" rel="noopener noreferrer">进入 OpenAA →</a></section>'
+                  s=s.replace('<div class="tool-nav">',cta+'<div class="tool-nav">',1) if '<div class="tool-nav">' in s else s.replace('</article>',cta+'</article>',1)
               if '"@type":"BreadcrumbList"' not in s:
-                  breadcrumb = json.dumps({
-                      '@context':'https://schema.org', '@type':'BreadcrumbList',
-                      'itemListElement':[
-                          {'@type':'ListItem','position':1,'name':'首页','item':'https://toolku.com/'},
-                          {'@type':'ListItem','position':2,'name':'工具','item':'https://toolku.com/tools/'},
-                          {'@type':'ListItem','position':3,'name':h1,'item':canon}
-                      ]
-                  }, ensure_ascii=False, separators=(',',':'))
-                  s = s.replace('</head>', f'<script type="application/ld+json">{breadcrumb}</script></head>', 1)
-
+                  b=json.dumps({'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'首页','item':'https://toolku.com/'},{'@type':'ListItem','position':2,'name':'工具','item':'https://toolku.com/tools/'},{'@type':'ListItem','position':3,'name':h1,'item':canon}]},ensure_ascii=False,separators=(',',':'))
+                  s=s.replace('</head>',f'<script type="application/ld+json">{b}</script></head>',1)
               if '"@type":"FAQPage"' not in s:
-                  faq = []
-                  for q, a in re.findall(r'<div class="faq">\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>\s*</div>', s, re.S):
-                      q = re.sub('<[^>]+>', '', q).strip()
-                      a = re.sub('<[^>]+>', '', a).strip()
-                      faq.append({'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}})
+                  faq=[]
+                  for q,a in re.findall(r'<div class="faq">\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>\s*</div>',s,re.S):
+                      faq.append({'@type':'Question','name':re.sub('<[^>]+>','',q).strip(),'acceptedAnswer':{'@type':'Answer','text':re.sub('<[^>]+>','',a).strip()}})
                   if faq:
-                      data = json.dumps({'@context':'https://schema.org','@type':'FAQPage','mainEntity':faq}, ensure_ascii=False, separators=(',',':'))
-                      s = s.replace('</head>', f'<script type="application/ld+json">{data}</script></head>', 1)
-
-              p.write_text(s, encoding='utf-8')
-              print('UPDATED', p)
+                      data=json.dumps({'@context':'https://schema.org','@type':'FAQPage','mainEntity':faq},ensure_ascii=False,separators=(',',':'))
+                      s=s.replace('</head>',f'<script type="application/ld+json">{data}</script></head>',1)
+              p.write_text(s,encoding='utf-8'); print('UPDATED',p)
           PY
-
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tools
-          git diff --cached --quiet && { echo "No changes"; exit 0; }
+          git diff --cached --quiet && exit 0
           git commit -m "seo: upgrade individual ToolKu landing pages"
           git push
-
       - name: Remove one-time workflow
         if: always()
         run: |
