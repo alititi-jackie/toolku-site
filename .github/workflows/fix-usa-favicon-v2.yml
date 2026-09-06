@@ -1,0 +1,58 @@
+name: Fix USA favicon paths
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Normalize USA favicon links
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          files = list(Path('usa').rglob('*.html'))
+          for p in files:
+              s = p.read_text(encoding='utf-8')
+              old = s
+              import re
+              s = re.sub(r'\s*<link rel="icon" href="[^"]+"\s*/>', '\n  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />\n  <link rel="icon" href="/favicon.ico" sizes="any" />', s, count=1)
+              s = re.sub(r'\s*<link rel="apple-touch-icon" href="[^"]+"\s*/>', '\n  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />', s, count=1)
+              if p.as_posix() == 'usa/expense-record/index.html':
+                  s = s.replace('https://toolku.com/usa/expense/', 'https://toolku.com/usa/expense-record/')
+              if s != old:
+                  p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add usa
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "fix: normalize USA favicon links"
+          git push
+
+      - name: Remove temporary workflow
+        if: success()
+        shell: bash
+        run: |
+          git rm .github/workflows/fix-usa-favicon-v2.yml || true
+          git commit -m "chore: remove temporary favicon workflow" || true
+          git push || true
