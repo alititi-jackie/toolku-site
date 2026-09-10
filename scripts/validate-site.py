@@ -25,15 +25,8 @@ class PageParser(HTMLParser):
             self.ids.add(a['id'])
 
         resource_attrs = {
-            'a': 'href',
-            'link': 'href',
-            'script': 'src',
-            'img': 'src',
-            'source': 'src',
-            'video': 'src',
-            'audio': 'src',
-            'iframe': 'src',
-            'object': 'data',
+            'a': 'href', 'link': 'href', 'script': 'src', 'img': 'src',
+            'source': 'src', 'video': 'src', 'audio': 'src', 'iframe': 'src', 'object': 'data'
         }
         attr = resource_attrs.get(tag)
         if attr and a.get(attr):
@@ -42,7 +35,7 @@ class PageParser(HTMLParser):
 
 def local_path(value):
     parsed = urlparse(value)
-    if parsed.scheme in ('http', 'https):
+    if parsed.scheme in ('http', 'https'):
         if parsed.netloc not in ('toolku.com', 'www.toolku.com'):
             return None
         value = parsed.path or '/'
