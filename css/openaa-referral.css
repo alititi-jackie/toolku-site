@@ -122,6 +122,14 @@
     font-weight: 700;
   }
 
+  .tools-index-page .site-header nav a:first-child {
+    display: block !important;
+  }
+
+  .tools-index-page .site-header nav a:nth-child(2) {
+    display: none !important;
+  }
+
   .openaa-next-step {
     display: block;
     margin-top: 16px;
