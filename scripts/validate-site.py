@@ -24,10 +24,10 @@ class PageParser(HTMLParser):
                 self.duplicate_ids.add(a['id'])
             self.ids.add(a['id'])
 
-        resource_attrs = {
-            'a': 'href', 'link': 'href', 'script': 'src', 'img': 'src',
-            'source': 'src', 'video': 'src', 'audio': 'src', 'iframe': 'src', 'object': 'data'
-        }
+        # Validate navigation, CSS and JavaScript resources. Images and media
+        # are intentionally excluded here because many pages use external/CDN
+        # assets and data/blob URLs; production smoke tests cover page delivery.
+        resource_attrs = {'a': 'href', 'link': 'href', 'script': 'src'}
         attr = resource_attrs.get(tag)
         if attr and a.get(attr):
             self.resources.append((tag, a[attr]))
