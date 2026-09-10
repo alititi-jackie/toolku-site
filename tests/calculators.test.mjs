@@ -93,3 +93,10 @@ dmvWindow.checkDmvDocs();
 includes(dmvElements.dmvResult.innerHTML,'6 Points','DMV document checker');
 
 console.log('Calculator tests passed: 27 result cases, catalog integrity, and DMV checker.');
+
+for (const app of ['expense-record','usd-rmb']) {
+  const html=fs.readFileSync('usa/'+app+'/index.html','utf8');
+  const js=fs.readFileSync('js/usa/'+app+'.js','utf8');
+  assert.match(html,/onclick="shareOpenAA\(\)"/,app+' share button must call shareOpenAA');
+  assert.match(js,/async function shareOpenAA\(\)/,app+' must define shareOpenAA');
+}
