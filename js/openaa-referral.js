@@ -156,6 +156,9 @@
   }
 
   function init() {
+    if (path === '/tools/' || path === '/tools/index.html') {
+      document.body.classList.add('tools-index-page');
+    }
     updateHeader();
     if (path === '/' || path === '/tools/' || path === '/tools/index.html') buildHomepageEntry();
     else if (path !== '/404.html') buildContextualEntry();
