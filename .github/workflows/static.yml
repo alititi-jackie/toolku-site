@@ -48,6 +48,8 @@ jobs:
           done < <(find . -type f -name '*.js' -not -path './.git/*' -print0)
       - name: Validate inline JavaScript syntax
         run: python3 scripts/validate-inline-js.py
+      - name: Test calculator results
+        run: node tests/calculators.test.mjs
       - name: Validate JSON files
         shell: bash
         run: |
