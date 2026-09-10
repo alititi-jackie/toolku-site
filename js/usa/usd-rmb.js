@@ -1,3 +1,18 @@
+async function shareOpenAA(){
+  const url=new URL(location.pathname,location.origin).href;
+  const data={title:document.title,text:'ToolKu 美国华人生活工具',url};
+  if(typeof navigator.share==='function'){
+    try{await navigator.share(data);return}catch(error){if(error&&error.name==='AbortError')return}
+  }
+  try{
+    if(navigator.clipboard&&typeof navigator.clipboard.writeText==='function')await navigator.clipboard.writeText(url);
+    else{
+      const input=document.createElement('textarea');input.value=url;input.setAttribute('readonly','');input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();
+      const copied=document.execCommand('copy');input.remove();if(!copied)throw new Error('copy failed');
+    }
+    showToast('链接已复制，可以粘贴分享');
+  }catch(error){alert('无法自动复制，请手动复制链接：\n'+url)}
+}
 function showToast(text){const old=document.querySelector('.toast');if(old)old.remove();const t=document.createElement('div');t.className='toast';t.textContent=text;document.body.appendChild(t);setTimeout(()=>t.remove(),2400)}
 /* 美元人民币汇率记录工具：本地保存 + 导出分享 */
     (function initFxApp(){
