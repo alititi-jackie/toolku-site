@@ -42,7 +42,7 @@ class PageParser(HTMLParser):
 
 def local_path(value):
     parsed = urlparse(value)
-    if parsed.scheme in ('http', 'https'):
+    if parsed.scheme in ('http', 'https):
         if parsed.netloc not in ('toolku.com', 'www.toolku.com'):
             return None
         value = parsed.path or '/'
@@ -61,10 +61,13 @@ def resolve_relative(value, source):
 
 
 def check_target(source, value):
-    if value.startswith(('#', 'mailto:', 'tel:', 'javascript:')) or value.startswith('//'):
+    lower = value.strip().lower()
+    if lower.startswith(('#', 'mailto:', 'tel:', 'javascript:', 'data:', 'blob:', 'about:')) or lower.startswith('//'):
         return
     parsed = urlparse(value)
     if parsed.scheme in ('http', 'https') and parsed.netloc not in ('toolku.com', 'www.toolku.com'):
+        return
+    if parsed.scheme and parsed.scheme not in ('http', 'https'):
         return
     target = local_path(value)
     if target is None:
