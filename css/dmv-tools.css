@@ -1,0 +1,53 @@
+/* Shared navigation and base components for ToolKu DMV tools. */
+
+          /* OpenAA DMV 工具分类导航栏 */
+          .dmv-tool-nav-card {
+            background: #fff;
+            border: 1px solid #eceef3;
+            border-radius: 16px;
+            padding: 10px;
+            margin: 0 0 12px;
+            box-shadow: 0 1px 4px rgba(0,0,0,.05);
+          }
+          .dmv-tool-nav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 2px 1px 4px;
+          }
+          .dmv-tool-nav::-webkit-scrollbar { display: none; }
+          .dmv-tool-link {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 36px;
+            padding: 8px 13px;
+            border-radius: 999px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            color: #334155;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1;
+            white-space: nowrap;
+            box-shadow: 0 1px 3px rgba(15,23,42,.04);
+            -webkit-tap-highlight-color: transparent;
+          }
+          .dmv-tool-link:active { transform: scale(.96); }
+          .dmv-tool-link.active {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(37,99,235,.22);
+          }
+          @media (max-width: 360px) {
+            .dmv-tool-link { padding-left: 12px; padding-right: 12px; font-size: 13px; }
+          }
+        
+.usa-tool-page .notice-box{border-radius:14px;padding:12px 14px;background:#fff9e8;border-left:4px solid #d8a100;color:#67531b}
+.usa-tool-page .mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.usa-tool-page .mini-card{background:#f8fafc;border:1px solid #e6eaf0;border-radius:12px;padding:13px}
+@media(max-width:560px){.usa-tool-page .mini-grid{grid-template-columns:1fr}}

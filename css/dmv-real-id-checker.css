@@ -1,0 +1,12 @@
+.realid-tool h1 { margin-bottom: 8px; }
+          .realid-form { display: grid; gap: 10px; margin: 12px 0; }
+          .check-row { display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border: 1px solid #eef2f7; border-radius: 14px; padding: 12px; font-size: 14px; line-height: 1.55; color: #334155; cursor: pointer; }
+          .check-row input { margin-top: 3px; width: 18px; height: 18px; flex: 0 0 auto; accent-color: #2563eb; }
+          .realid-btn { width: 100%; border: 0; border-radius: 14px; background: #2563eb; color: #fff; font-size: 16px; font-weight: 800; padding: 13px 16px; cursor: pointer; box-shadow: 0 8px 20px rgba(37,99,235,.22); }
+          .result-box { margin-top: 12px; border-radius: 14px; border: 1px solid #e5e7eb; background: #fff; padding: 13px; color: #334155; font-size: 14px; line-height: 1.65; }
+          .result-box.ok { background: #ecfdf5; border-color: #bbf7d0; color: #065f46; }
+          .result-box.warn { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+          .result-box.bad { background: #fff1f2; border-color: #fecdd3; color: #9f1239; }
+          .result-box ul { margin: 8px 0 0 18px; }
+          .realid-grid .mini-card span { white-space: normal; }
+          .official-links a { color: #2563eb; font-weight: 700; text-decoration: underline; }

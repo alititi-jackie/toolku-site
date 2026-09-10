@@ -1,5 +1,5 @@
 /* ToolKu unified presentation for the advanced tools under /usa/. */
-.usa-tool-page{padding:0;background:#f7f8fb;color:#172033}
+.usa-tool-page{padding:0;background:#f7f8fb;color:#172033;--app-blue:#111827;--app-text:#172033;--app-muted:#657184;--app-border:#e4e8ee}
 .usa-tool-page>.site-header{display:flex}
 .usa-tool-page .app-shell{width:100%;max-width:none;min-height:0;margin:0;background:transparent;box-shadow:none}
 .usa-tool-page .app-header,.usa-tool-page .header-spacer,.usa-tool-page .top-links-panel,
