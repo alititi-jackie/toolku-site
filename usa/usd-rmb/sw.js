@@ -1,4 +1,4 @@
-const CACHE_NAME = 'toolku-usd-rmb-v2';
+const CACHE_NAME = 'toolku-usd-rmb-v3';
 const CORE_ASSETS = ['./'];
 
 self.addEventListener('install', (event) => {
