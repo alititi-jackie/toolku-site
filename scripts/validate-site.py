@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lightweight static-site validation with no third-party dependencies."""
+"""Dependency-free static-site validation for ToolKu."""
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlparse
@@ -13,20 +13,32 @@ class PageParser(HTMLParser):
     def __init__(self, path):
         super().__init__(convert_charrefs=True)
         self.path = path
-        self.links = []
-        self.scripts = []
+        self.resources = []
         self.ids = set()
         self.duplicate_ids = set()
+
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
-        if 'id' in a:
+        if 'id' in a and a['id']:
             if a['id'] in self.ids:
                 self.duplicate_ids.add(a['id'])
             self.ids.add(a['id'])
-        if tag == 'a' and a.get('href'):
-            self.links.append(a['href'])
-        if tag == 'script' and a.get('src'):
-            self.scripts.append(a['src'])
+
+        resource_attrs = {
+            'a': 'href',
+            'link': 'href',
+            'script': 'src',
+            'img': 'src',
+            'source': 'src',
+            'video': 'src',
+            'audio': 'src',
+            'iframe': 'src',
+            'object': 'data',
+        }
+        attr = resource_attrs.get(tag)
+        if attr and a.get(attr):
+            self.resources.append((tag, a[attr]))
+
 
 def local_path(value):
     parsed = urlparse(value)
@@ -39,16 +51,14 @@ def local_path(value):
     value = value.split('#', 1)[0].split('?', 1)[0]
     if not value:
         return None
-    if value.startswith('/'):
-        path = ROOT / value.lstrip('/')
-    else:
-        path = None
-    return path
+    return ROOT / value.lstrip('/') if value.startswith('/') else None
+
 
 def resolve_relative(value, source):
     if value.startswith('/'):
         return ROOT / value.lstrip('/')
     return (source.parent / value).resolve()
+
 
 def check_target(source, value):
     if value.startswith(('#', 'mailto:', 'tel:', 'javascript:')) or value.startswith('//'):
@@ -62,7 +72,8 @@ def check_target(source, value):
     if target.is_dir():
         target = target / 'index.html'
     if not target.exists():
-        errors.append(f'{source.relative_to(ROOT)}: broken local link/resource -> {value}')
+        errors.append(f'{source.relative_to(ROOT)}: broken local resource -> {value}')
+
 
 for html in ROOT.rglob('*.html'):
     if any(part in {'.git', 'node_modules'} for part in html.parts):
@@ -73,10 +84,8 @@ for html in ROOT.rglob('*.html'):
     except Exception as exc:
         errors.append(f'{html.relative_to(ROOT)}: HTML parse error: {exc}')
         continue
-    for href in parser.links:
-        check_target(html, href)
-    for src in parser.scripts:
-        check_target(html, src)
+    for _, value in parser.resources:
+        check_target(html, value)
     for dup in sorted(parser.duplicate_ids):
         errors.append(f'{html.relative_to(ROOT)}: duplicate id="{dup}"')
 
@@ -85,16 +94,20 @@ if sitemap.exists():
     text = sitemap.read_text(encoding='utf-8')
     for loc in re.findall(r'<loc>(.*?)</loc>', text):
         check_target(sitemap, loc)
-    if re.search(r'<lastmod>\d{4}-\d{2}-\d{2}</lastmod>', text):
-        # lastmod is intentionally allowed, but future dates are rejected.
-        from datetime import date
-        for value in re.findall(r'<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>', text):
-            if value > date.today().isoformat():
-                errors.append(f'sitemap.xml: future lastmod date {value}')
+    from datetime import date
+    for value in re.findall(r'<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>', text):
+        if value > date.today().isoformat():
+            errors.append(f'sitemap.xml: future lastmod date {value}')
+
+robots = ROOT / 'robots.txt'
+if robots.exists():
+    robots_text = robots.read_text(encoding='utf-8')
+    if 'Sitemap: https://toolku.com/sitemap.xml' not in robots_text:
+        errors.append('robots.txt: canonical sitemap declaration is missing')
 
 if errors:
     print('\n'.join(f'ERROR: {x}' for x in errors))
     print(f'\nValidation failed with {len(errors)} error(s).')
     sys.exit(1)
 
-print('Static site validation passed: local links/resources and duplicate IDs checked.')
+print('Static site validation passed: HTML resources, local links, duplicate IDs, sitemap and robots.txt checked.')
