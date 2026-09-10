@@ -1,5 +1,137 @@
-(()=>{const $=id=>document.getElementById(id),n=id=>{const v=Number($(id)?.value);return Number.isFinite(v)?v:null},out=(v,l)=>{const e=$('result');if(e)e.innerHTML=`<strong>${v}</strong><span>${l}</span>`},bad=m=>out('⚠️',m),money=v=>'$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-const federal2026={single:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],married:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]]};
-function fedTax(x,status){let tax=0,last=0;for(const [top,r] of federal2026[status]){let part=Math.min(x,top)-last;if(part>0)tax+=part*r;if(x<=top)break;last=top}return tax}
-const calc={takehome:()=>{const a=n('annual'),k=n('k401')||0,h=n('health')||0,s=$('status').value,st=n('state')||0;if(a==null||a<0||k<0||h<0||st<0||st>20)return bad('请输入有效收入和扣除项目');const std=s==='married'?32200:16100,taxable=Math.max(0,a-Math.min(a,k)-std),fed=fedTax(taxable,s),fica=Math.min(a,184500)*.062+a*.0145,stateTax=Math.max(0,a-Math.min(a,k)-std)*st/100,net=a-fed-fica-stateTax-Math.min(a,k)-h;out(money(net/12),'估算税后月收入 · 年收入 '+money(net)+' · 联邦税 '+money(fed)+' · FICA '+money(fica))},overtime:()=>{const r=n('rate'),h=n('hours'),o=n('ot');if(r==null||h==null||o==null||r<0||h<0||o<0)return bad('请输入有效时薪和工时');const regular=Math.min(h,40)*r,ot=Math.max(0,Math.min(h-40,0))*r*1.5+o*r*1.5;out(money(regular+ot),'本周税前工资 · 正常工资 '+money(regular)+' · 加班工资 '+money(ot))},compound:()=>{const p=n('principal'),c=n('contribution'),r=n('rate'),y=n('years'),f=n('freq')||12;if(p==null||c==null||r==null||y==null||p<0||c<0||r<0||y<0||f<1)return bad('请输入有效数值');const i=r/100/f,periods=y*f,v=p*Math.pow(1+i,periods)+c*((Math.pow(1+i,periods)-1)/i||periods);out(money(v),'预计最终金额 · 本金及投入 '+money(p+c*periods)+' · 利息约 '+money(v-p-c*periods))},savings:()=>{const p=n('principal'),r=n('apy'),y=n('years'),f=n('freq')||12;if(p==null||r==null||y==null||p<0||r<0||y<0)return bad('请输入有效数值');const v=p*Math.pow(1+r/100/f,y*f);out(money(v),'到期余额 · 预计利息 '+money(v-p))},credit:()=>{const b=n('balance'),r=n('apr'),pay=n('payment');if(b==null||r==null||pay==null||b<=0||r<0||pay<=0)return bad('请输入有效余额、APR 和月供');const i=r/1200;if(i>0&&pay<=b*i)return bad('月供必须高于首月利息，否则无法还清');const months=i?Math.ceil(-Math.log(1-b*i/pay)/Math.log(1+i)):Math.ceil(b/pay),interest=i?pay*months-b:0;out(months+' 个月','预计还清 · 约 '+Math.ceil(months/12)+' 年 · 总利息 '+money(Math.max(0,interest)))},retire:()=>{const s=n('salary'),c=n('contribution'),m=n('match'),r=n('rate'),y=n('years');if(s==null||c==null||m==null||r==null||y==null||s<0||c<0||m<0||r<0||y<0)return bad('请输入有效数值');const own=s*c/100,employer=s*Math.min(c,m)/100,i=r/1200,months=y*12,total=(own+employer)*((Math.pow(1+i,months)-1)/i||months);out(money(total),'预计退休账户余额 · 每年本人 '+money(own)+' · 公司匹配 '+money(employer))},rentbuy:()=>{const rent=n('rent'),price=n('price'),down=n('down'),rate=n('rate'),years=n('years'),tax=n('tax'),ins=n('insurance'),maint=n('maintenance'),rise=n('rentRise');if([rent,price,down,rate,years,tax,ins,maint,rise].some(v=>v==null)||rent<0||price<0||down<0||down>price||rate<0||years<1)return bad('请检查输入数值');const m=rate/1200,months=years*12,principal=price-down,pmt=m?principal*m*Math.pow(1+m,months)/(Math.pow(1+m,months)-1):principal/months;let rentTotal=0,r=rent;for(let y=0;y<years;y++){rentTotal+=r*12;r*=1+rise/100}const owner=pmt*months+price*tax/100*years+ins*years+price*maint/100*years;out(money(rentTotal),'长期租金约 '+money(rentTotal)+' · 买房持有成本约 '+money(owner)+' · 未计房屋升值/交易成本')},carcost:()=>{const payment=n('payment'),miles=n('miles'),mpg=n('mpg'),gas=n('gas'),insurance=n('insurance'),maint=n('maintenance'),other=n('other');if([payment,miles,mpg,gas,insurance,maint,other].some(v=>v==null)||miles<0||mpg<=0||gas<0)return bad('请检查汽车费用输入');const fuel=miles/mpg*gas/12,total=payment+fuel+insurance/12+maint/12+other;out(money(total),'预计每月总成本 · 油费 '+money(fuel)+' · 保险 '+money(insurance/12)+' · 保养 '+money(maint/12))},zip:async()=>{const z=($('zip')?.value||'').trim();if(!/^\d{5}$/.test(z))return bad('请输入 5 位 ZIP Code');out('查询中…','正在查询 ZIP Code');try{const r=await fetch('https://api.zippopotam.us/us/'+z);if(!r.ok)throw 0;const d=await r.json();const p=d.places||[];if(!p.length)throw 0;out(p[0]['place name']+', '+p[0]['state abbreviation'],'ZIP '+z+' · '+p.map(x=>x['place name']).join('、'))}catch(e){bad('没有找到该 ZIP Code，请检查输入')}} ,area:async()=>{const a=($('areaCode')?.value||'').replace(/\D/g,'');if(a.length!==3)return bad('请输入 3 位电话区号');out('查询中…','正在查询美国电话区号');try{const r=await fetch('https://areacode.fyi/api/v1/area-code/'+a);if(!r.ok)throw 0;const d=await r.json(),x=d.data||d;out(x.region||x.state||'已找到','区号 '+a+' · '+((x.cities||[]).slice(0,6).join('、')||'地区信息'))}catch(e){bad('没有找到该区号，请检查输入')}}};
-const key=document.body.dataset.tool;if(calc[key]){$('calculate')?.addEventListener('click',calc[key]);if(key==='zip')$('zip')?.addEventListener('keydown',e=>{if(e.key==='Enter')calc.zip()});if(key==='area')$('areaCode')?.addEventListener('keydown',e=>{if(e.key==='Enter')calc.area()})}})();
+(()=>{
+  const $=id=>document.getElementById(id);
+  const n=id=>{const v=Number($(id)?.value);return Number.isFinite(v)?v:null};
+  const out=(v,l)=>{const e=$('result');if(!e)return;let strong=e.querySelector('strong'),span=e.querySelector('span');if(!strong){strong=document.createElement('strong');e.appendChild(strong)}if(!span){span=document.createElement('span');e.appendChild(span)}strong.textContent=String(v);span.textContent=String(l)};
+  const bad=m=>out('⚠️',m);
+  const money=v=>'$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+  // 2026 federal brackets and standard deductions are based on IRS Revenue Procedure 2025-32.
+  const federal2026={
+    single:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],
+    married:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]],
+    hoh:[[17700,.10],[67450,.12],[105700,.22],[201750,.24],[256200,.32],[640600,.35],[Infinity,.37]]
+  };
+  const standardDeduction2026={single:16100,married:32200,hoh:24150};
+  const additionalMedicareThreshold2026={single:200000,married:250000,hoh:200000};
+  const SOCIAL_SECURITY_WAGE_BASE_2026=184500;
+
+  function fedTax(x,status){
+    let tax=0,last=0;
+    for(const [top,r] of federal2026[status]){
+      const part=Math.min(x,top)-last;
+      if(part>0)tax+=part*r;
+      if(x<=top)break;
+      last=top;
+    }
+    return tax;
+  }
+
+  async function fetchJson(url){
+    const controller=new AbortController();
+    const timer=setTimeout(()=>controller.abort(),8000);
+    try{
+      const r=await fetch(url,{headers:{Accept:'application/json'},signal:controller.signal});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      return await r.json();
+    }finally{clearTimeout(timer)}
+  }
+
+  const calc={
+    takehome:()=>{
+      const a=n('annual'),k=n('k401')||0,h=n('health')||0,s=$('status')?.value||'single',st=n('state')||0;
+      if(a==null||a<0||k<0||h<0||st<0||st>20||!standardDeduction2026[s])return bad('请输入有效收入、扣除项目和报税身份');
+      const pretax401=Math.min(a,k);
+      const taxable=Math.max(0,a-pretax401-standardDeduction2026[s]);
+      const fed=fedTax(taxable,s);
+      const socialSecurity=Math.min(a,SOCIAL_SECURITY_WAGE_BASE_2026)*.062;
+      const medicare=a*.0145;
+      const additionalMedicare=Math.max(0,a-additionalMedicareThreshold2026[s])*.009;
+      const fica=socialSecurity+medicare+additionalMedicare;
+      const stateTax=taxable*st/100;
+      const net=a-fed-fica-stateTax-pretax401-h;
+      out(money(net/12),'估算税后月收入 · 年收入 '+money(net)+' · 联邦税 '+money(fed)+' · FICA '+money(fica));
+    },
+    overtime:()=>{
+      const r=n('rate'),h=n('hours'),o=n('ot');
+      if(r==null||h==null||o==null||r<0||h<0||o<0)return bad('请输入有效时薪和工时');
+      const regular=h*r,ot=o*r*1.5,total=regular+ot;
+      out(money(total),'本周税前工资 · 正常工资 '+money(regular)+' · 加班工资 '+money(ot));
+    },
+    compound:()=>{
+      const p=n('principal'),c=n('contribution'),r=n('rate'),y=n('years'),f=n('freq')||12;
+      if(p==null||c==null||r==null||y==null||p<0||c<0||r<0||y<0||f<1)return bad('请输入有效数值');
+      const periods=Math.round(y*f);
+      const i=r/100/f;
+      const v=i===0?p+c*periods:p*Math.pow(1+i,periods)+c*((Math.pow(1+i,periods)-1)/i);
+      out(money(v),'预计最终金额 · 本金及投入 '+money(p+c*periods)+' · 利息约 '+money(v-p-c*periods));
+    },
+    savings:()=>{
+      const p=n('principal'),r=n('apy'),y=n('years'),f=n('freq')||12;
+      if(p==null||r==null||y==null||p<0||r<0||y<0||f<1)return bad('请输入有效数值');
+      const v=p*Math.pow(1+r/100/f,y*f);
+      out(money(v),'到期余额 · 预计利息 '+money(v-p));
+    },
+    credit:()=>{
+      const b=n('balance'),r=n('apr'),pay=n('payment');
+      if(b==null||r==null||pay==null||b<=0||r<0||pay<=0)return bad('请输入有效余额、APR 和月供');
+      const i=r/1200;
+      if(i>0&&pay<=b*i)return bad('月供必须高于首月利息，否则无法还清');
+      const months=i?Math.ceil(-Math.log(1-b*i/pay)/Math.log(1+i)):Math.ceil(b/pay);
+      const interest=i?pay*months-b:0;
+      out(months+' 个月','预计还清 · 约 '+Math.ceil(months/12)+' 年 · 总利息 '+money(Math.max(0,interest)));
+    },
+    retire:()=>{
+      const s=n('salary'),c=n('contribution'),m=n('match'),r=n('rate'),y=n('years');
+      if(s==null||c==null||m==null||r==null||y==null||s<0||c<0||m<0||r<0||y<0)return bad('请输入有效数值');
+      const own=s*c/100,employer=s*Math.min(c,m)/100,i=r/1200,months=y*12;
+      const total=i===0?(own+employer)*months:(own+employer)*((Math.pow(1+i,months)-1)/i);
+      out(money(total),'预计退休账户余额 · 每年本人 '+money(own)+' · 公司匹配 '+money(employer));
+    },
+    rentbuy:()=>{
+      const rent=n('rent'),price=n('price'),down=n('down'),rate=n('rate'),years=n('years'),tax=n('tax'),ins=n('insurance'),maint=n('maintenance'),rise=n('rentRise');
+      if([rent,price,down,rate,years,tax,ins,maint,rise].some(v=>v==null)||rent<0||price<0||down<0||down>price||rate<0||years<1||tax<0||ins<0||maint<0||rise<-100)return bad('请检查输入数值');
+      const m=rate/1200,months=years*12,principal=price-down;
+      const pmt=m?principal*m*Math.pow(1+m,months)/(Math.pow(1+m,months)-1):principal/months;
+      let rentTotal=0,r=rent;
+      for(let y=0;y<years;y++){rentTotal+=r*12;r*=1+rise/100}
+      const owner=pmt*months+price*tax/100*years+ins*years+price*maint/100*years;
+      out(money(rentTotal),'长期租金约 '+money(rentTotal)+' · 买房持有成本约 '+money(owner)+' · 未计房屋升值/交易成本');
+    },
+    carcost:()=>{
+      const payment=n('payment'),miles=n('miles'),mpg=n('mpg'),gas=n('gas'),insurance=n('insurance'),maint=n('maintenance'),other=n('other');
+      if([payment,miles,mpg,gas,insurance,maint,other].some(v=>v==null)||payment<0||miles<0||mpg<=0||gas<0||insurance<0||maint<0||other<0)return bad('请检查汽车费用输入');
+      const fuel=miles/mpg*gas/12,total=payment+fuel+insurance/12+maint/12+other;
+      out(money(total),'预计每月总成本 · 油费 '+money(fuel)+' · 保险 '+money(insurance/12)+' · 保养 '+money(maint/12));
+    },
+    zip:async()=>{
+      const z=($('zip')?.value||'').trim();
+      if(!/^\d{5}$/.test(z))return bad('请输入 5 位 ZIP Code');
+      out('查询中…','正在查询 ZIP Code');
+      try{
+        const d=await fetchJson('https://api.zippopotam.us/us/'+encodeURIComponent(z));
+        const p=Array.isArray(d.places)?d.places:[];
+        if(!p.length)throw new Error('empty');
+        const names=p.map(x=>String(x['place name']||'')).filter(Boolean);
+        out(names[0]+', '+String(p[0]['state abbreviation']||''),'ZIP '+z+' · '+names.join('、'));
+      }catch(e){bad(e.name==='AbortError'?'查询超时，请稍后重试':'没有找到该 ZIP Code，请检查输入')}
+    },
+    area:async()=>{
+      const a=($('areaCode')?.value||'').replace(/\D/g,'').slice(0,3);
+      if(a.length!==3)return bad('请输入 3 位电话区号');
+      out('查询中…','正在查询美国电话区号');
+      try{
+        const d=await fetchJson('https://areacode.fyi/api/v1/area-code/'+encodeURIComponent(a));
+        const x=d?.data||d||{};
+        const cities=Array.isArray(x.cities)?x.cities.slice(0,6).map(String):[];
+        out(String(x.region||x.state||'已找到'),'区号 '+a+' · '+(cities.join('、')||'地区信息'));
+      }catch(e){bad(e.name==='AbortError'?'查询超时，请稍后重试':'没有找到该区号，请检查输入')}
+    }
+  };
+
+  const key=document.body?.dataset.tool;
+  if(calc[key]){
+    $('calculate')?.addEventListener('click',calc[key]);
+    if(key==='zip')$('zip')?.addEventListener('keydown',e=>{if(e.key==='Enter')calc.zip()});
+    if(key==='area')$('areaCode')?.addEventListener('keydown',e=>{if(e.key==='Enter')calc.area()});
+  }
+})();
