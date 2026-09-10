@@ -80,6 +80,16 @@ for html in ROOT.rglob('*.html'):
     except Exception as exc:
         errors.append(f'{html.relative_to(ROOT)}: HTML parse error: {exc}')
         continue
+    text = html.read_text(encoding='utf-8')
+    rel = html.relative_to(ROOT)
+    if rel.name != '404.html':
+        if len(re.findall(r'<h1(?:\\s|>)', text, re.I)) != 1:
+            errors.append(f'{rel}: page must contain exactly one h1')
+        for required in ('<title>', 'name="description"', 'rel="canonical"'):
+            if required not in text:
+                errors.append(f'{rel}: required SEO field missing -> {required}')
+    if 'https://openaa.com/secondhand' in text:
+        errors.append(f'{rel}: deprecated OpenAA route /secondhand')
     for _, value in parser.resources:
         check_target(html, value)
     for dup in sorted(parser.duplicate_ids):

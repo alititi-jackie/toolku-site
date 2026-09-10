@@ -21,93 +21,6 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
-
-  <!-- =========================================================
-    OpenAA 通用静态页面模板 · openaa-app 版
-    Template Version: 1.0.0
-    Primary Domain: https://openaa.com
-    Image Domain:   https://img.openaa.com
-
-    一、站长自己改的地方：只改下面 OPENAA_CONFIG
-    1. version：模板版本号，方便以后确认文件是否为最新版。
-    2. pageType：页面类型标记，只作识别和后续扩展，不改变当前视觉效果。
-       可用建议："standard" / "guide" / "notice" / "ad" / "topic"
-    3. banners：广告图片地址 + 点击广告打开的链接。
-    4. modules：控制广告轮播、滚动动态、8宫格、实用工具显示或隐藏。
-       true  = 显示
-       false = 隐藏
-       隐藏后页面会自动收紧，不会留下大空白。
-    5. templateLinkMode：控制“模板固定区域”的链接打开方式。
-       "new"  = 新窗口打开
-       "same" = 当前页面打开（默认）
-       只控制：顶部 Logo、顶部快捷导航、广告图、滚动动态、8宫格、实用工具、底部导航。
-       不控制：中间正文内容里的链接。
-
-    二、发给 AI 写内容时，请告诉 AI：
-    1. 保留模板整体效果，不要重做设计。
-    2. 不要修改 OPENAA_CONFIG，广告、板块显示隐藏、链接打开方式由站长自己改。
-    3. AI 只修改 head 里的 SEO 和“页面内容开始/页面内容结束”之间的正文。
-    4. 正文直接写进本 HTML，不要做外部动态加载内容页。
-    5. 正文建议用 <article class="template-card"> 包住，保持卡片风格统一。
-    6. 正文里的链接按内容需要设置，不受 templateLinkMode 控制。
-    7. 正式页面的 title、description、keywords、canonical、OG、Twitter、结构化数据都要按当前内容改好，不要写“模板”。
-
-    三、防误改边界：
-    1. 不要改顶部 Header、Logo、快捷导航、广告轮播、滚动动态、8宫格、实用工具、底部导航、回到顶部。
-    2. 不要把模板里的主站链接 https://openaa.com 改成旧站或其它域名。
-    3. 信息滚动条读取 openaa-app 首页同源动态。
-    4. 如需调整模板结构，请另存为新版本，不要直接覆盖旧版本。
-  ========================================================== -->
-  <script>
-    const OPENAA_CONFIG = {
-      // 0）模板版本与页面类型：只作识别和后续扩展，不改变当前视觉效果
-      version: "1.0.0",
-      pageType: "tool",
-
-      // 1）广告轮播：图片地址 + 点击图片打开的链接
-      banners: [
-        {
-          image: "https://img.openaa.com/img/banners/6e374654-6816-4da8-9736-bd374ea70b04.png",
-          link: "https://openaa.com/jobs",
-          alt: "OpenAA 招聘求职"
-        },
-        {
-          image: "https://img.openaa.com/img/banners/71a8312c-c4b2-4bde-bc4e-c35032223fde.png",
-          link: "https://openaa.com/housing",
-          alt: "OpenAA 房屋租售"
-        },
-        {
-          image: "https://img.openaa.com/img/banners/1215d9b3-f38c-4173-ad87-aa0792690bd8.png",
-          link: "https://openaa.com/marketplace",
-          alt: "OpenAA 二手闲置"
-        },
-        {
-          image: "https://img.openaa.com/img/banners/17588ab5-0248-47ae-a9a2-b0e02e06ea5b.png",
-          link: "https://openaa.com/dmv",
-          alt: "OpenAA DMV 笔试模拟"
-        },
-        {
-          image: "https://img.openaa.com/img/banners/b720c8f2-d90c-451b-87fc-bec4179d7d61.png",
-          link: "https://openaa.com/services",
-          alt: "OpenAA 本地服务"
-        }
-      ],
-
-      // 2）常用板块显示 / 隐藏
-      modules: {
-        showBanner: false,   // 广告轮播：true显示，false隐藏
-        showTicker: true,   // 滚动动态：true显示，false隐藏
-        showGridMenu: false, // 8宫格：true显示，false隐藏
-        showTools: false     // 实用工具：true显示，false隐藏
-      },
-
-      // 3）模板固定区域链接打开方式
-      // "new"  = 新窗口打开
-      // "same" = 当前页面打开
-      // 只控制模板固定区域链接，不控制正文内容里的链接
-      templateLinkMode: "same"
-    };
-  </script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -616,147 +529,17 @@
   <link rel="stylesheet" href="/css/usa-tools.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://toolku.com/"},{"@type":"ListItem","position":2,"name":"美国工具","item":"https://toolku.com/#usa-tools"},{"@type":"ListItem","position":3,"name":"纽约 DMV 6 Points 计算器","item":"https://toolku.com/usa/dmv/6-points-calculator.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"纽约 DMV 6 Points 计算器","url":"https://toolku.com/usa/dmv/6-points-calculator.html","description":"纽约 DMV 6 Points 计算器，按纽约 DMV ID-44 文件规则，帮你快速检查申请 Learner Permit、驾照或 REAL ID 前是否已凑够 6 分身份证明。","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ToolKu","url":"https://toolku.com/"}}</script>
+<meta name="theme-color" content="#111827">
 </head>
 <body class="usa-tool-page">
   <header class="site-header"><a class="brand" href="/"><span class="brand-mark">T</span>ToolKu</a><nav><a href="/">首页</a><a href="/tools/">工具导航</a><a href="/#usa-tools">美国工具</a><a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a></nav></header>
   <div class="app-shell">
-    <header class="app-header">
-      <div class="header-inner">
-        <button class="header-location" id="topLinksToggle" type="button" aria-label="打开顶部快捷导航" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>纽约</span>
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-
-        <a class="header-logo" href="https://openaa.com/" aria-label="OpenAA 首页">
-          <img src="https://img.openaa.com/logo.png" alt="OpenAA" />
-          <span class="header-logo-text"><span class="logo-blue">Open</span><span class="logo-dark">AA</span></span>
-        </a>
-
-        <div class="header-actions">
-          <a class="round-btn" href="https://openaa.com/search" aria-label="搜索">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          </a>
-          <button class="round-btn" type="button" aria-label="分享" onclick="shareOpenAA()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98"/><path d="M15.41 6.51 8.59 10.49"/></svg>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <div class="top-links-panel" id="topLinksPanel" aria-label="顶部快捷导航">
-      <div class="top-links-scroller" id="topLinksScroller">
-        <a class="top-link-chip" href="https://openaa.com/navigation" target="_self">导航</a>
-        <a class="top-link-chip" href="https://openaa.com/dmv" target="_self">DMV</a>
-        <a class="top-link-chip" href="https://openaa.com/jobs" target="_self">招聘</a>
-        <a class="top-link-chip" href="https://openaa.com/housing" target="_self">房屋</a>
-        <a class="top-link-chip" href="https://openaa.com/marketplace" target="_self">二手</a>
-        <a class="top-link-chip" href="https://openaa.com/news" target="_self">新闻</a>
-        <a class="top-link-chip" href="https://openaa.com/services" target="_self">本地服务</a>
-      </div>
-    </div>
-
-    <div class="header-spacer"></div>
 
     <main>
-      <section class="banner-section" id="bannerSection" aria-label="OpenAA 广告轮播">
-        <div class="banner-wrapper" id="bannerWrapper" data-template-module="banner">
-          <div class="banner-track" id="bannerTrack"></div>
-          <div class="banner-dots" id="bannerDots"></div>
-        </div>
-        <a class="quick-strip" id="latestStrip" data-template-module="ticker" href="https://openaa.com/news" target="_self">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 11-14h-8l1-6Z"/></svg>
-          <span class="quick-strip-text" id="latestStripText">正在读取 OpenAA 最新动态...</span>
-          <span class="quick-strip-arrow">›</span>
-        </a>
-      </section>
-
-      <!-- OpenAA 首页 8 宫格入口 -->
-      <section class="home-grid-section" data-template-module="gridMenu" aria-label="OpenAA 快捷入口">
-        <div class="home-grid">
-          <a class="home-grid-item" href="https://openaa.com/jobs" target="_self">
-            <div class="home-grid-icon blue">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12h.01"></path><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path><path d="M22 13a18.15 18.15 0 0 1-20 0"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg>
-            </div>
-            <span>招聘</span>
-          </a>
-          <a class="home-grid-item" href="https://openaa.com/housing" target="_self">
-            <div class="home-grid-icon green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h4"></path><path d="M10 8h4"></path><path d="M14 21v-3a2 2 0 0 0-4 0v3"></path><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"></path><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path></svg>
-            </div>
-            <span>房屋</span>
-          </a>
-          <a class="home-grid-item" href="https://openaa.com/marketplace" target="_self">
-            <div class="home-grid-icon purple">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg>
-            </div>
-            <span>二手</span>
-          </a>
-          <a class="home-grid-item" href="https://openaa.com/dmv" target="_self">
-            <div class="home-grid-icon yellow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8"></path><path d="M7 14h.01"></path><path d="M17 14h.01"></path><rect width="18" height="8" x="3" y="10" rx="2"></rect><path d="M5 18v2"></path><path d="M19 18v2"></path></svg>
-            </div>
-            <span>DMV</span>
-          </a>
-          <a class="home-grid-item" href="https://openaa.com/news" target="_self">
-            <div class="home-grid-icon red">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18h-5"></path><path d="M18 14h-8"></path><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"></path><rect width="8" height="4" x="10" y="6" rx="1"></rect></svg>
-            </div>
-            <span>新闻</span>
-          </a>
-          <a class="home-grid-item" href="https://openaa.com/navigation" target="_self">
-            <div class="home-grid-icon cyan">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg>
-            </div>
-            <span>导航</span>
-          </a>
-          <a class="home-grid-item" href="https://openaa.com/news?category=新手指南" target="_self">
-            <div class="home-grid-icon orange">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V7"></path><path d="m16 12 2 2 4-4"></path><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"></path></svg>
-            </div>
-            <span>新手指南</span>
-          </a>
-          <a class="home-grid-item" href="https://openaa.com/services" target="_self">
-            <div class="home-grid-icon teal">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"></path><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"></path><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"></path></svg>
-            </div>
-            <span>本地服务</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- OpenAA 首页实用工具 -->
-      <section class="tools-section" data-template-module="tools" aria-label="实用工具">
-        <div class="tools-title">实用工具</div>
-        <div class="tools-grid">
-          <a class="tool-card blue" href="https://openaa.com/dmv" target="_self">
-            <div class="tool-top">
-              <div class="tool-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h18l-2-5a3 3 0 0 0-3-2H8a3 3 0 0 0-3 2l-2 5Z"/><path d="M5 13v5"/><path d="M19 13v5"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-              </div>
-              <span class="tool-action">开始练习 ›</span>
-            </div>
-            <div class="tool-name">DMV 笔试模拟</div>
-            <div class="tool-desc">纽约 Learner Permit 中文练习</div>
-          </a>
-          <a class="tool-card orange" href="https://openaa.com/dmv/tickets" target="_self">
-            <div class="tool-top">
-              <div class="tool-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-              </div>
-              <span class="tool-action">点击查询 ›</span>
-            </div>
-            <div class="tool-name">罚单查询</div>
-            <div class="tool-desc">停车 / 闯红灯 / 超速拍照</div>
-          </a>
-        </div>
-      </section>
-
-
-      <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
+    <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
       <section class="content-wrap">
 
-        <div class="usa-breadcrumbs"><a href="/">首页</a> › <a href="/#usa-tools">美国工具</a> › 当前工具</div>
+        <a class="usa-back-link" href="/#usa-tools">← 返回美国工具</a><div class="usa-breadcrumbs"><a href="/">首页</a> › <a href="/#usa-tools">美国工具</a> › DMV 6 Points 计算器</div>
 <div class="section-title">DMV 6 Points 计算器</div>
 
         <style>
@@ -811,7 +594,7 @@
         <!-- DMV 工具分类导航栏 -->
         <div class="dmv-tool-nav-card">
           <nav class="dmv-tool-nav" aria-label="DMV 工具分类导航">
-            <a href="/" class="dmv-tool-link">ToolKu首页</a>
+            <a href="/#usa-tools" class="dmv-tool-link">全部美国工具</a>
             <a href="/usa/dmv/document-checker.html" class="dmv-tool-link">文件检查</a>
             <a href="/usa/dmv/6-points-calculator.html" class="dmv-tool-link active">6 Points</a>
             <a href="/usa/dmv/real-id-checker.html" class="dmv-tool-link">REAL ID</a>
@@ -1053,28 +836,6 @@
     </main>
   </div>
 
-  <nav class="bottom-nav" role="navigation" aria-label="底部导航">
-    <a href="https://openaa.com/" class="bottom-nav-item active" target="_self">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>首页</span>
-    </a>
-    <a href="https://openaa.com/jobs" class="bottom-nav-item" target="_self">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12h.01"></path><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path><path d="M22 13a18.15 18.15 0 0 1-20 0"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg><span>招聘</span>
-    </a>
-    <a href="https://openaa.com/housing" class="bottom-nav-item" target="_self">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h4"></path><path d="M10 8h4"></path><path d="M14 21v-3a2 2 0 0 0-4 0v3"></path><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"></path><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path></svg><span>房屋</span>
-    </a>
-    <a href="https://openaa.com/news" class="bottom-nav-item" target="_self">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18h-5"></path><path d="M18 14h-8"></path><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"></path><rect width="8" height="4" x="10" y="6" rx="1"></rect></svg><span>新闻</span>
-    </a>
-    <a href="https://openaa.com/profile" class="bottom-nav-item" target="_self">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M20 21a8 8 0 0 0-16 0"></path></svg><span>我的</span>
-    </a>
-  </nav>
-
-  <button class="back-top" id="backTop" type="button" aria-label="回到顶部">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-  </button>
-
   <script>
 
     function getTemplateTarget() {
@@ -1242,7 +1003,7 @@
       document.addEventListener('visibilitychange', () => document.hidden ? clearInterval(timer) : start());
 
       build();
-      applyTemplateLinkMode();
+
       start();
     })();
 
@@ -1416,13 +1177,12 @@
       btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     })();
 
-    applyTemplateIdentity();
-    applyModuleVisibility();
-    applyTemplateLinkMode();
-    initTopLinksFromApp();
-    initLatestStripFromApp();
+
+
+
+
   </script>
-  <section class="usa-related" aria-label="相关工具"><div class="usa-related-inner"><h2>相关美国生活工具</h2><div class="usa-related-links"><a href="/usa/dmv/document-checker.html">DMV 文件检查</a><a href="/usa/dmv/6-points-calculator.html">DMV 6 Points</a><a href="/usa/dmv/real-id-checker.html">REAL ID 检查</a><a href="/usa/usd-rmb/">美元人民币换算</a><a href="/usa/expense-record/">生活记账</a></div></div></section>
-  <footer class="toolku-footer">ToolKu工具库 · <a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a><br><small>ToolKu 是 OpenAA 旗下的在线工具平台。结果仅供参考，官方事务请以相关机构最新规定为准。</small></footer>
+<section class="usa-related" aria-label="相关工具"><div class="usa-related-inner"><h2>相关美国生活工具</h2><div class="usa-related-links"><a href="/usa/dmv/document-checker.html">DMV 文件检查</a><a href="/usa/dmv/real-id-checker.html">REAL ID 检查</a><a href="/usa/dmv/real-id-vs-standard-vs-enhanced.html">REAL ID 证件对比</a><a href="/usa/usd-rmb/">美元人民币换算</a><a href="/usa/expense-record/">生活记账</a></div><a class="usa-bottom-back" href="/#usa-tools">← 返回美国工具</a></div></section>
+<footer class="toolku-footer">ToolKu工具库 · <a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a><br><small>ToolKu 是 OpenAA 旗下的在线工具平台。结果仅供参考，官方事务请以相关机构最新规定为准。</small></footer>
 </body>
 </html>

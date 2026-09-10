@@ -46,6 +46,8 @@ jobs:
           while IFS= read -r -d '' file; do
             node --check "$file"
           done < <(find . -type f -name '*.js' -not -path './.git/*' -print0)
+      - name: Validate inline JavaScript syntax
+        run: python3 scripts/validate-inline-js.py
       - name: Validate JSON files
         shell: bash
         run: |

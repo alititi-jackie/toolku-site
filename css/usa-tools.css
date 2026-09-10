@@ -48,3 +48,6 @@
 .usa-tool-page,.usa-tool-page .content-wrap{background:#fff;padding:0}
 .usa-tool-page .template-card{border:0}
 }
+.usa-tool-page .usa-back-link{display:inline-flex;margin:0 0 10px;color:#4b5c72;text-decoration:none;font-size:14px;font-weight:700}
+.usa-tool-page .usa-back-link:hover{text-decoration:underline}
+.usa-tool-page .usa-bottom-back{display:inline-block;margin-top:14px;color:#4b5c72;font-size:14px;font-weight:700;text-decoration:none}
