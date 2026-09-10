@@ -1,0 +1,50 @@
+/* ToolKu unified presentation for the advanced tools under /usa/. */
+.usa-tool-page{padding:0;background:#f7f8fb;color:#172033}
+.usa-tool-page>.site-header{display:flex}
+.usa-tool-page .app-shell{width:100%;max-width:none;min-height:0;margin:0;background:transparent;box-shadow:none}
+.usa-tool-page .app-header,.usa-tool-page .header-spacer,.usa-tool-page .top-links-panel,
+.usa-tool-page .banner-section,.usa-tool-page .latest-strip,.usa-tool-page .home-grid-section,
+.usa-tool-page .tools-section,.usa-tool-page .bottom-nav,.usa-tool-page .back-top{display:none!important}
+.usa-tool-page main{display:block}
+.usa-tool-page .content-wrap{width:100%;max-width:960px;margin:0 auto;padding:32px 20px 10px}
+.usa-tool-page .usa-breadcrumbs{font-size:13px;color:#778398;margin:0 0 16px}
+.usa-tool-page .usa-breadcrumbs a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.usa-tool-page .section-title,.usa-tool-page .section-title-row{margin:0 0 14px;color:#172033;font-size:22px;font-weight:800}
+.usa-tool-page .section-title-row{display:flex;align-items:center;justify-content:space-between}
+.usa-tool-page .template-card,.usa-tool-page .dmv-tool-nav-card{background:#fff;border:1px solid #e6eaf0;border-radius:18px;box-shadow:none;margin:0 0 14px;padding:24px}
+.usa-tool-page .template-card h1{font-size:clamp(28px,5vw,42px);line-height:1.2;color:#172033;letter-spacing:-.5px}
+.usa-tool-page .template-card h2{font-size:21px;color:#172033}
+.usa-tool-page .template-card p{color:#657184}
+.usa-tool-page .dmv-hero-card,.usa-tool-page .dmv-hero,.usa-tool-page .rid-hero,
+.usa-tool-page .expense-hero,.usa-tool-page .fx-hero{background:#fff;color:#172033;border:1px solid #e6eaf0;box-shadow:none}
+.usa-tool-page .dmv-hero-card h1,.usa-tool-page .dmv-hero-card p{color:#172033}
+.usa-tool-page .dmv-tool-nav-card{padding:10px 12px}
+.usa-tool-page .dmv-tool-nav{gap:7px}
+.usa-tool-page .dmv-tool-link{background:#f3f5f8;border:1px solid #e6eaf0;color:#526071}
+.usa-tool-page .dmv-tool-link.active{background:#111827;border-color:#111827;color:#fff}
+.usa-tool-page .dmv-btn-primary,.usa-tool-page .dmv-btn.primary,.usa-tool-page .realid-btn,
+.usa-tool-page .expense-primary-btn,.usa-tool-page .fx-primary-btn,
+.usa-tool-page button.primary{background:#111827!important;color:#fff!important;box-shadow:none!important}
+.usa-tool-page input:focus,.usa-tool-page select:focus,.usa-tool-page textarea:focus{outline:2px solid #94a3b8;outline-offset:1px;border-color:#94a3b8}
+.usa-tool-page .usa-related{max-width:960px;margin:0 auto;padding:0 20px 18px}
+.usa-tool-page .usa-related-inner{background:#fff;border:1px solid #e6eaf0;border-radius:18px;padding:20px 24px}
+.usa-tool-page .usa-related h2{font-size:19px;margin:0 0 10px}
+.usa-tool-page .usa-related-links{display:flex;gap:10px;flex-wrap:wrap}
+.usa-tool-page .usa-related-links a{color:#4b5c72;text-decoration:none;border:1px solid #e1e6ed;border-radius:10px;padding:8px 11px;font-size:14px}
+.usa-tool-page>.toolku-footer{text-align:center;color:#788395;padding:22px 20px 32px;font-size:13px}
+.usa-tool-page>.toolku-footer a{color:#53657a}
+@media(max-width:760px){
+.usa-tool-page .content-wrap{padding:22px 14px 6px}
+.usa-tool-page .template-card,.usa-tool-page .dmv-tool-nav-card{border-radius:14px;padding:17px 15px}
+.usa-tool-page .dmv-tool-nav-card{padding:9px}
+.usa-tool-page .template-card h1{font-size:29px}
+.usa-tool-page .template-card h2{font-size:19px}
+.usa-tool-page .usa-related{padding:0 14px 14px}
+.usa-tool-page .usa-related-inner{padding:17px 15px;border-radius:14px}
+}
+@media print{
+.usa-tool-page>.site-header,.usa-tool-page .usa-breadcrumbs,.usa-tool-page .dmv-tool-nav-card,
+.usa-tool-page .usa-related,.usa-tool-page>.toolku-footer{display:none!important}
+.usa-tool-page,.usa-tool-page .content-wrap{background:#fff;padding:0}
+.usa-tool-page .template-card{border:0}
+}

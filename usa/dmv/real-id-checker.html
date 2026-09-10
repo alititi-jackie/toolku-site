@@ -91,7 +91,7 @@
         },
         {
           image: "https://img.openaa.com/img/banners/1215d9b3-f38c-4173-ad87-aa0792690bd8.png",
-          link: "https://openaa.com/secondhand",
+          link: "https://openaa.com/marketplace",
           alt: "OpenAA 二手闲置"
         },
         {
@@ -625,8 +625,13 @@
       .back-top { right: 14px; }
     }
   </style>
+  <link rel="stylesheet" href="/css/site.css" />
+  <link rel="stylesheet" href="/css/usa-tools.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://toolku.com/"},{"@type":"ListItem","position":2,"name":"美国工具","item":"https://toolku.com/#usa-tools"},{"@type":"ListItem","position":3,"name":"纽约 REAL ID 文件检查器","item":"https://toolku.com/usa/dmv/real-id-checker.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"纽约 REAL ID 文件检查器","url":"https://toolku.com/usa/dmv/real-id-checker.html","description":"纽约 REAL ID 文件检查器，帮助你检查身份、SSN、合法身份和地址证明等常见 DMV 材料是否准备齐全。","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ToolKu","url":"https://toolku.com/"}}</script>
 </head>
-<body>
+<body class="usa-tool-page">
+  <header class="site-header"><a class="brand" href="/"><span class="brand-mark">T</span>ToolKu</a><nav><a href="/">首页</a><a href="/tools/">工具导航</a><a href="/#usa-tools">美国工具</a><a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a></nav></header>
   <div class="app-shell">
     <header class="app-header">
       <div class="header-inner">
@@ -658,7 +663,7 @@
         <a class="top-link-chip" href="https://openaa.com/dmv" target="_self">DMV</a>
         <a class="top-link-chip" href="https://openaa.com/jobs" target="_self">招聘</a>
         <a class="top-link-chip" href="https://openaa.com/housing" target="_self">房屋</a>
-        <a class="top-link-chip" href="https://openaa.com/secondhand" target="_self">二手</a>
+        <a class="top-link-chip" href="https://openaa.com/marketplace" target="_self">二手</a>
         <a class="top-link-chip" href="https://openaa.com/news" target="_self">新闻</a>
         <a class="top-link-chip" href="https://openaa.com/services" target="_self">本地服务</a>
       </div>
@@ -694,7 +699,7 @@
             </div>
             <span>房屋</span>
           </a>
-          <a class="home-grid-item" href="https://openaa.com/secondhand" target="_self">
+          <a class="home-grid-item" href="https://openaa.com/marketplace" target="_self">
             <div class="home-grid-icon purple">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg>
             </div>
@@ -763,7 +768,9 @@
 
       <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
       <section class="content-wrap">
-        <div class="section-title">DMV 实用工具</div>
+
+        <div class="usa-breadcrumbs"><a href="/">首页</a> › <a href="/#usa-tools">美国工具</a> › 当前工具</div>
+<div class="section-title">DMV 实用工具</div>
 
         <style>
           /* OpenAA DMV 工具分类导航栏 */
@@ -817,7 +824,7 @@
         <!-- DMV 工具分类导航栏 -->
         <div class="dmv-tool-nav-card">
           <nav class="dmv-tool-nav" aria-label="DMV 工具分类导航">
-            <a href="/" class="dmv-tool-link">OpenAA工具</a>
+            <a href="/" class="dmv-tool-link">ToolKu首页</a>
             <a href="/usa/dmv/document-checker.html" class="dmv-tool-link">文件检查</a>
             <a href="/usa/dmv/6-points-calculator.html" class="dmv-tool-link">6 Points</a>
             <a href="/usa/dmv/real-id-checker.html" class="dmv-tool-link active">REAL ID</a>
@@ -1297,5 +1304,7 @@
     initTopLinksFromApp();
     initLatestStripFromApp();
   </script>
+  <section class="usa-related" aria-label="相关工具"><div class="usa-related-inner"><h2>相关美国生活工具</h2><div class="usa-related-links"><a href="/usa/dmv/document-checker.html">DMV 文件检查</a><a href="/usa/dmv/6-points-calculator.html">DMV 6 Points</a><a href="/usa/dmv/real-id-checker.html">REAL ID 检查</a><a href="/usa/usd-rmb/">美元人民币换算</a><a href="/usa/expense-record/">生活记账</a></div></div></section>
+  <footer class="toolku-footer">ToolKu工具库 · <a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a><br><small>ToolKu 是 OpenAA 旗下的在线工具平台。结果仅供参考，官方事务请以相关机构最新规定为准。</small></footer>
 </body>
 </html>
