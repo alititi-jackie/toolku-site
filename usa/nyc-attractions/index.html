@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>纽约景点地址导航｜纽约华人常去景点｜ToolKu</title>
-  <meta name="description" content="ToolKu 纽约景点地址导航，整理中央公园、时代广场、自由女神、华尔街铜牛、世贸中心、布鲁克林大桥、DUMBO、法拉盛公园、Roosevelt Island、Coney Island 等常用地址，支持点击卡片地图导航、复制地址和分享。" />
+  <meta name="description" content="ToolKu 纽约景点地址导航，整理中央公园、时代广场、自由女神、华尔街铜牛、世贸中心、布鲁克林大桥、DUMBO、法拉盛公园、Roosevelt Island、Coney Island 等常用地址，支持点击卡片地图导航、复制地址、分享及添加到桌面。" />
   <meta name="keywords" content="纽约景点,纽约景点地址,纽约旅游,纽约华人景点,中央公园地址,时代广场地址,自由女神地址,DUMBO地址,纽约地图导航,ToolKu" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://toolku.com/usa/nyc-attractions/" />
@@ -30,17 +30,15 @@
   <style>
     .nyc-wrap{max-width:920px;margin:0 auto;padding:0 16px 28px}
     .nyc-head{margin:18px 0 14px}.nyc-head h1{margin:0;font-size:26px;line-height:1.25}.nyc-head p{margin:8px 0 0;color:#64748b;font-size:14px}
-    .nyc-actions{display:flex;gap:8px;justify-content:flex-end;margin:12px 0}.nyc-btn{min-height:40px;border:1px solid #dbe3ee;border-radius:10px;background:#fff;color:#334155;padding:0 14px;font-weight:700;cursor:pointer}.nyc-btn.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+    .nyc-actions{display:flex;gap:8px;justify-content:flex-end;margin:12px 0}.nyc-btn{min-height:40px;border:1px solid #dbe3ee;border-radius:10px;background:#fff;color:#334155;padding:0 14px;font-weight:700;cursor:pointer}.nyc-btn.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}.nyc-btn[disabled]{opacity:.65;cursor:default}
     .nyc-search{width:100%;min-height:48px;border:1px solid #dbe3ee;border-radius:12px;padding:0 14px;font-size:16px;outline:none;background:#fff}.nyc-search:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.12)}
     .nyc-count{margin:10px 2px;color:#64748b;font-size:13px;font-weight:700}.nyc-grid{display:grid;grid-template-columns:1fr;gap:12px}
     .nyc-card{position:relative;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:8px;box-shadow:0 4px 14px rgba(15,23,42,.04);cursor:pointer;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
     .nyc-card:hover{border-color:#dbeafe;box-shadow:0 6px 18px rgba(15,23,42,.07)}.nyc-card:active{transform:scale(.992)}
-    .nyc-card-inner{min-height:78px;border-radius:11px;background:#f8fafc;padding:13px}
-    .nyc-title-row{display:flex;align-items:flex-start;gap:10px;min-width:0}.nyc-name{min-width:0;flex:1;font-size:16px;font-weight:800;color:#111827;line-height:1.35}
-    .nyc-address{margin-top:9px;padding-right:4px;color:#475569;font-size:13px;font-weight:650;line-height:1.5;overflow-wrap:anywhere}
-    .nyc-copy{flex:0 0 auto;min-height:30px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#2563eb;padding:0 10px;font-size:12px;font-weight:800;cursor:pointer}
-    .nyc-copy:active{transform:scale(.98)}
-    .nyc-empty{padding:24px;text-align:center;color:#94a3b8;background:#fff;border:1px dashed #cbd5e1;border-radius:14px}.nyc-links{margin-top:20px}.nyc-links h2{font-size:17px;margin:0 0 10px}.nyc-link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.nyc-site-link{display:block;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:13px}.nyc-site-link strong{display:block;font-size:14px}.nyc-site-link span{display:block;margin-top:4px;color:#64748b;font-size:12px;line-height:1.4}.nyc-foot{text-align:center;color:#94a3b8;font-size:12px;margin:18px 0 0}.nyc-ios-tip{display:none;margin:10px 0;padding:10px 12px;border-radius:10px;background:#eff6ff;color:#1d4ed8;font-size:13px;line-height:1.5}
+    .nyc-card-inner{min-height:78px;border-radius:11px;background:#f8fafc;padding:13px}.nyc-title-row{display:flex;align-items:flex-start;gap:10px;min-width:0}.nyc-name{min-width:0;flex:1;font-size:16px;font-weight:800;color:#111827;line-height:1.35}
+    .nyc-address{margin-top:9px;padding-right:4px;color:#475569;font-size:13px;font-weight:650;line-height:1.5;overflow-wrap:anywhere}.nyc-copy{flex:0 0 auto;min-height:30px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#2563eb;padding:0 10px;font-size:12px;font-weight:800;cursor:pointer}.nyc-copy:active{transform:scale(.98)}
+    .nyc-empty{padding:24px;text-align:center;color:#94a3b8;background:#fff;border:1px dashed #cbd5e1;border-radius:14px}.nyc-links{margin-top:20px}.nyc-links h2{font-size:17px;margin:0 0 10px}.nyc-link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.nyc-site-link{display:block;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:13px}.nyc-site-link strong{display:block;font-size:14px}.nyc-site-link span{display:block;margin-top:4px;color:#64748b;font-size:12px;line-height:1.4}.nyc-foot{text-align:center;color:#94a3b8;font-size:12px;margin:18px 0 0}
+    .install-help{display:none;margin:10px 0;padding:11px 13px;border:1px solid #bfdbfe;border-radius:10px;background:#eff6ff;color:#1e40af;font-size:13px;line-height:1.6}
     @media(min-width:760px){.nyc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.nyc-link-grid{grid-template-columns:1fr}.nyc-head h1{font-size:23px}}
   </style>
 </head>
@@ -52,7 +50,7 @@
     <div class="nyc-wrap">
       <div class="nyc-head"><h1>纽约周边景点</h1><p>纽约及周边华人常去景点 · 地址 · 导航</p></div>
       <div class="nyc-actions"><button class="nyc-btn" id="shareBtn" type="button">分享</button><button class="nyc-btn primary" id="installBtn" type="button">下载到桌面</button></div>
-      <div class="nyc-ios-tip" id="iosTip">iPhone / iPad：点击浏览器底部“分享”，再选择“添加到主屏幕”。</div>
+      <div class="install-help" id="installHelp"></div>
       <input class="nyc-search" id="searchInput" type="search" autocomplete="off" placeholder="搜索景点或地址" />
       <div class="nyc-count" id="countText"></div>
       <div class="nyc-grid" id="placeList"></div>
@@ -65,36 +63,49 @@
       <p class="nyc-foot">ToolKu.com · OpenAA 旗下实用工具库</p>
     </div>
   </section></main></div>
-  <script>
-    const PLACES=[
-      {name:'中央公园 Central Park',address:'Columbus Circle, New York, NY 10019'},
-      {name:'时代广场 Times Square',address:'Times Square, New York, NY 10036'},
-      {name:'自由女神 / Battery Park',address:'Battery Park, New York, NY 10004'},
-      {name:'华尔街铜牛 Charging Bull',address:'Bowling Green, New York, NY 10004'},
-      {name:'世贸中心 / 9·11 纪念馆',address:'180 Greenwich St, New York, NY 10007'},
-      {name:'布鲁克林大桥 Brooklyn Bridge',address:'Brooklyn Bridge, New York, NY 10038'},
-      {name:'DUMBO 经典拍照点',address:'Washington St & Water St, Brooklyn, NY 11201'},
-      {name:'法拉盛草原可乐娜公园',address:'Flushing Meadows Corona Park, Queens, NY 11368'},
-      {name:'Roosevelt Island',address:'Roosevelt Island, New York, NY 10044'},
-      {name:'Coney Island',address:'Coney Island Boardwalk, Brooklyn, NY 11224'},
-      {name:'7大道地铁口',address:'Seventh Avenue & 62nd Street Brooklyn, NY 11220'},
-      {name:'36街地铁口',address:'36th Street & Fourth Avenue Brooklyn, NY 11232'},
-      {name:'36街 Costco',address:'976 3rd Ave Brooklyn, NY 11232'}
-    ];
-    const list=document.getElementById('placeList'),search=document.getElementById('searchInput'),count=document.getElementById('countText'),shareBtn=document.getElementById('shareBtn'),installBtn=document.getElementById('installBtn'),iosTip=document.getElementById('iosTip');let installPrompt=null;
-    function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
-    function mapUrl(a){const q=encodeURIComponent(a);if(/Android/i.test(navigator.userAgent))return `geo:0,0?q=${q}`;if(/iPad|iPhone|iPod/.test(navigator.userAgent))return `https://maps.apple.com/?q=${q}`;return `https://www.google.com/maps/search/?api=1&query=${q}`}
-    function openMap(address){const u=mapUrl(address);u.startsWith('geo:')?location.href=u:window.open(u,'_blank','noopener,noreferrer')}
-    async function copyText(v){try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(v);return true}}catch(e){}const t=document.createElement('textarea');t.value=v;t.style.position='fixed';t.style.top='-9999px';document.body.appendChild(t);t.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}t.remove();return ok}
-    function render(){const q=search.value.trim().toLowerCase();const items=PLACES.filter(x=>!q||x.name.toLowerCase().includes(q)||x.address.toLowerCase().includes(q));count.textContent=`${items.length} 个景点`;list.innerHTML=items.length?items.map(x=>`<article class="nyc-card" role="link" tabindex="0" data-map="${esc(x.address)}"><div class="nyc-card-inner"><div class="nyc-title-row"><div class="nyc-name">${esc(x.name)}</div><button class="nyc-copy" type="button" data-copy="${esc(x.address)}" aria-label="复制地址">复制</button></div><div class="nyc-address">${esc(x.address)}</div></div></article>`).join(''):'<div class="nyc-empty">没有找到相关景点</div>'}
-    list.addEventListener('click',async e=>{const c=e.target.closest('[data-copy]');if(c){e.preventDefault();e.stopPropagation();const old=c.textContent;c.textContent=await copyText(c.dataset.copy)?'已复制':'复制失败';setTimeout(()=>c.textContent=old,1400);return}const card=e.target.closest('.nyc-card[data-map]');if(card)openMap(card.dataset.map)});
-    list.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const card=e.target.closest('.nyc-card[data-map]');if(!card||e.target.closest('[data-copy]'))return;e.preventDefault();openMap(card.dataset.map)});
-    search.addEventListener('input',render);
-    shareBtn.addEventListener('click',async()=>{const d={title:'纽约景点地址导航｜ToolKu',text:'纽约及周边华人常去景点 · 地址 · 导航',url:location.href};if(navigator.share){try{await navigator.share(d);return}catch(e){}}alert(await copyText(location.href)?'链接已复制':'请手动复制地址栏链接')});
-    window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e});
-    installBtn.addEventListener('click',async()=>{if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;return}if(/iPad|iPhone|iPod/.test(navigator.userAgent)){iosTip.style.display='block';iosTip.scrollIntoView({behavior:'smooth',block:'center'});return}alert('请使用浏览器菜单中的“安装应用”或“创建快捷方式”添加到桌面。')});
-    if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-    render();
-  </script>
+<script>
+const PLACES=[
+{name:'中央公园 Central Park',address:'Columbus Circle, New York, NY 10019'},
+{name:'时代广场 Times Square',address:'Times Square, New York, NY 10036'},
+{name:'自由女神 / Battery Park',address:'Battery Park, New York, NY 10004'},
+{name:'华尔街铜牛 Charging Bull',address:'Bowling Green, New York, NY 10004'},
+{name:'世贸中心 / 9·11 纪念馆',address:'180 Greenwich St, New York, NY 10007'},
+{name:'布鲁克林大桥 Brooklyn Bridge',address:'Brooklyn Bridge, New York, NY 10038'},
+{name:'DUMBO 经典拍照点',address:'Washington St & Water St, Brooklyn, NY 11201'},
+{name:'法拉盛草原可乐娜公园',address:'Flushing Meadows Corona Park, Queens, NY 11368'},
+{name:'Roosevelt Island',address:'Roosevelt Island, New York, NY 10044'},
+{name:'Coney Island',address:'Coney Island Boardwalk, Brooklyn, NY 11224'},
+{name:'7大道地铁口',address:'Seventh Avenue & 62nd Street Brooklyn, NY 11220'},
+{name:'36街地铁口',address:'36th Street & Fourth Avenue Brooklyn, NY 11232'},
+{name:'36街 Costco',address:'976 3rd Ave Brooklyn, NY 11232'}
+];
+const list=document.getElementById('placeList'),search=document.getElementById('searchInput'),count=document.getElementById('countText'),shareBtn=document.getElementById('shareBtn'),installBtn=document.getElementById('installBtn'),installHelp=document.getElementById('installHelp');let installPrompt=null;
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function mapUrl(a){const q=encodeURIComponent(a);if(/Android/i.test(navigator.userAgent))return `geo:0,0?q=${q}`;if(/iPad|iPhone|iPod/.test(navigator.userAgent))return `https://maps.apple.com/?q=${q}`;return `https://www.google.com/maps/search/?api=1&query=${q}`}
+function openMap(address){const u=mapUrl(address);u.startsWith('geo:')?location.href=u:window.open(u,'_blank','noopener,noreferrer')}
+async function copyText(v){try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(v);return true}}catch(e){}const t=document.createElement('textarea');t.value=v;t.style.position='fixed';t.style.top='-9999px';document.body.appendChild(t);t.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}t.remove();return ok}
+function render(){const q=search.value.trim().toLowerCase();const items=PLACES.filter(x=>!q||x.name.toLowerCase().includes(q)||x.address.toLowerCase().includes(q));count.textContent=`${items.length} 个景点`;list.innerHTML=items.length?items.map(x=>`<article class="nyc-card" role="link" tabindex="0" data-map="${esc(x.address)}"><div class="nyc-card-inner"><div class="nyc-title-row"><div class="nyc-name">${esc(x.name)}</div><button class="nyc-copy" type="button" data-copy="${esc(x.address)}">复制</button></div><div class="nyc-address">${esc(x.address)}</div></div></article>`).join(''):'<div class="nyc-empty">没有找到相关景点</div>'}
+list.addEventListener('click',async e=>{const c=e.target.closest('[data-copy]');if(c){e.preventDefault();e.stopPropagation();const old=c.textContent;c.textContent=await copyText(c.dataset.copy)?'已复制':'复制失败';setTimeout(()=>c.textContent=old,1400);return}const card=e.target.closest('.nyc-card[data-map]');if(card)openMap(card.dataset.map)});
+list.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const card=e.target.closest('.nyc-card[data-map]');if(!card||e.target.closest('[data-copy]'))return;e.preventDefault();openMap(card.dataset.map)});
+search.addEventListener('input',render);
+shareBtn.addEventListener('click',async()=>{const d={title:'纽约景点地址导航｜ToolKu',text:'纽约及周边华人常去景点 · 地址 · 导航',url:location.href};if(navigator.share){try{await navigator.share(d);return}catch(e){}}alert(await copyText(location.href)?'链接已复制':'请手动复制地址栏链接')});
+function isInstalled(){return window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true}
+function showHelp(text){installHelp.textContent=text;installHelp.style.display='block';installHelp.scrollIntoView({behavior:'smooth',block:'center'})}
+if(isInstalled()){installBtn.textContent='已安装到桌面';installBtn.disabled=true}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;installBtn.textContent='下载到桌面';installBtn.disabled=false});
+window.addEventListener('appinstalled',()=>{installPrompt=null;installBtn.textContent='已安装到桌面';installBtn.disabled=true;installHelp.style.display='none'});
+installBtn.addEventListener('click',async()=>{
+  if(isInstalled()){installBtn.textContent='已安装到桌面';installBtn.disabled=true;return}
+  if(installPrompt){installPrompt.prompt();try{await installPrompt.userChoice}catch(e){}installPrompt=null;return}
+  const ua=navigator.userAgent;
+  if(/iPad|iPhone|iPod/.test(ua)){showHelp('iPhone / iPad：点击 Safari 底部“分享”按钮，再选择“添加到主屏幕”。');return}
+  if(/Android/i.test(ua)){showHelp('Android：点击 Chrome 右上角菜单，再选择“安装应用”或“添加到主屏幕”。');return}
+  if(/Edg\//.test(ua)){showHelp('Edge：点击右上角“…” → 应用 → 将此站点安装为应用。');return}
+  if(/Chrome\//.test(ua)){showHelp('Chrome：如果没有弹出安装窗口，请点击地址栏右侧的安装图标；或右上角“⋮” → 投放、保存和分享 → 将网页安装为应用。');return}
+  showHelp('当前浏览器没有提供直接安装提示。可使用浏览器菜单中的“安装应用”“添加到主屏幕”或“创建快捷方式”。')
+});
+if('serviceWorker'in navigator&&location.protocol==='https:')window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{}));
+render();
+</script>
 </body>
 </html>
