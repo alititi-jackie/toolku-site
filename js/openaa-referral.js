@@ -77,7 +77,10 @@
     : groups.find(group => group.match.includes(path)) || defaultConfig;
 
   function trackedUrl(destination, content) {
-    const url = new URL(destination, 'https://openaa.com');
+    const raw = String(destination || '/');
+    const url = /^https?:\/\//i.test(raw)
+      ? new URL(raw)
+      : new URL(raw, 'https://openaa.com');
     url.searchParams.set('utm_source', 'toolku');
     url.searchParams.set('utm_medium', 'referral');
     url.searchParams.set('utm_campaign', campaign);
@@ -118,7 +121,7 @@
     const hero = document.querySelector('.hero');
     if (!section || !hero) return;
     section.classList.add('openaa-home-entry');
-    section.innerHTML = '<div><div class="cta-eyebrow">OpenAA · 美国华人生活</div><h2>工具算完了，生活信息接着找</h2><p>按你现在要办的事情直接进入，不用重新搜索。</p></div><div class="openaa-entry-links"><a data-destination="/jobs">找工作</a><a data-destination="/housing">找房屋</a><a data-destination="/marketplace">二手市场</a><a data-destination="/dmv">DMV题库</a></div>';
+    section.innerHTML = '<div><div class="cta-eyebrow">OpenAA · 美国华人生活</div><h2>工具算完了，生活信息接着找</h2><p>按你现在要办的事情直接进入，不用重新搜索。</p></div><div class="openaa-entry-links"><a data-destination="/jobs">找工作</a><a data-destination="/housing">找房屋</a><a data-destination="/marketplace">二手市场</a><a data-destination="https://dmv.openaa.com">DMV题库</a></div>';
     section.querySelectorAll('[data-destination]').forEach(link => {
       prepareLink(link, link.dataset.destination, 'home_quick_entry');
     });
@@ -149,8 +152,11 @@
 
   function updateOtherLinks() {
     document.querySelectorAll('a[href*="openaa.com"]:not(.openaa-nav-link):not(.openaa-next-step a):not(.openaa-home-entry a)').forEach(link => {
-      let destination = '/';
-      try { destination = new URL(link.href).pathname || '/'; } catch (_) {}
+      let destination = link.href;
+      try {
+        const url = new URL(link.href);
+        destination = url.hostname === 'openaa.com' ? (url.pathname || '/') : url.href;
+      } catch (_) {}
       prepareLink(link, destination, 'supporting_link');
     });
   }
