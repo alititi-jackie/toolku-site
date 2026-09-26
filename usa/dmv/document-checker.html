@@ -1,174 +1,470 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>纽约 DMV 文件检查器｜驾照与 REAL ID 材料清单｜ToolKu</title>
-  <meta name="description" content="纽约 DMV 文件检查器，帮助华人准备 Learner Permit、驾照和 REAL ID 所需的身份证明、SSN、地址证明等材料。" />
-  <meta name="keywords" content="纽约 DMV 文件, DMV 6 points 中文, REAL ID 纽约材料, 纽约驾照文件, Learner Permit 文件, 纽约华人 DMV, OpenAA DMV" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://toolku.com/usa/dmv/document-checker.html" />
-  <meta property="og:locale" content="zh_CN" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="纽约 DMV 文件检查器｜驾照与 REAL ID 材料清单｜ToolKu" />
-  <meta property="og:description" content="选择你的申请类型和已有文件，快速生成纽约 DMV 中文材料清单，检查 REAL ID、Enhanced、Standard、6 points 和地址证明。" />
-  <meta property="og:url" content="https://toolku.com/usa/dmv/document-checker.html" />
-  <meta property="og:image" content="https://toolku.com/favicon/apple-touch-icon.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="纽约 DMV 文件检查器｜驾照与 REAL ID 材料清单｜ToolKu" />
-  <meta name="twitter:description" content="纽约华人 DMV 材料检查：REAL ID、Enhanced、Learner Permit、6 points、地址证明，一页中文快速核对。" />
-  <meta name="twitter:image" content="https://toolku.com/favicon/apple-touch-icon.png" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>纽约 DMV 文件检查器｜驾照与 REAL ID 材料清单｜ToolKu</title>
+    <meta
+      name="description"
+      content="纽约 DMV 文件检查器，帮助华人准备 Learner Permit、驾照和 REAL ID 所需的身份证明、SSN、地址证明等材料。"
+    />
+    <meta
+      name="keywords"
+      content="纽约 DMV 文件, DMV 6 points 中文, REAL ID 纽约材料, 纽约驾照文件, Learner Permit 文件, 纽约华人 DMV, OpenAA DMV"
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://toolku.com/usa/dmv/document-checker.html"
+    />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="纽约 DMV 文件检查器｜驾照与 REAL ID 材料清单｜ToolKu"
+    />
+    <meta
+      property="og:description"
+      content="选择你的申请类型和已有文件，快速生成纽约 DMV 中文材料清单，检查 REAL ID、Enhanced、Standard、6 points 和地址证明。"
+    />
+    <meta
+      property="og:url"
+      content="https://toolku.com/usa/dmv/document-checker.html"
+    />
+    <meta
+      property="og:image"
+      content="https://toolku.com/favicon/apple-touch-icon.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="纽约 DMV 文件检查器｜驾照与 REAL ID 材料清单｜ToolKu"
+    />
+    <meta
+      name="twitter:description"
+      content="纽约华人 DMV 材料检查：REAL ID、Enhanced、Learner Permit、6 points、地址证明，一页中文快速核对。"
+    />
+    <meta
+      name="twitter:image"
+      content="https://toolku.com/favicon/apple-touch-icon.png"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "纽约 DMV 文件检查器",
-      "url": "https://toolku.com/usa/dmv/document-checker.html",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "All",
-      "description": "OpenAA 为纽约华人整理的 DMV 文件检查器，可用于初步核对 REAL ID、Enhanced、Standard、Learner Permit、6 points 和地址证明。",
-      "publisher": { "@type": "Organization", "name": "OpenAA" }
-    }
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "纽约 DMV 文件检查器",
+        "url": "https://toolku.com/usa/dmv/document-checker.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "description": "OpenAA 为纽约华人整理的 DMV 文件检查器，可用于初步核对 REAL ID、Enhanced、Standard、Learner Permit、6 points 和地址证明。",
+        "publisher": { "@type": "Organization", "name": "OpenAA" }
+      }
     </script>
 
-  <link rel="stylesheet" href="/css/site.css" />
-  <link rel="stylesheet" href="/css/usa-tools.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://toolku.com/"},{"@type":"ListItem","position":2,"name":"美国工具","item":"https://toolku.com/#usa-tools"},{"@type":"ListItem","position":3,"name":"纽约 DMV 文件检查器","item":"https://toolku.com/usa/dmv/document-checker.html"}]}</script>
-<meta name="theme-color" content="#111827">
-<link rel="stylesheet" href="/css/dmv-tools.css"><link rel="stylesheet" href="/css/dmv-document-checker.css">
-</head>
-<body class="usa-tool-page">
-  <header class="site-header"><a class="brand" href="/"><span class="brand-mark">T</span>ToolKu</a><nav><a href="/">首页</a><a href="/tools/">工具导航</a><a href="/#usa-tools">美国工具</a><a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a></nav></header>
-  <div class="app-shell">
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="/css/usa-tools.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://toolku.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "美国工具",
+            "item": "https://toolku.com/#usa-tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "纽约 DMV 文件检查器",
+            "item": "https://toolku.com/usa/dmv/document-checker.html"
+          }
+        ]
+      }
+    </script>
+    <meta name="theme-color" content="#111827" />
+    <link rel="stylesheet" href="/css/dmv-tools.css" />
+    <link rel="stylesheet" href="/css/dmv-document-checker.css" />
+  </head>
+  <body class="usa-tool-page">
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">T</span>ToolKu</a>
+      <nav>
+        <a href="/">首页</a><a href="/tools/">工具导航</a
+        ><a href="/#usa-tools">美国工具</a
+        ><a href="https://openaa.com" target="_blank" rel="noopener noreferrer"
+          >OpenAA</a
+        >
+      </nav>
+    </header>
+    <div class="app-shell">
+      <main>
+        <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
+        <section class="content-wrap">
+          <a class="usa-back-link" href="/#usa-tools">← 返回美国工具</a>
+          <div class="usa-breadcrumbs">
+            <a href="/">首页</a> › <a href="/#usa-tools">美国工具</a> › DMV
+            文件检查器
+          </div>
 
-    <main>
-    <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
-      <section class="content-wrap">
+          <div class="section-title">DMV 文件检查器</div>
 
-        <a class="usa-back-link" href="/#usa-tools">← 返回美国工具</a><div class="usa-breadcrumbs"><a href="/">首页</a> › <a href="/#usa-tools">美国工具</a> › DMV 文件检查器</div>
+          <!-- DMV 工具分类导航栏 -->
+          <div class="dmv-tool-nav-card">
+            <nav class="dmv-tool-nav" aria-label="DMV 工具分类导航">
+              <a href="/#usa-tools" class="dmv-tool-link">全部美国工具</a>
+              <a
+                href="/usa/dmv/document-checker.html"
+                class="dmv-tool-link active"
+                >文件检查</a
+              >
+              <a href="/usa/dmv/6-points-calculator.html" class="dmv-tool-link"
+                >6 Points</a
+              >
+              <a href="/usa/dmv/real-id-checker.html" class="dmv-tool-link"
+                >REAL ID</a
+              >
+              <a
+                href="/usa/dmv/real-id-vs-standard-vs-enhanced.html"
+                class="dmv-tool-link"
+                >证件对比</a
+              >
+            </nav>
+          </div>
 
+          <article class="template-card dmv-hero-card">
+            <h1>纽约 DMV 文件检查器</h1>
+            <p>
+              申请 Learner Permit、Driver License、Non-Driver ID、REAL ID 或
+              Enhanced ID
+              前，先用中文检查你大概要带哪些文件、几份纽约地址证明，以及 6
+              points 是否可能够。
+            </p>
+          </article>
 
+          <div class="template-card">
+            <div class="notice-box">
+              📢 温馨提示：DMV
+              通常要求原件或签发机构认证副本；电子账单建议打印出来；地址证明一般不能只写
+              P.O. Box。这个工具只做中文整理和提醒，不能代替 DMV 最终审核。
+            </div>
+          </div>
 
-        <div class="section-title">DMV 文件检查器</div>
+          <article class="template-card">
+            <h2>先选择你的申请情况</h2>
+            <p class="dmv-muted">
+              去 DMV 前，建议再用纽约 DMV 官方 Document Guide 或 Pre-Screening
+              检查一次。不同身份、不同证件、不同姓名情况，现场审核可能会有差异。
+            </p>
 
+            <div class="dmv-row">
+              <div class="dmv-field">
+                <label class="dmv-label">你要申请哪一种？</label>
+                <select id="docType" class="dmv-select">
+                  <option value="standard">
+                    Standard 普通驾照 / Permit / ID
+                  </option>
+                  <option value="real">REAL ID</option>
+                  <option value="enhanced">Enhanced 增强型 ID / 驾照</option>
+                </select>
+              </div>
+              <div class="dmv-field">
+                <label class="dmv-label">申请项目</label>
+                <select id="purpose" class="dmv-select">
+                  <option value="permit">Learner Permit / 驾照</option>
+                  <option value="nondriver">Non-Driver ID 非驾驶 ID</option>
+                  <option value="renew">换 REAL ID / Enhanced</option>
+                </select>
+              </div>
+            </div>
 
+            <div class="dmv-row">
+              <div class="dmv-field">
+                <label class="dmv-label">你是否有 SSN？</label>
+                <select id="ssn" class="dmv-select">
+                  <option value="card">有 Social Security Card</option>
+                  <option value="number">有 SSN，但没带卡</option>
+                  <option value="no">没有 SSN / 不符合 SSN 资格</option>
+                </select>
+              </div>
+              <div class="dmv-field">
+                <label class="dmv-label">是否美国公民？</label>
+                <select id="citizen" class="dmv-select">
+                  <option value="yes">是，美国公民</option>
+                  <option value="no">不是，美国公民以外身份</option>
+                </select>
+              </div>
+            </div>
 
-        <!-- DMV 工具分类导航栏 -->
-        <div class="dmv-tool-nav-card">
-          <nav class="dmv-tool-nav" aria-label="DMV 工具分类导航">
-            <a href="/#usa-tools" class="dmv-tool-link">全部美国工具</a>
-            <a href="/usa/dmv/document-checker.html" class="dmv-tool-link active">文件检查</a>
-            <a href="/usa/dmv/6-points-calculator.html" class="dmv-tool-link">6 Points</a>
-            <a href="/usa/dmv/real-id-checker.html" class="dmv-tool-link">REAL ID</a>
-            <a href="/usa/dmv/real-id-vs-standard-vs-enhanced.html" class="dmv-tool-link">证件对比</a>
-          </nav>
+            <div class="dmv-field">
+              <label class="dmv-label">你准备带哪些常见文件？</label>
+              <div class="dmv-checks" id="docs">
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="passport"
+                    data-points="4"
+                    data-birth="1"
+                    data-lawful="1"
+                    data-citizen="1"
+                  />美国护照 / 外国护照（常见可算 4 分，需看身份文件）</label
+                >
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="green"
+                    data-points="3"
+                    data-birth="1"
+                    data-lawful="1"
+                  />绿卡 I-551（常见 3 分）</label
+                >
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="ead"
+                    data-points="3"
+                    data-birth="1"
+                    data-lawful="1"
+                  />工卡 EAD + 合法身份文件（常见 3 分）</label
+                >
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="birth"
+                    data-points="0"
+                    data-birth="1"
+                    data-citizen="1"
+                  />美国出生纸 / 入籍纸 / 公民证明</label
+                >
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="outstate"
+                    data-points="4"
+                    data-birth="1"
+                  />外州驾照 / 外州 ID（常见 4 分）</label
+                >
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="bank"
+                    data-points="1"
+                    data-res="1"
+                  />银行账单 Bank Statement（地址证明，常见 1 分）</label
+                >
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="utility"
+                    data-points="1"
+                    data-res="1"
+                  />水电煤网账单 Utility Bill（地址证明，常见 1 分）</label
+                >
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="paystub"
+                    data-points="1"
+                    data-res="1"
+                  />工资单 Pay Stub（地址证明，常见 1 分）</label
+                >
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="lease"
+                    data-points="0"
+                    data-res="1"
+                  />租约 Residential Lease（地址证明）</label
+                >
+                <label class="dmv-check"
+                  ><input
+                    type="checkbox"
+                    value="nyid"
+                    data-points="6"
+                    data-res="1"
+                  />纽约驾照 / Permit / Non-Driver ID（常见 6 分）</label
+                >
+              </div>
+            </div>
+
+            <div class="dmv-btns">
+              <button
+                class="dmv-btn dmv-btn-primary"
+                type="button"
+                onclick="checkDmvDocs()"
+              >
+                生成材料清单
+              </button>
+              <button
+                class="dmv-btn dmv-btn-ghost"
+                type="button"
+                onclick="resetDmvDocs()"
+              >
+                重新选择
+              </button>
+            </div>
+            <div id="dmvResult"></div>
+          </article>
+
+          <article class="template-card">
+            <h2>常见材料规则速查</h2>
+            <table class="dmv-table">
+              <thead>
+                <tr>
+                  <th>申请类型</th>
+                  <th>通常需要</th>
+                  <th>重点提醒</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="dmv-tag">Standard</td>
+                  <td>
+                    出生日期证明、1 份纽约地址证明、6 points 姓名/身份分数
+                  </td>
+                  <td>不能用于美国国内航班登机或进入某些联邦设施。</td>
+                </tr>
+                <tr>
+                  <td class="dmv-tag">REAL ID</td>
+                  <td>
+                    SSN 相关证明、美国公民或合法身份、2 份纽约地址证明、6 points
+                  </td>
+                  <td>没有额外 REAL ID 费用，但需要符合联邦 ID 要求。</td>
+                </tr>
+                <tr>
+                  <td class="dmv-tag">Enhanced</td>
+                  <td>SSN、公民身份证明、2 份纽约地址证明、6 points</td>
+                  <td>通常只限美国公民申请，可能另加 Enhanced 费用。</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="template-card">
+            <h2>给纽约华人的 DMV 文件准备说明</h2>
+            <p>
+              很多在纽约生活的华人第一次去 DMV 办 Learner
+              Permit、驾照、Non-Driver ID 或 REAL ID
+              时，最容易卡在“文件不够”“地址证明不合格”“6 points
+              不够”“名字不一致”这几件事。ToolKu 提供这个 DMV
+              文件检查器，是为了让大家在出门前先用中文把材料大概核对一遍，减少白跑一趟
+              DMV 的机会。
+            </p>
+            <p>
+              纽约 DMV 的文件要求会根据你申请 Standard、REAL ID 还是 Enhanced
+              而不同。Standard 通常要求 1 份纽约地址证明；REAL ID 和 Enhanced
+              通常需要 2 份纽约地址证明。REAL ID
+              是用于美国国内航班和部分联邦设施的联邦合规证件；Enhanced 除了满足
+              REAL ID
+              类用途外，还可用于部分从加拿大、墨西哥和加勒比地区陆路或海路返回美国的场景，但
+              Enhanced 通常只限美国公民申请。
+            </p>
+            <p>
+              准备文件时，银行账单、水电账单、工资单、租约、纽约驾照或
+              Non-Driver ID
+              等都可能作为地址证明，但文件上的地址必须是当前纽约地址，电子账单通常需要打印。DMV
+              也可能不接受 P.O. Box
+              作为地址证明。名字如果因结婚、离婚或法院改名发生变化，需要准备能连接新旧姓名的正式文件。
+            </p>
+            <p>
+              本页适合搜索“纽约 DMV 6 points 中文”“REAL ID
+              纽约需要什么材料”“纽约考驾照文件清单”“纽约华人 DMV
+              文件准备”的用户参考。最终要求请以纽约 DMV
+              官方页面和现场工作人员审核为准。
+            </p>
+            <div class="notice-box dmv-official-links">
+              官方参考：<a
+                href="https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+                target="_blank"
+                rel="noopener"
+                >NY DMV REAL ID / Enhanced</a
+              >
+              ｜
+              <a
+                href="https://dmv.ny.gov/forms/id44.pdf"
+                target="_blank"
+                rel="noopener"
+                >ID-44 文件清单 PDF</a
+              >
+              ｜
+              <a
+                href="https://dmv.ny.gov/DocumentGuide"
+                target="_blank"
+                rel="noopener"
+                >DMV Document Guide</a
+              >
+            </div>
+          </article>
+        </section>
+        <!-- 中间内容结束 -->
+      </main>
+    </div>
+
+    <section class="source-panel">
+      <div class="source-meta">规则复核：2026年9月10日 · 适用于纽约州</div>
+      <h2>使用检查结果前请再核对官方清单</h2>
+      <p>
+        REAL
+        ID或Enhanced通常需要两份纽约州居住证明，Standard通常需要一份；文件是否接受还会受到证件类型、有效期、姓名一致性和个人身份情况影响。本页用于出发前中文预检查，不能代替DMV现场审核。
+      </p>
+      <p class="official-source">
+        官方来源：<a
+          href="https://dmv.ny.gov/document/id-44"
+          target="_blank"
+          rel="noopener noreferrer"
+          >纽约DMV ID-44文件积分表</a
+        >
+        ·
+        <a
+          href="https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+          target="_blank"
+          rel="noopener noreferrer"
+          >纽约DMV REAL ID与Enhanced说明</a
+        >
+      </p>
+    </section>
+    <section class="usa-related" aria-label="相关工具">
+      <div class="usa-related-inner">
+        <h2>相关美国生活工具</h2>
+        <div class="usa-related-links">
+          <a href="/usa/dmv/6-points-calculator.html">DMV 6 Points</a
+          ><a href="/usa/dmv/real-id-checker.html">REAL ID 检查</a
+          ><a href="/usa/dmv/real-id-vs-standard-vs-enhanced.html"
+            >REAL ID 证件对比</a
+          ><a href="/usa/usd-rmb/">美元人民币换算</a
+          ><a href="/usa/expense-record/">生活记账</a>
         </div>
-
-        <article class="template-card dmv-hero-card">
-          <h1>纽约 DMV 文件检查器</h1>
-          <p>申请 Learner Permit、Driver License、Non-Driver ID、REAL ID 或 Enhanced ID 前，先用中文检查你大概要带哪些文件、几份纽约地址证明，以及 6 points 是否可能够。</p>
-        </article>
-
-        <div class="template-card">
-          <div class="notice-box">📢 温馨提示：DMV 通常要求原件或签发机构认证副本；电子账单建议打印出来；地址证明一般不能只写 P.O. Box。这个工具只做中文整理和提醒，不能代替 DMV 最终审核。</div>
-        </div>
-
-        <article class="template-card">
-          <h2>先选择你的申请情况</h2>
-          <p class="dmv-muted">去 DMV 前，建议再用纽约 DMV 官方 Document Guide 或 Pre-Screening 检查一次。不同身份、不同证件、不同姓名情况，现场审核可能会有差异。</p>
-
-          <div class="dmv-row">
-            <div class="dmv-field">
-              <label class="dmv-label">你要申请哪一种？</label>
-              <select id="docType" class="dmv-select">
-                <option value="standard">Standard 普通驾照 / Permit / ID</option>
-                <option value="real">REAL ID</option>
-                <option value="enhanced">Enhanced 增强型 ID / 驾照</option>
-              </select>
-            </div>
-            <div class="dmv-field">
-              <label class="dmv-label">申请项目</label>
-              <select id="purpose" class="dmv-select">
-                <option value="permit">Learner Permit / 驾照</option>
-                <option value="nondriver">Non-Driver ID 非驾驶 ID</option>
-                <option value="renew">换 REAL ID / Enhanced</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="dmv-row">
-            <div class="dmv-field">
-              <label class="dmv-label">你是否有 SSN？</label>
-              <select id="ssn" class="dmv-select">
-                <option value="card">有 Social Security Card</option>
-                <option value="number">有 SSN，但没带卡</option>
-                <option value="no">没有 SSN / 不符合 SSN 资格</option>
-              </select>
-            </div>
-            <div class="dmv-field">
-              <label class="dmv-label">是否美国公民？</label>
-              <select id="citizen" class="dmv-select">
-                <option value="yes">是，美国公民</option>
-                <option value="no">不是，美国公民以外身份</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="dmv-field">
-            <label class="dmv-label">你准备带哪些常见文件？</label>
-            <div class="dmv-checks" id="docs">
-              <label class="dmv-check"><input type="checkbox" value="passport" data-points="4" data-birth="1" data-lawful="1" data-citizen="1">美国护照 / 外国护照（常见可算 4 分，需看身份文件）</label>
-              <label class="dmv-check"><input type="checkbox" value="green" data-points="3" data-birth="1" data-lawful="1">绿卡 I-551（常见 3 分）</label>
-              <label class="dmv-check"><input type="checkbox" value="ead" data-points="3" data-birth="1" data-lawful="1">工卡 EAD + 合法身份文件（常见 3 分）</label>
-              <label class="dmv-check"><input type="checkbox" value="birth" data-points="0" data-birth="1" data-citizen="1">美国出生纸 / 入籍纸 / 公民证明</label>
-              <label class="dmv-check"><input type="checkbox" value="outstate" data-points="4" data-birth="1">外州驾照 / 外州 ID（常见 4 分）</label>
-              <label class="dmv-check"><input type="checkbox" value="bank" data-points="1" data-res="1">银行账单 Bank Statement（地址证明，常见 1 分）</label>
-              <label class="dmv-check"><input type="checkbox" value="utility" data-points="1" data-res="1">水电煤网账单 Utility Bill（地址证明，常见 1 分）</label>
-              <label class="dmv-check"><input type="checkbox" value="paystub" data-points="1" data-res="1">工资单 Pay Stub（地址证明，常见 1 分）</label>
-              <label class="dmv-check"><input type="checkbox" value="lease" data-points="0" data-res="1">租约 Residential Lease（地址证明）</label>
-              <label class="dmv-check"><input type="checkbox" value="nyid" data-points="6" data-res="1">纽约驾照 / Permit / Non-Driver ID（常见 6 分）</label>
-            </div>
-          </div>
-
-          <div class="dmv-btns">
-            <button class="dmv-btn dmv-btn-primary" type="button" onclick="checkDmvDocs()">生成材料清单</button>
-            <button class="dmv-btn dmv-btn-ghost" type="button" onclick="resetDmvDocs()">重新选择</button>
-          </div>
-          <div id="dmvResult"></div>
-        </article>
-
-        <article class="template-card">
-          <h2>常见材料规则速查</h2>
-          <table class="dmv-table">
-            <thead><tr><th>申请类型</th><th>通常需要</th><th>重点提醒</th></tr></thead>
-            <tbody>
-              <tr><td class="dmv-tag">Standard</td><td>出生日期证明、1 份纽约地址证明、6 points 姓名/身份分数</td><td>不能用于美国国内航班登机或进入某些联邦设施。</td></tr>
-              <tr><td class="dmv-tag">REAL ID</td><td>SSN 相关证明、美国公民或合法身份、2 份纽约地址证明、6 points</td><td>没有额外 REAL ID 费用，但需要符合联邦 ID 要求。</td></tr>
-              <tr><td class="dmv-tag">Enhanced</td><td>SSN、公民身份证明、2 份纽约地址证明、6 points</td><td>通常只限美国公民申请，可能另加 Enhanced 费用。</td></tr>
-            </tbody>
-          </table>
-        </article>
-
-        <article class="template-card">
-          <h2>给纽约华人的 DMV 文件准备说明</h2>
-          <p>很多在纽约生活的华人第一次去 DMV 办 Learner Permit、驾照、Non-Driver ID 或 REAL ID 时，最容易卡在“文件不够”“地址证明不合格”“6 points 不够”“名字不一致”这几件事。ToolKu 提供这个 DMV 文件检查器，是为了让大家在出门前先用中文把材料大概核对一遍，减少白跑一趟 DMV 的机会。</p>
-          <p>纽约 DMV 的文件要求会根据你申请 Standard、REAL ID 还是 Enhanced 而不同。Standard 通常要求 1 份纽约地址证明；REAL ID 和 Enhanced 通常需要 2 份纽约地址证明。REAL ID 是用于美国国内航班和部分联邦设施的联邦合规证件；Enhanced 除了满足 REAL ID 类用途外，还可用于部分从加拿大、墨西哥和加勒比地区陆路或海路返回美国的场景，但 Enhanced 通常只限美国公民申请。</p>
-          <p>准备文件时，银行账单、水电账单、工资单、租约、纽约驾照或 Non-Driver ID 等都可能作为地址证明，但文件上的地址必须是当前纽约地址，电子账单通常需要打印。DMV 也可能不接受 P.O. Box 作为地址证明。名字如果因结婚、离婚或法院改名发生变化，需要准备能连接新旧姓名的正式文件。</p>
-          <p>本页适合搜索“纽约 DMV 6 points 中文”“REAL ID 纽约需要什么材料”“纽约考驾照文件清单”“纽约华人 DMV 文件准备”的用户参考。最终要求请以纽约 DMV 官方页面和现场工作人员审核为准。</p>
-          <div class="notice-box dmv-official-links">官方参考：<a href="https://dmv.ny.gov/driver-license/enhanced-or-real-id" target="_blank" rel="noopener">NY DMV REAL ID / Enhanced</a> ｜ <a href="https://dmv.ny.gov/forms/id44.pdf" target="_blank" rel="noopener">ID-44 文件清单 PDF</a> ｜ <a href="https://dmv.ny.gov/DocumentGuide" target="_blank" rel="noopener">DMV Document Guide</a></div>
-        </article>
-      </section>
-      <!-- 中间内容结束 -->
-    </main>
-  </div>
-
-
-<section class="source-panel"><div class="source-meta">规则复核：2026年9月10日 · 适用于纽约州</div><h2>使用检查结果前请再核对官方清单</h2><p>REAL ID或Enhanced通常需要两份纽约州居住证明，Standard通常需要一份；文件是否接受还会受到证件类型、有效期、姓名一致性和个人身份情况影响。本页用于出发前中文预检查，不能代替DMV现场审核。</p><p class="official-source">官方来源：<a href="https://dmv.ny.gov/document/id-44" target="_blank" rel="noopener noreferrer">纽约DMV ID-44文件积分表</a> · <a href="https://dmv.ny.gov/driver-license/enhanced-or-real-id" target="_blank" rel="noopener noreferrer">纽约DMV REAL ID与Enhanced说明</a></p></section><section class="usa-related" aria-label="相关工具"><div class="usa-related-inner"><h2>相关美国生活工具</h2><div class="usa-related-links"><a href="/usa/dmv/6-points-calculator.html">DMV 6 Points</a><a href="/usa/dmv/real-id-checker.html">REAL ID 检查</a><a href="/usa/dmv/real-id-vs-standard-vs-enhanced.html">REAL ID 证件对比</a><a href="/usa/usd-rmb/">美元人民币换算</a><a href="/usa/expense-record/">生活记账</a></div><a class="usa-bottom-back" href="/#usa-tools">← 返回美国工具</a></div></section>
-<footer class="toolku-footer">ToolKu工具库 · <a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a><br><small>ToolKu 是 OpenAA 旗下的在线工具平台。结果仅供参考，官方事务请以相关机构最新规定为准。</small></footer>
-<script src="/js/usa/dmv-document-checker.js" defer></script>
-<script src="/js/openaa-referral.js" defer></script></body>
+        <a class="usa-bottom-back" href="/#usa-tools">← 返回美国工具</a>
+      </div>
+    </section>
+    <footer class="toolku-footer">
+      ToolKu工具库 ·
+      <a href="https://openaa.com" target="_blank" rel="noopener noreferrer"
+        >OpenAA</a
+      ><br /><small
+        >ToolKu 是 OpenAA
+        旗下的在线工具平台。结果仅供参考，官方事务请以相关机构最新规定为准。</small
+      >
+    </footer>
+    <script src="/js/usa/dmv-document-checker.js" defer></script>
+    <script src="/js/openaa-referral.js" defer></script>
+  </body>
 </html>

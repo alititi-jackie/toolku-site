@@ -1,247 +1,633 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>美元人民币汇率换算｜USD CNY 美国华人换算器｜ToolKu</title>
-  <meta name="description" content="美元人民币在线换算器，适合美国华人快速估算 USD 与 CNY 金额，并查看常用换算结果。" />
-  <meta name="keywords" content="美元人民币汇率,美金换人民币,汇率计算器,美元汇率记录,人民币换算,美元收入记录,换汇记录,汇率统计,Excel汇率表,海外华人工具,美国华人工具" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://toolku.com/usa/usd-rmb/" />
-  <meta property="og:locale" content="zh_CN" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="美元人民币汇率换算｜USD CNY 美国华人换算器｜ToolKu" />
-  <meta property="og:description" content="免费美元人民币汇率记录工具，支持美金换人民币自动计算、月度年度统计、本地保存数据和Excel导出。" />
-  <meta property="og:url" content="https://toolku.com/usa/usd-rmb/" />
-  <meta property="og:image" content="https://toolku.com/favicon/apple-touch-icon.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="美元人民币汇率换算｜USD CNY 美国华人换算器｜ToolKu" />
-  <meta name="twitter:description" content="本地保存、自动计算、月度年度汇总、导出Excel的手机汇率记录工具。" />
-  <meta name="twitter:image" content="https://toolku.com/favicon/apple-touch-icon.png" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="./manifest.json" />
-  <meta name="theme-color" content="#3b82f6" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>美元人民币汇率换算｜USD CNY 美国华人换算器｜ToolKu</title>
+    <meta
+      name="description"
+      content="美元人民币在线换算器，适合美国华人快速估算 USD 与 CNY 金额，并查看常用换算结果。"
+    />
+    <meta
+      name="keywords"
+      content="美元人民币汇率,美金换人民币,汇率计算器,美元汇率记录,人民币换算,美元收入记录,换汇记录,汇率统计,Excel汇率表,海外华人工具,美国华人工具"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://toolku.com/usa/usd-rmb/" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="美元人民币汇率换算｜USD CNY 美国华人换算器｜ToolKu"
+    />
+    <meta
+      property="og:description"
+      content="免费美元人民币汇率记录工具，支持美金换人民币自动计算、月度年度统计、本地保存数据和Excel导出。"
+    />
+    <meta property="og:url" content="https://toolku.com/usa/usd-rmb/" />
+    <meta
+      property="og:image"
+      content="https://toolku.com/favicon/apple-touch-icon.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="美元人民币汇率换算｜USD CNY 美国华人换算器｜ToolKu"
+    />
+    <meta
+      name="twitter:description"
+      content="本地保存、自动计算、月度年度汇总、导出Excel的手机汇率记录工具。"
+    />
+    <meta
+      name="twitter:image"
+      content="https://toolku.com/favicon/apple-touch-icon.png"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#3b82f6" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "美元人民币汇率记录工具",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Web",
-    "url": "https://toolku.com/usa/usd-rmb/",
-    "description": "免费美元人民币汇率记录工具，支持美金金额输入、人民币自动换算、月度统计、年度统计、本地保存数据和Excel导出。",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "publisher": { "@type": "Organization", "name": "OpenAA", "url": "https://toolku.com/" }
-  }
-  </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "美元人民币汇率记录工具",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "url": "https://toolku.com/usa/usd-rmb/",
+        "description": "免费美元人民币汇率记录工具，支持美金金额输入、人民币自动换算、月度统计、年度统计、本地保存数据和Excel导出。",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "OpenAA",
+          "url": "https://toolku.com/"
+        }
+      }
+    </script>
 
-  <link rel="stylesheet" href="/css/site.css" />
-  <link rel="stylesheet" href="/css/usa-tools.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://toolku.com/"},{"@type":"ListItem","position":2,"name":"美国工具","item":"https://toolku.com/#usa-tools"},{"@type":"ListItem","position":3,"name":"美元人民币汇率换算工具","item":"https://toolku.com/usa/usd-rmb/"}]}</script>
-<link rel="stylesheet" href="/css/usd-rmb.css">
-</head>
-<body class="usa-tool-page">
-  <header class="site-header"><a class="brand" href="/"><span class="brand-mark">T</span>ToolKu</a><nav><a href="/">首页</a><a href="/tools/">工具导航</a><a href="/#usa-tools">美国工具</a><a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a></nav></header>
-  <div class="app-shell">
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="/css/usa-tools.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://toolku.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "美国工具",
+            "item": "https://toolku.com/#usa-tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "美元人民币汇率换算工具",
+            "item": "https://toolku.com/usa/usd-rmb/"
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="/css/usd-rmb.css" />
+  </head>
+  <body class="usa-tool-page">
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">T</span>ToolKu</a>
+      <nav>
+        <a href="/">首页</a><a href="/tools/">工具导航</a
+        ><a href="/#usa-tools">美国工具</a
+        ><a href="https://openaa.com" target="_blank" rel="noopener noreferrer"
+          >OpenAA</a
+        >
+      </nav>
+    </header>
+    <div class="app-shell">
+      <main>
+        <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
 
-    <main>
-    <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
+        <section class="content-wrap">
+          <a class="usa-back-link" href="/#usa-tools">← 返回美国工具</a>
+          <div class="usa-breadcrumbs">
+            <a href="/">首页</a> › <a href="/#usa-tools">美国工具</a> ›
+            美元人民币换算
+          </div>
+          <div class="section-title-row" id="fxSectionTitleRow">
+            <div class="section-title">ToolKu 汇率工具</div>
+            <a class="fx-small-btn fx-title-back" href="/">返回</a>
+          </div>
 
-      <section class="content-wrap">
-
-        <a class="usa-back-link" href="/#usa-tools">← 返回美国工具</a><div class="usa-breadcrumbs"><a href="/">首页</a> › <a href="/#usa-tools">美国工具</a> › 美元人民币换算</div>
-<div class="section-title-row" id="fxSectionTitleRow"><div class="section-title">ToolKu 汇率工具</div><a class="fx-small-btn fx-title-back" href="/">返回</a></div>
-
-        <div id="fxApp" class="fx-app">
-          <section class="fx-view active" data-view="home">
-            <div class="fx-hero">
-              <h1>美元人民币汇率记录</h1>
-              <p>单机本地保存。输入日期、美金和汇率，自动计算人民币；可查看全部、月度年度汇总，并导出 WPS 可打开的数据。</p>
-            </div>
-            <div class="fx-home-grid">
-              <button class="fx-big-btn" type="button" data-goto="input"><strong>输入</strong><span>日期 / 美金 / 汇率</span></button>
-              <button class="fx-big-btn" type="button" data-goto="all"><strong>查看</strong><span>全部记录、编辑删除</span></button>
-              <button class="fx-big-btn" type="button" data-goto="month"><strong>按月</strong><span>月度合计与平均汇率</span></button>
-              <button class="fx-big-btn" type="button" data-goto="year"><strong>年度</strong><span>年度合计与记录行数</span></button>
-              <button class="fx-big-btn" type="button" data-goto="export"><strong>导出/分享</strong><span>Excel、汇总复制、清空数据</span></button>
-              <button class="fx-big-btn" type="button" id="installAppBtn"><strong>下载安装到手机</strong><span>添加到桌面，像 App 一样打开</span></button>
-            </div>
-            <div class="template-card">
-              <h2>当前数据</h2>
-              <div id="homeSummary" class="fx-summary"></div>
-              <div class="fx-safety-note" role="note" aria-label="数据安全说明">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
-                <div>
-                  <strong>数据安全说明</strong>
-                  <p>OpenAA 重视用户隐私与数据安全。本工具不会上传、存储或同步任何记录到服务器，所有数据仅保存在您当前使用的浏览器中。如果更换浏览器、清理浏览器缓存、清除网站数据、重装浏览器或更换设备，记录将无法恢复。重要数据建议定期导出 Excel 保存。</p>
+          <div id="fxApp" class="fx-app">
+            <section class="fx-view active" data-view="home">
+              <div class="fx-hero">
+                <h1>美元人民币汇率记录</h1>
+                <p>
+                  单机本地保存。输入日期、美金和汇率，自动计算人民币；可查看全部、月度年度汇总，并导出
+                  WPS 可打开的数据。
+                </p>
+              </div>
+              <div class="fx-home-grid">
+                <button class="fx-big-btn" type="button" data-goto="input">
+                  <strong>输入</strong><span>日期 / 美金 / 汇率</span>
+                </button>
+                <button class="fx-big-btn" type="button" data-goto="all">
+                  <strong>查看</strong><span>全部记录、编辑删除</span>
+                </button>
+                <button class="fx-big-btn" type="button" data-goto="month">
+                  <strong>按月</strong><span>月度合计与平均汇率</span>
+                </button>
+                <button class="fx-big-btn" type="button" data-goto="year">
+                  <strong>年度</strong><span>年度合计与记录行数</span>
+                </button>
+                <button class="fx-big-btn" type="button" data-goto="export">
+                  <strong>导出/分享</strong
+                  ><span>Excel、汇总复制、清空数据</span>
+                </button>
+                <button class="fx-big-btn" type="button" id="installAppBtn">
+                  <strong>下载安装到手机</strong
+                  ><span>添加到桌面，像 App 一样打开</span>
+                </button>
+              </div>
+              <div class="template-card">
+                <h2>当前数据</h2>
+                <div id="homeSummary" class="fx-summary"></div>
+                <div
+                  class="fx-safety-note"
+                  role="note"
+                  aria-label="数据安全说明"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="M12 8v4" />
+                    <path d="M12 16h.01" />
+                  </svg>
+                  <div>
+                    <strong>数据安全说明</strong>
+                    <p>
+                      OpenAA
+                      重视用户隐私与数据安全。本工具不会上传、存储或同步任何记录到服务器，所有数据仅保存在您当前使用的浏览器中。如果更换浏览器、清理浏览器缓存、清除网站数据、重装浏览器或更换设备，记录将无法恢复。重要数据建议定期导出
+                      Excel 保存。
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section class="fx-view" data-view="input">
-            <div class="fx-page-title">
-              <div class="fx-title-left">
-                <h2 id="inputTitle">输入记录</h2>
-                <div class="fx-type-toggle" role="group" aria-label="记录类型">
-                  <button class="fx-type-btn active" type="button" id="fxTypeAddBtn" data-type-value="add">新增</button>
-                  <button class="fx-type-btn" type="button" id="fxTypeSubtractBtn" data-type-value="subtract">减去</button>
+            <section class="fx-view" data-view="input">
+              <div class="fx-page-title">
+                <div class="fx-title-left">
+                  <h2 id="inputTitle">输入记录</h2>
+                  <div
+                    class="fx-type-toggle"
+                    role="group"
+                    aria-label="记录类型"
+                  >
+                    <button
+                      class="fx-type-btn active"
+                      type="button"
+                      id="fxTypeAddBtn"
+                      data-type-value="add"
+                    >
+                      新增
+                    </button>
+                    <button
+                      class="fx-type-btn"
+                      type="button"
+                      id="fxTypeSubtractBtn"
+                      data-type-value="subtract"
+                    >
+                      减去
+                    </button>
+                  </div>
                 </div>
+                <button class="fx-small-btn" type="button" data-goto="home">
+                  返回
+                </button>
               </div>
-              <button class="fx-small-btn" type="button" data-goto="home">返回</button>
-            </div>
-            <div class="template-card">
-              <form id="fxForm" class="fx-form">
-                <input type="hidden" id="editId" />
-                <input type="hidden" id="fxType" value="add" />
-                <div class="fx-field"><label for="fxDate">日期</label><input class="fx-input" id="fxDate" type="date" required /></div>
-                <div class="fx-field"><label for="fxUsd">美金金额</label><input class="fx-input" id="fxUsd" type="number" min="0" step="0.01" inputmode="decimal" placeholder="例如 100" required /><div class="fx-input-warning" id="fxUsdWarning">⚠️ 美金金额看起来可能有误，请确认是否输入正确。</div></div>
-                <div class="fx-field"><label for="fxRate">汇率</label><input class="fx-input" id="fxRate" type="number" min="0" step="0.0001" inputmode="decimal" placeholder="例如 7.25" required /><div class="fx-input-warning" id="fxRateWarning">⚠️ 汇率看起来可能有误，请确认是否输入正确。</div></div>
-                <div class="fx-field"><label for="fxNote">备注（可不填）</label><input class="fx-input" id="fxNote" type="text" placeholder="例如 转账、工资、兑换" /></div>
-                <div class="fx-result-box"><span>人民币金额自动计算</span><strong id="fxCnyPreview">¥0.00</strong></div>
+              <div class="template-card">
+                <form id="fxForm" class="fx-form">
+                  <input type="hidden" id="editId" />
+                  <input type="hidden" id="fxType" value="add" />
+                  <div class="fx-field">
+                    <label for="fxDate">日期</label
+                    ><input class="fx-input" id="fxDate" type="date" required />
+                  </div>
+                  <div class="fx-field">
+                    <label for="fxUsd">美金金额</label
+                    ><input
+                      class="fx-input"
+                      id="fxUsd"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      inputmode="decimal"
+                      placeholder="例如 100"
+                      required
+                    />
+                    <div class="fx-input-warning" id="fxUsdWarning">
+                      ⚠️ 美金金额看起来可能有误，请确认是否输入正确。
+                    </div>
+                  </div>
+                  <div class="fx-field">
+                    <label for="fxRate">汇率</label
+                    ><input
+                      class="fx-input"
+                      id="fxRate"
+                      type="number"
+                      min="0"
+                      step="0.0001"
+                      inputmode="decimal"
+                      placeholder="例如 7.25"
+                      required
+                    />
+                    <div class="fx-input-warning" id="fxRateWarning">
+                      ⚠️ 汇率看起来可能有误，请确认是否输入正确。
+                    </div>
+                  </div>
+                  <div class="fx-field">
+                    <label for="fxNote">备注（可不填）</label
+                    ><input
+                      class="fx-input"
+                      id="fxNote"
+                      type="text"
+                      placeholder="例如 转账、工资、兑换"
+                    />
+                  </div>
+                  <div class="fx-result-box">
+                    <span>人民币金额自动计算</span
+                    ><strong id="fxCnyPreview">¥0.00</strong>
+                  </div>
+                  <div class="fx-actions">
+                    <button class="fx-small-btn" type="button" data-goto="home">
+                      取消
+                    </button>
+                    <button class="fx-primary-btn" type="submit">保存</button>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+            <section class="fx-view" data-view="saved">
+              <div class="template-card">
+                <h2>保存成功</h2>
+                <p>这条记录已保存到手机本地。</p>
                 <div class="fx-actions">
-                  <button class="fx-small-btn" type="button" data-goto="home">取消</button>
-                  <button class="fx-primary-btn" type="submit">保存</button>
+                  <button class="fx-small-btn" type="button" data-goto="home">
+                    返回首页
+                  </button>
+                  <button
+                    class="fx-primary-btn"
+                    type="button"
+                    id="continueAddBtn"
+                  >
+                    继续添加
+                  </button>
                 </div>
-              </form>
-            </div>
-          </section>
+              </div>
+            </section>
 
-          <section class="fx-view" data-view="saved">
-            <div class="template-card">
-              <h2>保存成功</h2>
-              <p>这条记录已保存到手机本地。</p>
-              <div class="fx-actions">
-                <button class="fx-small-btn" type="button" data-goto="home">返回首页</button>
-                <button class="fx-primary-btn" type="button" id="continueAddBtn">继续添加</button>
+            <section class="fx-view" data-view="all">
+              <div class="fx-page-title">
+                <h2>全部记录</h2>
+                <button class="fx-small-btn" type="button" data-goto="home">
+                  返回
+                </button>
+              </div>
+              <div id="allSummary" class="fx-summary"></div>
+              <div id="allList" class="fx-list"></div>
+            </section>
+
+            <section class="fx-view" data-view="month">
+              <div class="fx-page-title">
+                <h2>按月查看</h2>
+                <button class="fx-small-btn" type="button" data-goto="home">
+                  返回
+                </button>
+              </div>
+              <div class="fx-filter-row fx-filter-row-single">
+                <input class="fx-input" id="monthPicker" type="month" />
+              </div>
+              <div id="monthSummary" class="fx-summary"></div>
+              <div id="monthList" class="fx-list"></div>
+            </section>
+
+            <section class="fx-view" data-view="year">
+              <div class="fx-page-title">
+                <h2>年度汇总</h2>
+                <button class="fx-small-btn" type="button" data-goto="home">
+                  返回
+                </button>
+              </div>
+              <div class="fx-filter-row">
+                <input
+                  class="fx-input"
+                  id="yearPicker"
+                  type="number"
+                  inputmode="numeric"
+                  placeholder="例如 2026"
+                />
+                <button class="fx-small-btn" type="button" id="clearYearBtn">
+                  全部年份
+                </button>
+              </div>
+              <div id="yearSummary" class="fx-summary"></div>
+              <div id="yearList" class="fx-list"></div>
+            </section>
+
+            <section class="fx-view" data-view="export">
+              <div class="fx-page-title">
+                <h2>导出 / 分享</h2>
+                <button class="fx-small-btn" type="button" data-goto="home">
+                  返回
+                </button>
+              </div>
+              <div class="fx-safety-note" role="note" aria-label="数据保存说明">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                  <path d="M12 8v4" />
+                  <path d="M12 16h.01" />
+                </svg>
+                <div>
+                  <strong>数据保存说明</strong>
+                  <p>
+                    OpenAA
+                    不会收集、上传或存储您的汇率记录。为了保护用户隐私，所有记录仅保存在当前浏览器中，不会同步到服务器。如果更换浏览器、清理浏览器缓存、清除网站数据、重装浏览器或更换设备，记录将被清空且无法恢复。建议定期导出
+                    Excel 文件或数据备份保存重要数据。
+                  </p>
+                </div>
+              </div>
+              <div class="fx-tools-grid">
+                <button class="fx-primary-btn" type="button" id="excelFileBtn">
+                  📊 导出 Excel
+                </button>
+                <button class="fx-small-btn" type="button" id="backupFileBtn">
+                  📦 数据备份
+                </button>
+                <button class="fx-small-btn" type="button" id="copySummaryBtn">
+                  📋 复制汇总内容
+                </button>
+                <button
+                  class="fx-small-btn"
+                  type="button"
+                  id="installAppBtnExport"
+                >
+                  📱 安装到手机
+                </button>
+                <button class="fx-danger-btn" type="button" id="clearDataBtn">
+                  🗑️ 清空全部数据
+                </button>
+              </div>
+              <input
+                id="importBackupInput"
+                type="file"
+                accept=".json,.backup,application/json"
+                hidden
+              />
+              <p class="fx-help">
+                Excel
+                文件适合查看、打印和转发；数据备份适合清理缓存、换浏览器或换设备后恢复记录。复制汇总内容后，可直接到微信聊天框粘贴发送。
+              </p>
+            </section>
+
+            <div
+              class="fx-sheet-backdrop"
+              id="excelActionSheet"
+              aria-hidden="true"
+            >
+              <div
+                class="fx-action-sheet"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Excel 文件操作"
+              >
+                <h3>Excel 文件</h3>
+                <p>
+                  选择下载到本机，或调用系统分享菜单发送给微信、短信、邮件等。
+                </p>
+                <div class="fx-sheet-grid">
+                  <button class="primary" type="button" id="downloadXlsBtn">
+                    📊 下载 Excel
+                  </button>
+                  <button type="button" id="shareXlsBtn">📎 分享 Excel</button>
+                  <button class="cancel" type="button" data-close-sheet>
+                    取消
+                  </button>
+                </div>
               </div>
             </div>
-          </section>
 
-          <section class="fx-view" data-view="all">
-            <div class="fx-page-title"><h2>全部记录</h2><button class="fx-small-btn" type="button" data-goto="home">返回</button></div>
-            <div id="allSummary" class="fx-summary"></div>
-            <div id="allList" class="fx-list"></div>
-          </section>
-
-          <section class="fx-view" data-view="month">
-            <div class="fx-page-title"><h2>按月查看</h2><button class="fx-small-btn" type="button" data-goto="home">返回</button></div>
-            <div class="fx-filter-row fx-filter-row-single">
-              <input class="fx-input" id="monthPicker" type="month" />
-            </div>
-            <div id="monthSummary" class="fx-summary"></div>
-            <div id="monthList" class="fx-list"></div>
-          </section>
-
-          <section class="fx-view" data-view="year">
-            <div class="fx-page-title"><h2>年度汇总</h2><button class="fx-small-btn" type="button" data-goto="home">返回</button></div>
-            <div class="fx-filter-row">
-              <input class="fx-input" id="yearPicker" type="number" inputmode="numeric" placeholder="例如 2026" />
-              <button class="fx-small-btn" type="button" id="clearYearBtn">全部年份</button>
-            </div>
-            <div id="yearSummary" class="fx-summary"></div>
-            <div id="yearList" class="fx-list"></div>
-          </section>
-
-          <section class="fx-view" data-view="export">
-            <div class="fx-page-title"><h2>导出 / 分享</h2><button class="fx-small-btn" type="button" data-goto="home">返回</button></div>
-            <div class="fx-safety-note" role="note" aria-label="数据保存说明">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
-              <div>
-                <strong>数据保存说明</strong>
-                <p>OpenAA 不会收集、上传或存储您的汇率记录。为了保护用户隐私，所有记录仅保存在当前浏览器中，不会同步到服务器。如果更换浏览器、清理浏览器缓存、清除网站数据、重装浏览器或更换设备，记录将被清空且无法恢复。建议定期导出 Excel 文件或数据备份保存重要数据。</p>
-              </div>
-            </div>
-            <div class="fx-tools-grid">
-              <button class="fx-primary-btn" type="button" id="excelFileBtn">📊 导出 Excel</button>
-              <button class="fx-small-btn" type="button" id="backupFileBtn">📦 数据备份</button>
-              <button class="fx-small-btn" type="button" id="copySummaryBtn">📋 复制汇总内容</button>
-              <button class="fx-small-btn" type="button" id="installAppBtnExport">📱 安装到手机</button>
-              <button class="fx-danger-btn" type="button" id="clearDataBtn">🗑️ 清空全部数据</button>
-            </div>
-            <input id="importBackupInput" type="file" accept=".json,.backup,application/json" hidden />
-            <p class="fx-help">Excel 文件适合查看、打印和转发；数据备份适合清理缓存、换浏览器或换设备后恢复记录。复制汇总内容后，可直接到微信聊天框粘贴发送。</p>
-          </section>
-
-          <div class="fx-sheet-backdrop" id="excelActionSheet" aria-hidden="true">
-            <div class="fx-action-sheet" role="dialog" aria-modal="true" aria-label="Excel 文件操作">
-              <h3>Excel 文件</h3>
-              <p>选择下载到本机，或调用系统分享菜单发送给微信、短信、邮件等。</p>
-              <div class="fx-sheet-grid">
-                <button class="primary" type="button" id="downloadXlsBtn">📊 下载 Excel</button>
-                <button type="button" id="shareXlsBtn">📎 分享 Excel</button>
-                <button class="cancel" type="button" data-close-sheet>取消</button>
+            <div
+              class="fx-sheet-backdrop"
+              id="backupActionSheet"
+              aria-hidden="true"
+            >
+              <div
+                class="fx-action-sheet"
+                role="dialog"
+                aria-modal="true"
+                aria-label="数据备份操作"
+              >
+                <h3>数据备份</h3>
+                <p>
+                  备份文件用于恢复本工具数据。清缓存、换浏览器或换设备前，建议先导出或分享备份文件。
+                </p>
+                <div class="fx-sheet-grid">
+                  <button class="primary" type="button" id="downloadBackupBtn">
+                    📦 下载数据备份
+                  </button>
+                  <button type="button" id="shareBackupBtn">
+                    📤 分享数据备份
+                  </button>
+                  <label for="importBackupInput">📥 导入数据备份</label>
+                  <button class="cancel" type="button" data-close-sheet>
+                    取消
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="fx-sheet-backdrop" id="backupActionSheet" aria-hidden="true">
-            <div class="fx-action-sheet" role="dialog" aria-modal="true" aria-label="数据备份操作">
-              <h3>数据备份</h3>
-              <p>备份文件用于恢复本工具数据。清缓存、换浏览器或换设备前，建议先导出或分享备份文件。</p>
-              <div class="fx-sheet-grid">
-                <button class="primary" type="button" id="downloadBackupBtn">📦 下载数据备份</button>
-                <button type="button" id="shareBackupBtn">📤 分享数据备份</button>
-                <label for="importBackupInput">📥 导入数据备份</label>
-                <button class="cancel" type="button" data-close-sheet>取消</button>
-              </div>
+          <button
+            class="fx-share-card"
+            type="button"
+            onclick="shareOpenAA()"
+            aria-label="分享给朋友"
+          >
+            <span class="fx-share-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <path d="M8.59 13.51l6.83 3.98" />
+                <path d="M15.41 6.51 8.59 10.49" />
+              </svg>
+            </span>
+            <span class="fx-share-text">
+              <strong>分享给朋友</strong>
+              <span>一键调用系统分享，不支持时会自动复制链接</span>
+            </span>
+            <svg
+              class="fx-share-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
+
+          <article
+            class="template-card fx-seo-card"
+            aria-labelledby="fxFaqTitle"
+          >
+            <h2 id="fxFaqTitle">常见问题</h2>
+            <div class="faq-item">
+              <h3>美元换人民币怎样计算？</h3>
+              <p>
+                人民币金额 = 美金金额 ×
+                汇率。你只需要输入日期、美金金额和当时使用的汇率，工具会自动计算人民币金额，并保存到当前设备浏览器中。
+              </p>
             </div>
-          </div>
+            <div class="faq-item">
+              <h3>数据会上传服务器吗？</h3>
+              <p>
+                不会。这个美元人民币汇率记录工具是单机本地保存工具，记录数据默认只保存在当前手机或电脑浏览器里，不需要登录，也不会上传到
+                OpenAA 服务器。
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>可以导出 Excel 吗？</h3>
+              <p>
+                可以。工具支持导出 Excel
+                文件，里面包含全部记录、月度记录和年度记录，并自动生成美金总金额、平均汇率、人民币总金额、记录行数、有记录月份和每月平均金额等汇总数据。
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>换手机如何保留数据？</h3>
+              <p>
+                换手机、换浏览器、清理浏览器缓存、清除网站数据或重装浏览器前，建议先导出
+                Excel
+                文件保存。因为数据存放在当前设备浏览器中，一旦浏览器数据被清理，本地记录可能会被清空且无法恢复。
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="template-card fx-seo-card"
+            aria-labelledby="fxSeoTitle"
+          >
+            <h2 id="fxSeoTitle">美元人民币汇率记录与美金换人民币计算工具</h2>
+            <p>
+              这个美元人民币汇率记录工具适合在美国生活、工作、做生意或经常需要记录美元收入的华人使用。日常生活中，很多人会遇到工资、转账、换汇、汇款、现金兑换、家庭账目或生意收入需要换算成人民币的情况。使用普通计算器虽然可以临时计算，但时间久了很难查找每一笔记录，也不方便按月份或年份统计。
+            </p>
+            <p>
+              通过这个美金换人民币计算器，你可以手动输入日期、美金金额和汇率，系统会自动计算人民币金额。所有记录会保存在本地浏览器中，手机打开也能使用，适合随手记录美元收入、换汇记录和人民币换算结果。工具提供全部记录、按月查看和年度记录，方便查看每个月美金总金额、平均汇率、人民币总金额和记录行数。
+            </p>
+            <p>
+              导出 Excel
+              功能适合需要长期保存数据的人使用。导出的表格包含全部记录、月度记录和年度记录，金额统一保留两位小数，数字右对齐，汇总数据加粗突出，使用
+              WPS 表格或 Microsoft Excel
+              都可以打开。对于海外华人来说，这类汇率记录表可以用于整理个人收入、家庭转账、换汇流水、工资记录和年度统计。
+            </p>
+            <p>
+              本工具不自动联网获取汇率，汇率由用户自己输入，适合记录真实使用的兑换汇率。不同银行、转账平台或现金兑换点使用的汇率可能不同，手动输入可以让记录更准确。建议每次换汇或转账后立即记录日期、金额和汇率，月底或年底再通过导出的
+              Excel 查看整体情况。
+            </p>
+            <p>
+              如果你在手机上使用，可以把本页面添加到主屏幕，像 App
+              一样打开。由于数据保存在当前浏览器中，建议定期导出 Excel
+              做备份，避免更换手机、清理缓存、清除网站数据或更换浏览器后找不到历史记录。
+            </p>
+          </article>
+
+          <a class="fx-tools-home-link" href="/">返回工具首页</a>
+        </section>
+
+        <!-- 中间内容结束 -->
+      </main>
+    </div>
+
+    <section class="source-panel">
+      <div class="source-meta">内容复核：2026年9月10日</div>
+      <h2>汇率记录与实际换汇价格的区别</h2>
+      <p>
+        本工具按照你输入的USD/CNY汇率进行换算和记录，不自动代表银行、汇款平台或现金兑换点的成交价。实际到账金额还可能受到买卖价差、手续费和到账时间影响。
+      </p>
+      <p>
+        需要市场参考数据时，可以查看美联储H.10外汇数据；进行真实交易前仍应以服务商最终报价为准。
+      </p>
+      <p class="official-source">
+        官方数据：<a
+          href="https://www.federalreserve.gov/releases/h10/current/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Federal Reserve H.10外汇汇率</a
+        >
+      </p>
+    </section>
+    <section class="usa-related" aria-label="相关工具">
+      <div class="usa-related-inner">
+        <h2>相关美国生活工具</h2>
+        <div class="usa-related-links">
+          <a href="/usa/dmv/document-checker.html">DMV 文件检查</a
+          ><a href="/usa/dmv/6-points-calculator.html">DMV 6 Points</a
+          ><a href="/usa/dmv/real-id-checker.html">REAL ID 检查</a
+          ><a href="/usa/dmv/real-id-vs-standard-vs-enhanced.html"
+            >REAL ID 证件对比</a
+          ><a href="/usa/expense-record/">生活记账</a>
         </div>
-
-        <button class="fx-share-card" type="button" onclick="shareOpenAA()" aria-label="分享给朋友">
-          <span class="fx-share-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98"/><path d="M15.41 6.51 8.59 10.49"/></svg>
-          </span>
-          <span class="fx-share-text">
-            <strong>分享给朋友</strong>
-            <span>一键调用系统分享，不支持时会自动复制链接</span>
-          </span>
-          <svg class="fx-share-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-
-        <article class="template-card fx-seo-card" aria-labelledby="fxFaqTitle">
-          <h2 id="fxFaqTitle">常见问题</h2>
-          <div class="faq-item">
-            <h3>美元换人民币怎样计算？</h3>
-            <p>人民币金额 = 美金金额 × 汇率。你只需要输入日期、美金金额和当时使用的汇率，工具会自动计算人民币金额，并保存到当前设备浏览器中。</p>
-          </div>
-          <div class="faq-item">
-            <h3>数据会上传服务器吗？</h3>
-            <p>不会。这个美元人民币汇率记录工具是单机本地保存工具，记录数据默认只保存在当前手机或电脑浏览器里，不需要登录，也不会上传到 OpenAA 服务器。</p>
-          </div>
-          <div class="faq-item">
-            <h3>可以导出 Excel 吗？</h3>
-            <p>可以。工具支持导出 Excel 文件，里面包含全部记录、月度记录和年度记录，并自动生成美金总金额、平均汇率、人民币总金额、记录行数、有记录月份和每月平均金额等汇总数据。</p>
-          </div>
-          <div class="faq-item">
-            <h3>换手机如何保留数据？</h3>
-            <p>换手机、换浏览器、清理浏览器缓存、清除网站数据或重装浏览器前，建议先导出 Excel 文件保存。因为数据存放在当前设备浏览器中，一旦浏览器数据被清理，本地记录可能会被清空且无法恢复。</p>
-          </div>
-        </article>
-
-        <article class="template-card fx-seo-card" aria-labelledby="fxSeoTitle">
-          <h2 id="fxSeoTitle">美元人民币汇率记录与美金换人民币计算工具</h2>
-          <p>这个美元人民币汇率记录工具适合在美国生活、工作、做生意或经常需要记录美元收入的华人使用。日常生活中，很多人会遇到工资、转账、换汇、汇款、现金兑换、家庭账目或生意收入需要换算成人民币的情况。使用普通计算器虽然可以临时计算，但时间久了很难查找每一笔记录，也不方便按月份或年份统计。</p>
-          <p>通过这个美金换人民币计算器，你可以手动输入日期、美金金额和汇率，系统会自动计算人民币金额。所有记录会保存在本地浏览器中，手机打开也能使用，适合随手记录美元收入、换汇记录和人民币换算结果。工具提供全部记录、按月查看和年度记录，方便查看每个月美金总金额、平均汇率、人民币总金额和记录行数。</p>
-          <p>导出 Excel 功能适合需要长期保存数据的人使用。导出的表格包含全部记录、月度记录和年度记录，金额统一保留两位小数，数字右对齐，汇总数据加粗突出，使用 WPS 表格或 Microsoft Excel 都可以打开。对于海外华人来说，这类汇率记录表可以用于整理个人收入、家庭转账、换汇流水、工资记录和年度统计。</p>
-          <p>本工具不自动联网获取汇率，汇率由用户自己输入，适合记录真实使用的兑换汇率。不同银行、转账平台或现金兑换点使用的汇率可能不同，手动输入可以让记录更准确。建议每次换汇或转账后立即记录日期、金额和汇率，月底或年底再通过导出的 Excel 查看整体情况。</p>
-          <p>如果你在手机上使用，可以把本页面添加到主屏幕，像 App 一样打开。由于数据保存在当前浏览器中，建议定期导出 Excel 做备份，避免更换手机、清理缓存、清除网站数据或更换浏览器后找不到历史记录。</p>
-        </article>
-
-        <a class="fx-tools-home-link" href="/">返回工具首页</a>
-      </section>
-
-      <!-- 中间内容结束 -->
-    </main>
-  </div>
-
-
-<section class="source-panel"><div class="source-meta">内容复核：2026年9月10日</div><h2>汇率记录与实际换汇价格的区别</h2><p>本工具按照你输入的USD/CNY汇率进行换算和记录，不自动代表银行、汇款平台或现金兑换点的成交价。实际到账金额还可能受到买卖价差、手续费和到账时间影响。</p><p>需要市场参考数据时，可以查看美联储H.10外汇数据；进行真实交易前仍应以服务商最终报价为准。</p><p class="official-source">官方数据：<a href="https://www.federalreserve.gov/releases/h10/current/" target="_blank" rel="noopener noreferrer">Federal Reserve H.10外汇汇率</a></p></section><section class="usa-related" aria-label="相关工具"><div class="usa-related-inner"><h2>相关美国生活工具</h2><div class="usa-related-links"><a href="/usa/dmv/document-checker.html">DMV 文件检查</a><a href="/usa/dmv/6-points-calculator.html">DMV 6 Points</a><a href="/usa/dmv/real-id-checker.html">REAL ID 检查</a><a href="/usa/dmv/real-id-vs-standard-vs-enhanced.html">REAL ID 证件对比</a><a href="/usa/expense-record/">生活记账</a></div><a class="usa-bottom-back" href="/#usa-tools">← 返回美国工具</a></div></section>
-<footer class="toolku-footer">ToolKu工具库 · <a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a><br><small>ToolKu 是 OpenAA 旗下的在线工具平台。结果仅供参考，官方事务请以相关机构最新规定为准。</small></footer>
-<script src="/js/usa/usd-rmb.js?v=20260910-1" defer></script>
-<script src="/js/openaa-referral.js" defer></script></body>
+        <a class="usa-bottom-back" href="/#usa-tools">← 返回美国工具</a>
+      </div>
+    </section>
+    <footer class="toolku-footer">
+      ToolKu工具库 ·
+      <a href="https://openaa.com" target="_blank" rel="noopener noreferrer"
+        >OpenAA</a
+      ><br /><small
+        >ToolKu 是 OpenAA
+        旗下的在线工具平台。结果仅供参考，官方事务请以相关机构最新规定为准。</small
+      >
+    </footer>
+    <script src="/js/usa/usd-rmb.js?v=20260910-1" defer></script>
+    <script src="/js/openaa-referral.js" defer></script>
+  </body>
 </html>
