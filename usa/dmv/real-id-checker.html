@@ -1,134 +1,341 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>纽约 REAL ID 文件检查器｜DMV 材料清单｜ToolKu</title>
-  <meta name="description" content="纽约 REAL ID 文件检查器，帮助你检查身份、SSN、合法身份和地址证明等常见 DMV 材料是否准备齐全。" />
-  <meta name="keywords" content="纽约 REAL ID, NY DMV REAL ID, DMV REAL ID 中文, REAL ID 文件, 纽约 DMV 文件, 纽约华人 DMV, REAL ID 检查器, OpenAA" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://toolku.com/usa/dmv/real-id-checker.html" />
-  <meta property="og:locale" content="zh_CN" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="纽约 REAL ID 文件检查器｜DMV 材料清单｜ToolKu" />
-  <meta property="og:description" content="快速检查纽约 REAL ID 申请常见文件：身份证明、SSN、两份纽约地址证明、合法身份和改名文件。" />
-  <meta property="og:url" content="https://toolku.com/usa/dmv/real-id-checker.html" />
-  <meta property="og:image" content="https://toolku.com/favicon/apple-touch-icon.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="纽约 REAL ID 文件检查器｜DMV 材料清单｜ToolKu" />
-  <meta name="twitter:description" content="适合纽约华人使用的 REAL ID 文件准备检查工具，纯静态网页，本地浏览器计算。" />
-  <meta name="twitter:image" content="https://toolku.com/favicon/apple-touch-icon.png" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>纽约 REAL ID 文件检查器｜DMV 材料清单｜ToolKu</title>
+    <meta
+      name="description"
+      content="纽约 REAL ID 文件检查器，帮助你检查身份、SSN、合法身份和地址证明等常见 DMV 材料是否准备齐全。"
+    />
+    <meta
+      name="keywords"
+      content="纽约 REAL ID, NY DMV REAL ID, DMV REAL ID 中文, REAL ID 文件, 纽约 DMV 文件, 纽约华人 DMV, REAL ID 检查器, OpenAA"
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://toolku.com/usa/dmv/real-id-checker.html"
+    />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="纽约 REAL ID 文件检查器｜DMV 材料清单｜ToolKu"
+    />
+    <meta
+      property="og:description"
+      content="快速检查纽约 REAL ID 申请常见文件：身份证明、SSN、两份纽约地址证明、合法身份和改名文件。"
+    />
+    <meta
+      property="og:url"
+      content="https://toolku.com/usa/dmv/real-id-checker.html"
+    />
+    <meta
+      property="og:image"
+      content="https://toolku.com/favicon/apple-touch-icon.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="纽约 REAL ID 文件检查器｜DMV 材料清单｜ToolKu"
+    />
+    <meta
+      name="twitter:description"
+      content="适合纽约华人使用的 REAL ID 文件准备检查工具，纯静态网页，本地浏览器计算。"
+    />
+    <meta
+      name="twitter:image"
+      content="https://toolku.com/favicon/apple-touch-icon.png"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "纽约 DMV REAL ID 检查器",
-      "url": "https://toolku.com/usa/dmv/real-id-checker.html",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Any",
-      "description": "帮助纽约华人检查申请 REAL ID 常见文件是否准备齐全。",
-      "publisher": { "@type": "Organization", "name": "OpenAA" }
-    }
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "纽约 DMV REAL ID 检查器",
+        "url": "https://toolku.com/usa/dmv/real-id-checker.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "description": "帮助纽约华人检查申请 REAL ID 常见文件是否准备齐全。",
+        "publisher": { "@type": "Organization", "name": "OpenAA" }
+      }
     </script>
 
-  <link rel="stylesheet" href="/css/site.css" />
-  <link rel="stylesheet" href="/css/usa-tools.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://toolku.com/"},{"@type":"ListItem","position":2,"name":"美国工具","item":"https://toolku.com/#usa-tools"},{"@type":"ListItem","position":3,"name":"纽约 REAL ID 文件检查器","item":"https://toolku.com/usa/dmv/real-id-checker.html"}]}</script>
-<meta name="theme-color" content="#111827">
-<link rel="stylesheet" href="/css/dmv-tools.css"><link rel="stylesheet" href="/css/dmv-real-id-checker.css">
-</head>
-<body class="usa-tool-page">
-  <header class="site-header"><a class="brand" href="/"><span class="brand-mark">T</span>ToolKu</a><nav><a href="/">首页</a><a href="/tools/">工具导航</a><a href="/#usa-tools">美国工具</a><a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a></nav></header>
-  <div class="app-shell">
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="/css/usa-tools.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://toolku.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "美国工具",
+            "item": "https://toolku.com/#usa-tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "纽约 REAL ID 文件检查器",
+            "item": "https://toolku.com/usa/dmv/real-id-checker.html"
+          }
+        ]
+      }
+    </script>
+    <meta name="theme-color" content="#111827" />
+    <link rel="stylesheet" href="/css/dmv-tools.css" />
+    <link rel="stylesheet" href="/css/dmv-real-id-checker.css" />
+  </head>
+  <body class="usa-tool-page">
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">T</span>ToolKu</a>
+      <nav>
+        <a href="/">首页</a><a href="/tools/">工具导航</a
+        ><a href="/#usa-tools">美国工具</a
+        ><a href="https://openaa.com" target="_blank" rel="noopener noreferrer"
+          >OpenAA</a
+        >
+      </nav>
+    </header>
+    <div class="app-shell">
+      <main>
+        <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
+        <section class="content-wrap">
+          <a class="usa-back-link" href="/#usa-tools">← 返回美国工具</a>
+          <div class="usa-breadcrumbs">
+            <a href="/">首页</a> › <a href="/#usa-tools">美国工具</a> › REAL ID
+            文件检查器
+          </div>
+          <div class="section-title">DMV 实用工具</div>
 
-    <main>
-    <!-- 中间内容开始：以后只让 AI 修改这里，不要改顶部、广告轮播、8宫格、实用工具、底部导航 -->
-      <section class="content-wrap">
+          <!-- DMV 工具分类导航栏 -->
+          <div class="dmv-tool-nav-card">
+            <nav class="dmv-tool-nav" aria-label="DMV 工具分类导航">
+              <a href="/#usa-tools" class="dmv-tool-link">全部美国工具</a>
+              <a href="/usa/dmv/document-checker.html" class="dmv-tool-link"
+                >文件检查</a
+              >
+              <a href="/usa/dmv/6-points-calculator.html" class="dmv-tool-link"
+                >6 Points</a
+              >
+              <a
+                href="/usa/dmv/real-id-checker.html"
+                class="dmv-tool-link active"
+                >REAL ID</a
+              >
+              <a
+                href="/usa/dmv/real-id-vs-standard-vs-enhanced.html"
+                class="dmv-tool-link"
+                >证件对比</a
+              >
+            </nav>
+          </div>
 
-        <a class="usa-back-link" href="/#usa-tools">← 返回美国工具</a><div class="usa-breadcrumbs"><a href="/">首页</a> › <a href="/#usa-tools">美国工具</a> › REAL ID 文件检查器</div>
-<div class="section-title">DMV 实用工具</div>
+          <article class="template-card realid-tool">
+            <h1>纽约 DMV REAL ID 检查器</h1>
+            <p>
+              这个工具帮你快速检查：去纽约 DMV 办 REAL ID
+              前，常见核心文件是否准备齐。适合第一次办驾照、Learner
+              Permit、Non-driver ID，或想把 Standard ID 升级成 REAL ID
+              的纽约华人参考。
+            </p>
+            <div class="notice-box">
+              说明：本工具只做中文整理和预检查，不代表 DMV 最终审核结果。去 DMV
+              前，请以纽约 DMV 官方 Document Guide 和 ID-44 文件清单为准。
+            </div>
+          </article>
 
+          <article class="template-card realid-tool">
+            <h2>先选择你的情况</h2>
+            <div class="realid-form" id="realIdForm">
+              <label class="check-row"
+                ><input type="checkbox" data-key="identity" />
+                <span
+                  >我有身份证明 / 出生日期 /
+                  合法身份文件，例如美国护照、绿卡、EAD、I-94、外国护照加有效身份文件等</span
+                ></label
+              >
+              <label class="check-row"
+                ><input type="checkbox" data-key="ssn" />
+                <span
+                  >我有 Social Security Card / W-2 / Pay Stub 等可证明 SSN
+                  的文件，或 SSA 不符合资格信</span
+                ></label
+              >
+              <label class="check-row"
+                ><input type="checkbox" data-key="res1" />
+                <span
+                  >我有第 1
+                  份纽约地址证明，例如银行账单、水电煤账单、信用卡账单、租约、工资单等</span
+                ></label
+              >
+              <label class="check-row"
+                ><input type="checkbox" data-key="res2" />
+                <span
+                  >我有第 2 份纽约地址证明，地址和姓名与申请信息一致</span
+                ></label
+              >
+              <label class="check-row"
+                ><input type="checkbox" data-key="sixpoints" />
+                <span>我已经准备好纽约 DMV 6 Points 身份证明文件</span></label
+              >
+              <label class="check-row"
+                ><input type="checkbox" data-key="namechange" />
+                <span
+                  >我的当前姓名和所有文件姓名完全一致；如改过名，我有结婚纸、离婚纸、法院改名文件等证明</span
+                ></label
+              >
+              <label class="check-row"
+                ><input type="checkbox" data-key="currentid" />
+                <span
+                  >我会带上现有驾照 / Learner Permit / Non-driver
+                  ID（如果已经有）</span
+                ></label
+              >
+            </div>
+            <button class="realid-btn" type="button" onclick="checkRealId()">
+              检查是否准备齐
+            </button>
+            <div class="result-box" id="realIdResult">
+              勾选上面的情况后，点击按钮查看结果。
+            </div>
+          </article>
 
+          <article class="template-card">
+            <h2>REAL ID 去 DMV 常见必备清单</h2>
+            <div class="mini-grid realid-grid">
+              <div class="mini-card">
+                <strong>1. 身份 / 出生日期 / 合法身份</strong
+                ><span
+                  >常见为美国护照、出生纸、绿卡、EAD、外国护照加有效身份文件等。</span
+                >
+              </div>
+              <div class="mini-card">
+                <strong>2. SSN 或不符合资格信</strong
+                ><span
+                  >有 SSN 的通常需要证明 SSN；没有 SSN
+                  的合法身份申请人，可能需要 SSA 不符合资格信。</span
+                >
+              </div>
+              <div class="mini-card">
+                <strong>3. 两份纽约地址证明</strong
+                ><span
+                  >REAL ID / Enhanced ID 需要 2 份纽约州居住地址证明，P.O. Box
+                  通常不接受。</span
+                >
+              </div>
+              <div class="mini-card">
+                <strong>4. 6 Points 身份证明</strong
+                ><span
+                  >纽约 DMV 很多驾照/ID 业务仍要按 6 Points 文件规则准备。</span
+                >
+              </div>
+            </div>
+          </article>
 
-        <!-- DMV 工具分类导航栏 -->
-        <div class="dmv-tool-nav-card">
-          <nav class="dmv-tool-nav" aria-label="DMV 工具分类导航">
-            <a href="/#usa-tools" class="dmv-tool-link">全部美国工具</a>
-            <a href="/usa/dmv/document-checker.html" class="dmv-tool-link">文件检查</a>
-            <a href="/usa/dmv/6-points-calculator.html" class="dmv-tool-link">6 Points</a>
-            <a href="/usa/dmv/real-id-checker.html" class="dmv-tool-link active">REAL ID</a>
-            <a href="/usa/dmv/real-id-vs-standard-vs-enhanced.html" class="dmv-tool-link">证件对比</a>
-          </nav>
+          <article class="template-card">
+            <h2>REAL ID、Enhanced、Standard 有什么区别？</h2>
+            <p>
+              <strong>REAL ID：</strong
+              >用于美国国内飞机、进入部分联邦设施等联邦用途。纽约 DMV 说明，REAL
+              ID 本身通常不额外收费，但需要到 DMV 现场提交文件并重新拍照。
+            </p>
+            <p>
+              <strong>Enhanced ID：</strong>也符合 REAL ID
+              联邦用途，并可用于从加拿大、墨西哥和部分加勒比国家经陆路或海路返回美国，但通常有额外费用。
+            </p>
+            <p>
+              <strong>Standard ID：</strong>普通纽约驾照 / ID，不一定符合 REAL
+              ID
+              联邦用途。是否适合你，要看你是否需要坐美国国内飞机、进入某些联邦设施，或是否已有护照等替代证件。
+            </p>
+          </article>
+
+          <article class="template-card">
+            <h2>去 DMV 前建议这样做</h2>
+            <p>
+              第一，先用本页做一次中文预检查；第二，再用纽约 DMV 官方 Document
+              Guide 生成你的个人文件清单；第三，预约 DMV
+              后，把所有文件原件或官方认可版本带齐。不要只带手机截图，很多文件需要打印版或原件。
+            </p>
+            <div class="notice-box official-links">
+              官方链接：
+              <a
+                href="https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+                target="_blank"
+                rel="noopener noreferrer"
+                >纽约 DMV REAL ID / Enhanced ID 说明</a
+              >
+              ｜
+              <a
+                href="https://process.dmv.ny.gov/documentguide/?s=lic"
+                target="_blank"
+                rel="noopener noreferrer"
+                >纽约 DMV Document Guide</a
+              >
+              ｜
+              <a
+                href="https://dmv.ny.gov/forms/id44.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ID-44 官方文件清单 PDF</a
+              >
+              ｜
+              <a
+                href="https://www.tsa.gov/realid"
+                target="_blank"
+                rel="noopener noreferrer"
+                >TSA REAL ID 说明</a
+              >
+            </div>
+          </article>
+        </section>
+        <!-- 中间内容结束 -->
+      </main>
+    </div>
+
+    <section class="usa-related" aria-label="相关工具">
+      <div class="usa-related-inner">
+        <h2>相关美国生活工具</h2>
+        <div class="usa-related-links">
+          <a href="/usa/dmv/document-checker.html">DMV 文件检查</a
+          ><a href="/usa/dmv/6-points-calculator.html">DMV 6 Points</a
+          ><a href="/usa/dmv/real-id-vs-standard-vs-enhanced.html"
+            >REAL ID 证件对比</a
+          ><a href="/usa/usd-rmb/">美元人民币换算</a
+          ><a href="/usa/expense-record/">生活记账</a>
         </div>
-
-
-        <article class="template-card realid-tool">
-          <h1>纽约 DMV REAL ID 检查器</h1>
-          <p>这个工具帮你快速检查：去纽约 DMV 办 REAL ID 前，常见核心文件是否准备齐。适合第一次办驾照、Learner Permit、Non-driver ID，或想把 Standard ID 升级成 REAL ID 的纽约华人参考。</p>
-          <div class="notice-box">
-            说明：本工具只做中文整理和预检查，不代表 DMV 最终审核结果。去 DMV 前，请以纽约 DMV 官方 Document Guide 和 ID-44 文件清单为准。
-          </div>
-        </article>
-
-        <article class="template-card realid-tool">
-          <h2>先选择你的情况</h2>
-          <div class="realid-form" id="realIdForm">
-            <label class="check-row"><input type="checkbox" data-key="identity"> <span>我有身份证明 / 出生日期 / 合法身份文件，例如美国护照、绿卡、EAD、I-94、外国护照加有效身份文件等</span></label>
-            <label class="check-row"><input type="checkbox" data-key="ssn"> <span>我有 Social Security Card / W-2 / Pay Stub 等可证明 SSN 的文件，或 SSA 不符合资格信</span></label>
-            <label class="check-row"><input type="checkbox" data-key="res1"> <span>我有第 1 份纽约地址证明，例如银行账单、水电煤账单、信用卡账单、租约、工资单等</span></label>
-            <label class="check-row"><input type="checkbox" data-key="res2"> <span>我有第 2 份纽约地址证明，地址和姓名与申请信息一致</span></label>
-            <label class="check-row"><input type="checkbox" data-key="sixpoints"> <span>我已经准备好纽约 DMV 6 Points 身份证明文件</span></label>
-            <label class="check-row"><input type="checkbox" data-key="namechange"> <span>我的当前姓名和所有文件姓名完全一致；如改过名，我有结婚纸、离婚纸、法院改名文件等证明</span></label>
-            <label class="check-row"><input type="checkbox" data-key="currentid"> <span>我会带上现有驾照 / Learner Permit / Non-driver ID（如果已经有）</span></label>
-          </div>
-          <button class="realid-btn" type="button" onclick="checkRealId()">检查是否准备齐</button>
-          <div class="result-box" id="realIdResult">勾选上面的情况后，点击按钮查看结果。</div>
-        </article>
-
-        <article class="template-card">
-          <h2>REAL ID 去 DMV 常见必备清单</h2>
-          <div class="mini-grid realid-grid">
-            <div class="mini-card"><strong>1. 身份 / 出生日期 / 合法身份</strong><span>常见为美国护照、出生纸、绿卡、EAD、外国护照加有效身份文件等。</span></div>
-            <div class="mini-card"><strong>2. SSN 或不符合资格信</strong><span>有 SSN 的通常需要证明 SSN；没有 SSN 的合法身份申请人，可能需要 SSA 不符合资格信。</span></div>
-            <div class="mini-card"><strong>3. 两份纽约地址证明</strong><span>REAL ID / Enhanced ID 需要 2 份纽约州居住地址证明，P.O. Box 通常不接受。</span></div>
-            <div class="mini-card"><strong>4. 6 Points 身份证明</strong><span>纽约 DMV 很多驾照/ID 业务仍要按 6 Points 文件规则准备。</span></div>
-          </div>
-        </article>
-
-        <article class="template-card">
-          <h2>REAL ID、Enhanced、Standard 有什么区别？</h2>
-          <p><strong>REAL ID：</strong>用于美国国内飞机、进入部分联邦设施等联邦用途。纽约 DMV 说明，REAL ID 本身通常不额外收费，但需要到 DMV 现场提交文件并重新拍照。</p>
-          <p><strong>Enhanced ID：</strong>也符合 REAL ID 联邦用途，并可用于从加拿大、墨西哥和部分加勒比国家经陆路或海路返回美国，但通常有额外费用。</p>
-          <p><strong>Standard ID：</strong>普通纽约驾照 / ID，不一定符合 REAL ID 联邦用途。是否适合你，要看你是否需要坐美国国内飞机、进入某些联邦设施，或是否已有护照等替代证件。</p>
-        </article>
-
-        <article class="template-card">
-          <h2>去 DMV 前建议这样做</h2>
-          <p>第一，先用本页做一次中文预检查；第二，再用纽约 DMV 官方 Document Guide 生成你的个人文件清单；第三，预约 DMV 后，把所有文件原件或官方认可版本带齐。不要只带手机截图，很多文件需要打印版或原件。</p>
-          <div class="notice-box official-links">
-            官方链接：
-            <a href="https://dmv.ny.gov/driver-license/enhanced-or-real-id" target="_blank" rel="noopener noreferrer">纽约 DMV REAL ID / Enhanced ID 说明</a> ｜
-            <a href="https://process.dmv.ny.gov/documentguide/?s=lic" target="_blank" rel="noopener noreferrer">纽约 DMV Document Guide</a> ｜
-            <a href="https://dmv.ny.gov/forms/id44.pdf" target="_blank" rel="noopener noreferrer">ID-44 官方文件清单 PDF</a> ｜
-            <a href="https://www.tsa.gov/realid" target="_blank" rel="noopener noreferrer">TSA REAL ID 说明</a>
-          </div>
-        </article>
-
-
-
-
-      </section>
-      <!-- 中间内容结束 -->
-    </main>
-  </div>
-
-
-<section class="usa-related" aria-label="相关工具"><div class="usa-related-inner"><h2>相关美国生活工具</h2><div class="usa-related-links"><a href="/usa/dmv/document-checker.html">DMV 文件检查</a><a href="/usa/dmv/6-points-calculator.html">DMV 6 Points</a><a href="/usa/dmv/real-id-vs-standard-vs-enhanced.html">REAL ID 证件对比</a><a href="/usa/usd-rmb/">美元人民币换算</a><a href="/usa/expense-record/">生活记账</a></div><a class="usa-bottom-back" href="/#usa-tools">← 返回美国工具</a></div></section>
-<footer class="toolku-footer">ToolKu工具库 · <a href="https://openaa.com" target="_blank" rel="noopener noreferrer">OpenAA</a><br><small>ToolKu 是 OpenAA 旗下的在线工具平台。结果仅供参考，官方事务请以相关机构最新规定为准。</small></footer>
-<script src="/js/usa/dmv-real-id-checker.js" defer></script>
-<script src="/js/openaa-referral.js" defer></script></body>
+        <a class="usa-bottom-back" href="/#usa-tools">← 返回美国工具</a>
+      </div>
+    </section>
+    <footer class="toolku-footer">
+      ToolKu工具库 ·
+      <a href="https://openaa.com" target="_blank" rel="noopener noreferrer"
+        >OpenAA</a
+      ><br /><small
+        >ToolKu 是 OpenAA
+        旗下的在线工具平台。结果仅供参考，官方事务请以相关机构最新规定为准。</small
+      >
+    </footer>
+    <script src="/js/usa/dmv-real-id-checker.js" defer></script>
+    <script src="/js/openaa-referral.js" defer></script>
+  </body>
 </html>
