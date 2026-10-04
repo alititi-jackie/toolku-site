@@ -100,9 +100,13 @@
         ]
       }
     </script>
+    <link rel="manifest" href="/usa/dmv/manifest.json" />
     <meta name="theme-color" content="#111827" />
     <link rel="stylesheet" href="/css/dmv-tools.css" />
     <link rel="stylesheet" href="/css/dmv-real-id-checker.css" />
+      <link rel="stylesheet" href="/css/engage.css" />
+    <link rel="stylesheet" href="/css/dark.css" />
+    <link rel="stylesheet" href="/css/print.css" media="print" />
   </head>
   <body class="usa-tool-page">
     <header class="site-header">
@@ -156,7 +160,7 @@
 <fieldset class="realid-step"><legend>④ 纽约地址证明</legend><div class="address-options"><label class="choice-chip"><input name="residency" type="radio" value="0"><span>0 份</span></label><label class="choice-chip"><input name="residency" type="radio" value="1"><span>1 份</span></label><label class="choice-chip"><input name="residency" type="radio" value="2"><span>≥ 2 份</span></label></div><p class="step-help">REAL ID 需要2份不同类型、不同来源的合格纽约地址证明，显示当前地址；银行 / 水电账单应在1年内，电子账单需打印，P.O. Box 不接受。</p></fieldset>
 </div><button class="realid-btn" data-action="checkRealId" type="button">检查 REAL ID 条件</button><div class="result-box" id="realIdResult" aria-live="polite">选择上面 4 项后查看结果。</div></article>
 <article class="template-card"><h2>REAL ID 比普通 Standard 多什么？</h2><p>纽约 DMV 当前要求 REAL ID 申请人准备 Social Security 相关证明、公民身份或合法身份、2 份纽约州居住证明，并满足 6 Points Proof of Name。Standard 驾照/Permit 的要求不同，通常是出生日期证明、1 份纽约州居住证明和 6 Points。</p><h2>没有 SSN 可以办 REAL ID 吗？</h2><p>不要把“没有社安卡”和“完全没有符合要求的 Social Security 文件”混为一谈。ID-44 列有符合条件的 Social Security Ineligibility Letter；但“从未获得 SSN”的 NSS-1 / NSS-1A 声明明确不能用于 REAL ID。具体情况应按最新 ID-44 核对。</p><h2>中国护照、工卡可以直接判断能办 REAL ID 吗？</h2><p>不能只看证件名称。REAL ID 要求公民身份或 lawful status，外国护照、EAD、I-94 等需要按 DMV 对应文件类别和有效状态核对。页面因此把“不确定”保留下来，不会因为你有一本护照或一张工卡就直接显示合格。</p><h2>为什么一定要 2 份纽约地址证明？</h2><p>这是 REAL ID 与 Standard 常见区别之一。用于居住证明的文件需要符合 DMV 对姓名、当前纽约地址、日期和文件类型的要求；电子账单需要按官方要求打印。</p><h2>全名与原件也要核对</h2><p>带原件或签发机构认证件；除明确允许外不接受过期文件。外国文档需认证英文翻译；改名需带连接全部姓名的原件 / 认证证明。达到6分仍须确认所选文件可用于 REAL ID，外国驾照不能用于 REAL ID 的出生日期证明。</p><h2>下一步</h2><p>如果 4 项主要条件都满足，再进入“材料清单”确认去 DMV 要带的具体原件；如果 6 Points 还不确定，先回到 6 Points 计算器。</p></article>
-<div class="template-card"><h2>纽约 DMV 官方核对</h2><div class="official-links"><a href="https://dmv.ny.gov/forms/id44.pdf" rel="noopener noreferrer" target="_blank">ID-44 官方文件清单</a> ｜ <a href="https://dmv.ny.gov/DocumentGuide" rel="noopener noreferrer" target="_blank">DMV Document Guide</a></div></div>
+<div class="template-card"><h2>纽约 DMV 官方核对</h2><div class="official-links"><a href="https://dmv.openaa.com/?utm_source=toolku&utm_medium=referral&utm_campaign=dmv-tools" target="_blank" rel="noopener noreferrer"><span>DMV 中文题库练习</span><span>›</span></a><a href="https://dmv.ny.gov/forms/id44.pdf" rel="noopener noreferrer" target="_blank">ID-44 官方文件清单</a> ｜ <a href="https://dmv.ny.gov/DocumentGuide" rel="noopener noreferrer" target="_blank">DMV Document Guide</a></div></div>
 
         </section>
         <!-- 中间内容结束 -->
@@ -187,6 +191,7 @@
       >
     </footer>
     <script src="/js/usa/dmv-real-id-checker.js" defer></script>
+    <script src="/js/toolku-engage.js" defer></script>
     <script src="/js/openaa-referral.js" defer></script>
   </body>
 </html>

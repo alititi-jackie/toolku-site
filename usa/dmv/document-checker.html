@@ -100,9 +100,13 @@
         ]
       }
     </script>
+    <link rel="manifest" href="/usa/dmv/manifest.json" />
     <meta name="theme-color" content="#111827" />
     <link rel="stylesheet" href="/css/dmv-tools.css" />
     <link rel="stylesheet" href="/css/dmv-document-checker.css" />
+      <link rel="stylesheet" href="/css/engage.css" />
+    <link rel="stylesheet" href="/css/dark.css" />
+    <link rel="stylesheet" href="/css/print.css" media="print" />
   </head>
   <body class="usa-tool-page">
     <header class="site-header">
@@ -153,7 +157,7 @@
 <article class="template-card"><h2>你准备办哪一种？</h2><p>本清单用于普通非商业驾照 / Learner Permit。Non-Driver ID 另有规则：Standard 也需 citizenship / lawful status，且不要求居住证明；不要套用 Green Light Law。</p><div class="doc-type-options"><label><input type="radio" name="docType" value="standard"><span><strong>Standard</strong><small>普通非商业驾照 / Permit</small></span></label><label><input type="radio" name="docType" value="real"><span><strong>REAL ID</strong><small>国内乘机 / 联邦用途</small></span></label><label><input type="radio" name="docType" value="enhanced"><span><strong>Enhanced</strong><small>仅美国公民可申请</small></span></label></div><button class="dmv-btn dmv-btn-primary doc-generate" data-action="checkDmvDocs" type="button">生成材料清单</button><div id="dmvResult" aria-live="polite"></div></article>
 <article class="template-card"><h2>出门前共同检查</h2><div class="simple-checklist"><label><input type="checkbox"> MV-44 申请表（按你的办理情况填写）</label><label><input type="checkbox"> 需要的身份证明 / 出生日期证明带原件或 DMV 接受的认证文件</label><label><input type="checkbox"> 地址证明显示当前纽约州居住地址</label><label><input type="checkbox"> 电子账单、电子 statement 已打印</label><label><input type="checkbox"> 文件姓名不一致时，带能连接新旧姓名的正式证明</label><label><input type="checkbox"> 办 Learner Permit / Driver License 时准备视力测试</label><label><input type="checkbox"> 准备办理费用</label></div></article>
 <article class="template-card"><h2>材料清单怎么用？</h2><p><strong>这个页面不再帮你算 6 Points。</strong>如果不知道自己的文件够不够 6 分，请先用「6 Points」工具；如果不知道能不能办 REAL ID，请用「REAL ID检查」；如果不知道 Standard、REAL ID、Enhanced 应该选哪个，请用「我能办哪种」。</p><p>纽约 DMV 最新 ID-44 要求：Standard License / Permit 通常需要 1 份纽约州居住证明；REAL ID 和 Enhanced 需要 2 份。用于地址证明的文件应显示当前纽约地址，P.O. Box 不接受；电子账单和 e-bill 需要打印。每一种来源或类型通常只能使用一份。</p><h3>Standard</h3><p>准备可接受的出生日期证明、至少 6 Points 的姓名证明，以及 1 份纽约州居住证明。Standard 对 Social Security 的路径与 REAL ID 不完全相同，没有 SSN 的申请人应按 ID-44 的 Standard 规则准备相应声明或材料。</p><h3>REAL ID</h3><p>除 6 Points 外，还要准备符合要求的 Social Security 证明、公民身份或 lawful status 证明，以及 2 份纽约州居住证明。没有资格获得 SSN 的特定申请人，需要符合要求的 SSA 不符合资格信及相应 DHS 文件。</p><h3>Enhanced</h3><p>Enhanced 仅限符合条件的美国公民，需准备美国公民身份证明、Social Security 相关证明、2 份纽约州居住证明并满足 6 Points。Enhanced 另加 $30 费用。</p></article>
-<div class="template-card"><h2>纽约 DMV 官方核对</h2><div class="dmv-official-links"><a href="https://dmv.ny.gov/forms/id44.pdf" rel="noopener noreferrer" target="_blank">ID-44 官方材料表</a> ｜ <a href="https://dmv.ny.gov/DocumentGuide" rel="noopener noreferrer" target="_blank">DMV Document Guide</a> ｜ <a href="https://dmv.ny.gov/driver-license/enhanced-or-real-id" rel="noopener noreferrer" target="_blank">REAL ID / Enhanced</a></div></div>
+<div class="template-card"><h2>纽约 DMV 官方核对</h2><div class="dmv-official-links"><a href="https://dmv.openaa.com/?utm_source=toolku&utm_medium=referral&utm_campaign=dmv-tools" target="_blank" rel="noopener noreferrer"><span>DMV 中文题库练习</span><span>›</span></a><a href="https://dmv.ny.gov/forms/id44.pdf" rel="noopener noreferrer" target="_blank">ID-44 官方材料表</a> ｜ <a href="https://dmv.ny.gov/DocumentGuide" rel="noopener noreferrer" target="_blank">DMV Document Guide</a> ｜ <a href="https://dmv.ny.gov/driver-license/enhanced-or-real-id" rel="noopener noreferrer" target="_blank">REAL ID / Enhanced</a></div></div>
 
         </section>
         <!-- 中间内容结束 -->
@@ -207,6 +211,7 @@
       >
     </footer>
     <script src="/js/usa/dmv-document-checker.js" defer></script>
+    <script src="/js/toolku-engage.js" defer></script>
     <script src="/js/openaa-referral.js" defer></script>
   </body>
 </html>
