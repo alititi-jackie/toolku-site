@@ -57,6 +57,9 @@
         }
       }
     </script>
+      <link rel="stylesheet" href="/css/engage.css" />
+    <link rel="stylesheet" href="/css/dark.css" />
+    <link rel="stylesheet" href="/css/print.css" media="print" />
   </head>
   <body>
     <header class="site-header">
@@ -89,6 +92,16 @@
         <div class="quick-links">
           <a href="#usa-tools">🇺🇸 美国工具</a><a href="/tools/">📚 工具导航</a
           ><a href="#categories">🧰 全部工具</a>
+        </div>
+      </section>
+      <section class="tk-personal" id="tk-personal" hidden>
+        <div class="tk-personal-block" hidden>
+          <h2>⭐ 我的收藏</h2>
+          <div class="tk-chips" id="tk-fav-list"></div>
+        </div>
+        <div class="tk-personal-block" hidden>
+          <h2>🕘 最近使用</h2>
+          <div class="tk-chips" id="tk-recent-list"></div>
         </div>
       </section>
       <section id="usa-tools">
@@ -143,9 +156,23 @@
           <h2>工具解决问题，OpenAA 解决生活</h2>
           <p>找工作、找房、二手、DMV、新闻和本地服务，继续进入 OpenAA。</p>
         </div>
-        <a href="https://openaa.com" target="_blank" rel="noopener noreferrer"
-          >进入 OpenAA →</a
-        >
+        <div class="tk-eco-links">
+          <a href="https://openaa.com" target="_blank" rel="noopener noreferrer"
+            >进入 OpenAA →</a
+          >
+          <a
+            href="https://dmv.openaa.com/?utm_source=toolku&utm_medium=referral&utm_campaign=home"
+            target="_blank"
+            rel="noopener noreferrer"
+            >DMV 中文题库 →</a
+          >
+          <a
+            href="https://numbermobi.com/?utm_source=toolku&utm_medium=referral&utm_campaign=home"
+            target="_blank"
+            rel="noopener noreferrer"
+            >美国手机靓号 →</a
+          >
+        </div>
       </section>
       <section class="trust">
         <h2>为什么使用 ToolKu 工具库？</h2>
@@ -260,6 +287,7 @@
         });
       });
     </script>
+    <script src="/js/toolku-engage.js" defer></script>
     <script src="/js/openaa-referral.js" defer></script>
   </body>
 </html>
