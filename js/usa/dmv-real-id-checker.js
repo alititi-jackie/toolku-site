@@ -1,45 +1,65 @@
+function value(name) {
+  return document.querySelector(`input[name="${name}"]:checked`)?.value || "";
+}
 function checkRealId() {
-  const keys = [
-    "identity",
-    "ssn",
-    "res1",
-    "res2",
-    "sixpoints",
-    "namechange",
-    "currentid",
-  ];
-  const state = {};
-  keys.forEach((k) => {
-    const el = document.querySelector('[data-key="' + k + '"]');
-    state[k] = !!(el && el.checked);
-  });
-  const missing = [];
-  if (!state.identity) missing.push("身份证明 / 出生日期 / 合法身份文件");
-  if (!state.ssn) missing.push("SSN 证明，或 SSA 不符合资格信");
-  if (!state.res1 || !state.res2) missing.push("两份纽约州居住地址证明");
-  if (!state.sixpoints) missing.push("6 Points 身份证明文件");
-  if (!state.namechange)
-    missing.push("姓名一致证明；如改过名，需要改名相关文件");
-  if (!state.currentid)
-    missing.push("现有驾照 / Permit / Non-driver ID（如已经有）");
+  const six = value("sixpoints"),
+    identity = value("identity"),
+    ssn = value("ssn"),
+    res = value("residency");
   const box = document.getElementById("realIdResult");
   if (!box) return;
-  box.className = "result-box";
-  if (missing.length === 0) {
-    box.classList.add("ok");
-    box.innerHTML =
-      "<strong>看起来准备比较完整。</strong><br>你已经勾选了 REAL ID 常见核心文件。去 DMV 前，仍建议用官方 Document Guide 再生成一次清单，并带原件或官方认可文件。";
-  } else if (missing.length <= 2) {
-    box.classList.add("warn");
-    box.innerHTML =
-      "<strong>还差一点，建议补齐后再去 DMV。</strong><br>你可能还需要：<ul>" +
-      missing.map((x) => "<li>" + x + "</li>").join("") +
-      "</ul>";
-  } else {
-    box.classList.add("bad");
-    box.innerHTML =
-      "<strong>现在不建议直接去 DMV，容易白跑。</strong><br>你可能还缺：<ul>" +
-      missing.map((x) => "<li>" + x + "</li>").join("") +
-      "</ul>";
-  }
+  const unanswered = [six, identity, ssn, res].filter((v) => !v).length;
+  const sixOk = six === "yes",
+    identityOk = identity === "yes",
+    ssnOk = ssn === "yes" || ssn === "number" || ssn === "ineligible",
+    resOk = res === "2";
+  const rows = [
+    [
+      "6 Points",
+      sixOk ? "✓ 已确认" : six === "unsure" ? "? 尚未确认" : "✕ 未选择",
+    ],
+    [
+      "身份 / 合法身份",
+      identityOk
+        ? "✓ 已确认"
+        : identity === "unsure"
+          ? "? 需要核对"
+          : "✕ 未选择",
+    ],
+    [
+      "Social Security",
+      ssnOk ? "✓ 已选择符合路径" : ssn === "unsure" ? "? 需要核对" : "✕ 未选择",
+    ],
+    [
+      "纽约地址证明",
+      resOk
+        ? "✓ ≥ 2 份"
+        : res === "1"
+          ? "✕ 还缺 1 份"
+          : res === "0"
+            ? "✕ 还缺 2 份"
+            : "✕ 未选择",
+    ],
+  ];
+  const allOk = sixOk && identityOk && ssnOk && resOk;
+  box.className =
+    "result-box " + (allOk ? "ok" : unanswered >= 3 ? "bad" : "warn");
+  let html = `<strong>${allOk ? "REAL ID 主要条件基本满足" : "你可能还缺或需要确认以下项目"}</strong><div class="result-list">${rows.map((r) => `<div><span>${r[0]}</span><b>${r[1]}</b></div>`).join("")}</div>`;
+  if (six !== "yes")
+    html +=
+      '<p><a href="/usa/dmv/6-points-calculator.html">先检查 6 Points →</a></p>';
+  if (allOk)
+    html +=
+      "<p>主要条件已通过预检查。还要逐份核对文件适用于 REAL ID、全名、原件、有效期、必要认证英译和改名链。下一步建议查看“材料清单”，确认实际去 DMV 要带的原件和具体文件。</p>";
+  else
+    html +=
+      "<p>本结果是中文预检查；身份文件、SSA 文件及地址证明最终是否接受，以纽约 DMV 最新 ID-44 和现场审核为准。</p>";
+  box.innerHTML = html;
 }
+document
+  .querySelector("[data-action=checkRealId]")
+  ?.addEventListener("click", checkRealId);
+// Explicit initialization signal for reliable production interaction checks.
+document
+  .querySelector("[data-action=checkRealId]")
+  ?.setAttribute("data-ready", "true");

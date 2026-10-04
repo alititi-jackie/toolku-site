@@ -11,7 +11,7 @@
     </title>
     <meta
       name="description"
-      content="纽约 DMV 6 Points 计算器，按纽约 DMV ID-44 文件规则，帮你快速检查申请 Learner Permit、驾照或 REAL ID 前是否已凑够 6 分身份证明。"
+      content="纽约 DMV 6 Points 计算器，三步自查：身份证明 → 纽约地址证明 → 加分证明，按 ID-44 规则检查 Standard 驾照 / Permit 文件是否齐全。"
     />
     <meta
       name="keywords"
@@ -30,7 +30,7 @@
     />
     <meta
       property="og:description"
-      content="勾选你准备带去 DMV 的文件，自动计算 Proof of Name 分数，并提醒 REAL ID / Standard Permit 地址证明要求。"
+      content="勾选你准备带去 DMV 的文件，三步自动计算 6 Points 分数，并提醒纽约地址证明要求。"
     />
     <meta
       property="og:url"
@@ -47,7 +47,7 @@
     />
     <meta
       name="twitter:description"
-      content="纽约 DMV 文件积分检查工具，适合准备考 Learner Permit、办驾照或 REAL ID 的华人使用。"
+      content="纽约 DMV 文件积分检查工具，适合准备考 Learner Permit 或办 Standard 驾照的华人使用。"
     />
     <meta
       name="twitter:image"
@@ -95,7 +95,7 @@
         "@type": "SoftwareApplication",
         "name": "纽约 DMV 6 Points 计算器",
         "url": "https://toolku.com/usa/dmv/6-points-calculator.html",
-        "description": "纽约 DMV 6 Points 计算器，按纽约 DMV ID-44 文件规则，帮你快速检查申请 Learner Permit、驾照或 REAL ID 前是否已凑够 6 分身份证明。",
+        "description": "纽约 DMV 6 Points 计算器，三步自查：身份证明 → 纽约地址证明 → 加分证明，按 ID-44 规则检查 Standard 驾照 / Permit 文件是否齐全。",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -154,195 +154,23 @@
                 >证件对比</a
               >
             </nav>
-          </div>
+<article class="template-card dmv-hero"><h1>纽约 DMV 6 Points 计算器</h1><p>用于 Standard 普通非商业驾照 / Permit 的简化自查。REAL ID / Enhanced 请继续核对对应资格；Non-Driver ID 不能套用 Green Light Law。</p></article>
+  <div class="template-card dmv-section" id="identityStep"><h2>① 选择身份证明</h2><div class="dmv-doc-list" id="identityDocs"></div></div>
+  <div class="template-card dmv-section" id="addressStep"><h2>② 选择纽约地址证明 <span id="addressLock">🔒</span></h2><div class="dmv-doc-list" id="addressDocs"></div></div>
+  <div class="template-card dmv-section" id="extraStep"><h2>③ 选择其它加分证明 <span id="extraLock">🔒</span></h2><div class="dmv-doc-list" id="extraDocs"></div></div>
+  <div aria-live="polite" class="dmv-result-card"><div class="dmv-score-line"><div class="dmv-score"><span id="dmvScore">0</span><small> / 6 分</small></div><div class="dmv-status warn" id="dmvStatus">先选择身份证明</div></div><div class="dmv-progress"><div class="dmv-progress-bar" id="dmvProgress"></div></div><div class="dmv-result-text" id="dmvResultText">完成上面 3 步后，这里会告诉你主要文件是否基本齐全。</div></div>
+  <div class="template-card"><h2>检查结果</h2><div class="dmv-summary-list" id="dmvSummary"></div><div class="dmv-actions"><button class="dmv-btn primary" onclick="window.print()" type="button">打印/保存结果</button><button class="dmv-btn secondary" id="resetDmvCalc" type="button">重新选择</button></div></div>
+  <article class="template-card">
+    <h2>纽约 DMV 6 Points 是什么？</h2><p>第一次申请纽约州 Standard Learner Permit或普通非商业 Driver License 时，DMV 会按可接受文件核对姓名、出生日期和身份，并要求 Proof of Name 达到规定积分。这个工具把复杂表格整理成“身份证明 → 纽约地址证明 → 其它加分证明”三步，方便刚来美国的华人快速检查自己手上的材料。</p>
+    <h2>中国护照可以用来申请纽约驾照吗？</h2><p>有效外国护照可按 Green Light Law用于 Standard普通非商业驾照 / Permit的4分材料。REAL ID需要合格 Visa / I-94或 I-551等配套文件；没有移民文件不代表不能申请 Standard，但不能据此通过 REAL ID检查。</p>
+    <h2>纽约考驾照一定要有 Social Security Card 吗？</h2><p>不一定。没有 SSN 的申请人也可能按 DMV 规定办理 Standard 证件，但必须按自己的实际情况完成相应声明或证明。社安卡如果符合要求，可以作为 Proof of Name 的计分文件。</p>
+    <h2>银行账单是不是必须的？</h2><p>不是。银行账单只是常见的纽约地址证明之一。工资单、符合要求的 Utility Bill、W-2 等也可能用于证明当前纽约州地址。页面不会强制要求你一定有银行卡或银行账单。</p>
+    <h2>为什么已经 6 分还可能不够？</h2><p>6 Points 与地址证明不是同一个条件。即使身份和其它加分证明已经达到 6 分，如果没有符合要求的纽约州地址证明，主要材料仍没有准备齐。Standard 通常至少需要一份符合要求的纽约州地址证明。</p>
+    <h2>同一家银行的文件能重复算吗？</h2><p>纽约 DMV 有 One Proof Per Source or Type 的限制。同一种证明或同一来源的多份材料不能简单重复使用。工具会避免已知的同类型文件重复计分；银行账单、银行卡和信用卡在本简化工具中保守地只计1分，避免未知来源重复累加；其余材料也须自行核对是否同来源。</p>
+    <h2>使用前注意</h2><p>本工具面向 Standard Permit / Driver License 常见文件准备场景，主要用于快速自查，不代替 DMV 最终审核。REAL ID 和 Enhanced 的地址及身份要求更严格，请使用本站对应的 REAL ID 工具进一步检查。</p>
+  </article>
+  <div class="template-card"><h2>纽约 DMV 官方核对</h2><div class="dmv-link-list"><a href="https://dmv.ny.gov/forms/id44.pdf" rel="noopener noreferrer" target="_blank"><span>ID-44 官方文件清单</span><span>›</span></a><a href="https://dmv.ny.gov/DocumentGuide" rel="noopener noreferrer" target="_blank"><span>DMV Document Guide</span><span>›</span></a></div></div>
 
-          <article class="template-card dmv-hero">
-            <h1>纽约 DMV 6 Points 计算器</h1>
-            <p class="dmv-intro">
-              准备在纽约申请 Learner Permit、驾照、Non-Driver ID、REAL ID 或
-              Enhanced
-              ID？先用这个工具勾选你手上已有的文件，快速计算是否达到纽约 DMV
-              要求的
-              <strong>6 points of proof of name</strong
-              >，并提醒你地址证明、SSN、生日/合法身份文件是否可能还缺。
-            </p>
-            <div class="dmv-badge-row">
-              <span class="dmv-badge">适合纽约华人</span>
-              <span class="dmv-badge">纯前端计算</span>
-              <span class="dmv-badge">不收集资料</span>
-            </div>
-          </article>
-
-          <div class="dmv-result-card" aria-live="polite">
-            <div class="dmv-score-line">
-              <div>
-                <div class="dmv-score">
-                  <span id="dmvScore">0</span><small> / 6 分</small>
-                </div>
-              </div>
-              <div class="dmv-status warn" id="dmvStatus">还未够 6 分</div>
-            </div>
-            <div class="dmv-progress">
-              <div class="dmv-progress-bar" id="dmvProgress"></div>
-            </div>
-            <div class="dmv-result-text" id="dmvResultText">
-              请先选择你准备带去 DMV 的文件。
-            </div>
-          </div>
-
-          <div class="template-card">
-            <h2>先选择你要申请的证件</h2>
-            <p>
-              不同证件对地址证明要求不同。一般来说，Standard License / Permit
-              需要 1 份纽约州地址证明；REAL ID 或 Enhanced 需要 2
-              份纽约州地址证明。
-            </p>
-            <div class="dmv-control-row">
-              <select
-                class="dmv-select"
-                id="credentialType"
-                aria-label="选择申请类型"
-              >
-                <option value="standard">
-                  标准驾照 / 学车许可证（Standard License / Learner Permit）
-                </option>
-                <option value="realid">真实身份驾照 / REAL ID</option>
-                <option value="enhanced">
-                  增强身份驾照 / Enhanced ID / Enhanced License
-                </option>
-              </select>
-              <select class="dmv-select" id="ageType" aria-label="选择年龄情况">
-                <option value="adult">21 岁或以上</option>
-                <option value="under21">21 岁以下</option>
-              </select>
-            </div>
-            <div class="dmv-credential-help" id="credentialHelp">
-              <strong>标准驾照 / 学车许可证（Standard）</strong>
-              适合大多数人第一次考笔试、办学车纸或普通驾照。一般只在美国境内开车使用，不作为机场登机
-              REAL ID。
-              <br /><span class="green">通常需要 1 份纽约州地址证明</span>
-            </div>
-            <div class="dmv-warning">
-              提醒：这个工具是按 DMV ID-44
-              表格整理的中文辅助计算器，最终是否接受以 DMV 柜台和官方 Document
-              Guide
-              为准。文件通常要原件或发证机构认证副本，外文文件可能需要认证英文翻译。
-            </div>
-          </div>
-
-          <div class="template-card dmv-section">
-            <h2>Section A：Social Security 相关</h2>
-            <div class="dmv-section-note">
-              申请时通常需要提供 SSN 相关证明。原始 Social Security Card 可计 2
-              分；只有号码但没有卡一般不计分。
-            </div>
-            <div class="dmv-doc-list" id="sectionA"></div>
-          </div>
-
-          <div class="template-card dmv-section">
-            <h2>Section B：生日 / 公民身份 / 合法身份</h2>
-            <div class="dmv-section-note">
-              这里至少通常要有一类能证明出生日期、身份或合法状态的文件。护照、绿卡、EAD
-              等常见文件在这里计分。
-            </div>
-            <div class="dmv-doc-list" id="sectionB"></div>
-          </div>
-
-          <div class="template-card dmv-section">
-            <h2>Section C：纽约地址证明 + 额外积分</h2>
-            <div class="dmv-section-note">
-              地址证明文件必须显示你当前纽约州地址，P.O. Box
-              不接受。电子账单需要打印出来。同一种来源或同一种文件一般只能算一份。
-            </div>
-            <div class="dmv-doc-list" id="sectionC"></div>
-          </div>
-
-          <div class="template-card">
-            <h2>你的检查结果</h2>
-            <div class="dmv-summary-list" id="dmvSummary"></div>
-            <div class="dmv-actions">
-              <button
-                class="dmv-btn primary"
-                type="button"
-                onclick="window.print()"
-              >
-                打印/保存结果
-              </button>
-              <button class="dmv-btn secondary" type="button" id="resetDmvCalc">
-                重新选择
-              </button>
-            </div>
-          </div>
-
-          <div class="template-card">
-            <h2>常见组合参考</h2>
-            <div class="mini-grid">
-              <div class="mini-card">
-                <strong>有美国护照 + 社安卡</strong
-                ><span
-                  >护照 4 分 + 社安卡 2 分 = 6
-                  分；仍要按证件类型准备地址证明。</span
-                >
-              </div>
-              <div class="mini-card">
-                <strong>有绿卡 + 社安卡 + 银行账单</strong
-                ><span>绿卡 3 分 + 社安卡 2 分 + 银行账单 1 分 = 6 分。</span>
-              </div>
-              <div class="mini-card">
-                <strong>有外国护照 + SSN 卡</strong
-                ><span
-                  >外国护照 4 分 + SSN 卡 2 分 = 6 分，但 REAL ID/Enhanced
-                  还要看合法身份文件要求。</span
-                >
-              </div>
-              <div class="mini-card">
-                <strong>已有纽约驾照/Permit/ID</strong
-                ><span
-                  >当前或过期不超过 2 年的纽约 DMV 照片证件通常可计 6 分。</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="template-card">
-            <h2>官方链接</h2>
-            <div class="dmv-link-list">
-              <a
-                href="https://dmv.ny.gov/forms/id44.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><span>纽约 DMV ID-44 官方文件清单</span><span>›</span></a
-              >
-              <a
-                href="https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><span>REAL ID / Enhanced 官方说明</span><span>›</span></a
-              >
-              <a
-                href="https://dmv.ny.gov/DocumentGuide"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><span>DMV 官方 Document Guide</span><span>›</span></a
-              >
-            </div>
-          </div>
-
-          <article class="template-card">
-            <h2>给纽约华人的实用提醒</h2>
-            <p>
-              很多人去 DMV
-              白跑一趟，不是因为总分不够，就是地址证明不符合要求。去之前最好把文件按三类分好：第一类是身份证明和生日/合法身份文件，第二类是
-              Social Security 相关文件，第三类是纽约地址证明。
-            </p>
-            <p>
-              如果你申请 REAL ID 或
-              Enhanced，地址证明通常要准备两份，而且必须显示当前纽约州地址。银行账单、水电煤账单、工资单、租约、税表等都可能有用，但同一个来源不要重复计算。
-            </p>
-            <p>
-              如果姓名和护照、绿卡、出生纸、结婚纸上的名字不一致，可能还需要带结婚证、离婚判决或法院改名文件，把名字变化串起来。
-            </p>
-          </article>
         </section>
         <!-- 中间内容结束 -->
       </main>

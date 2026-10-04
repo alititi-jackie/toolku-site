@@ -162,10 +162,6 @@ for (const item of catalog) {
 
 const dmvCode = fs.readFileSync("js/usa/dmv-document-checker.js", "utf8");
 const dmvElements = {
-  docType: { value: "standard", selectedIndex: 0 },
-  purpose: { value: "permit", selectedIndex: 0 },
-  ssn: { value: "yes-card", selectedIndex: 0 },
-  citizen: { value: "yes", selectedIndex: 0 },
   dmvResult: {
     className: "",
     innerHTML: "",
@@ -175,31 +171,26 @@ const dmvElements = {
     scrollIntoView() {},
   },
 };
-const selected = [
-  {
-    dataset: { points: "4", birth: "1", lawful: "1", citizen: "1" },
-    checked: true,
+// Fake the [data-action=checkDmvDocs] button: capture its click listener,
+// then invoke it to simulate a user click (new code wires via data-action).
+const dmvButton = {
+  listeners: {},
+  addEventListener(type, fn) {
+    this.listeners[type] = fn;
   },
-  { dataset: { points: "1", res: "1" }, checked: true },
-  { dataset: { points: "1" }, checked: true },
-];
-vm.runInNewContext(dmvCode, {
-  window: {},
-  document: {
-    getElementById: (id) => dmvElements[id],
-    querySelectorAll: () => selected,
-  },
-});
-const dmvWindow = {};
-const dmvContext = {
-  window: dmvWindow,
-  document: {
-    getElementById: (id) => dmvElements[id],
-    querySelectorAll: () => selected,
+  setAttribute() {},
+};
+const dmvDocument = {
+  getElementById: (id) => dmvElements[id],
+  querySelectorAll: () => [],
+  querySelector: (sel) => {
+    if (sel === "[data-action=checkDmvDocs]") return dmvButton;
+    if (sel === 'input[name="docType"]:checked') return { value: "standard" };
+    return null;
   },
 };
-vm.runInNewContext(dmvCode, dmvContext);
-dmvWindow.checkDmvDocs();
+vm.runInNewContext(dmvCode, { window: {}, document: dmvDocument });
+dmvButton.listeners.click();
 includes(dmvElements.dmvResult.innerHTML, "6 Points", "DMV document checker");
 
 console.log(
