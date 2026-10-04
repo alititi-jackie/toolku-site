@@ -20,6 +20,9 @@
     }
     strong.textContent = String(v);
     span.textContent = String(l);
+    if (v !== "⚠️" && typeof window !== "undefined" && window.TK && window.TK.onResult) {
+      window.TK.onResult(document.body.dataset.tool, `${v} ${l}`.trim());
+    }
   };
   const bad = (m) => out("⚠️", m);
   const money = (v) =>

@@ -1,0 +1,48 @@
+/* ToolKu 打印样式：只留工具主体 */
+@media print {
+  .site-header,
+  .toolku-footer,
+  footer,
+  .usa-related,
+  .openaa-cta,
+  .tk-fav-btn,
+  .tk-share-btn,
+  .tk-theme-btn,
+  .tk-feedback,
+  .tk-history,
+  .dmv-actions,
+  .usa-back-link,
+  .usa-breadcrumbs,
+  .dmv-tool-nav,
+  .back-link {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .tool-shell,
+  .content-wrap,
+  main {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .template-card,
+  .mini-card,
+  .tool-card,
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    break-inside: avoid;
+  }
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 11px;
+    color: #555;
+  }
+}

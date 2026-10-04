@@ -20,6 +20,9 @@
     out = (v, l) => {
       const e = $("result");
       if (e) e.innerHTML = `<strong>${v}</strong><span>${l}</span>`;
+      if (v !== "⚠️" && typeof window !== "undefined" && window.TK && window.TK.onResult) {
+        window.TK.onResult(document.body.dataset.tool, `${v} ${l}`.trim());
+      }
     },
     bad = (m) => out("⚠️", m);
   const calc = {

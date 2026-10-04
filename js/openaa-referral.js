@@ -83,19 +83,27 @@
       label: "查找本地服务",
     },
     {
-      match: ["/tools/zip-code/", "/tools/area-code/"],
+      match: ["/tools/zip-code/"],
       destination: "/directory",
       title: "查完地区，再看看附近华人商家",
       description: "OpenAA 商家目录可以继续查找附近的华人商家和服务。",
       label: "查找附近商家",
     },
+    {
+      match: ["/tools/area-code/"],
+      destination: "https://numbermobi.com/",
+      title: "喜欢这个区号？",
+      description: "NumberMobi 有美国手机靓号，三连号、四连号随便挑。",
+      label: "看看手机靓号",
+    },
   ];
 
   const dmvConfig = {
-    destination: "/dmv",
-    title: "材料确认后，可以继续练习 DMV 中文题库",
-    description: "OpenAA 提供纽约 DMV 中文笔试练习、模拟考试和错题复习。",
-    label: "开始 DMV 中文练习",
+    destination: "https://dmv.openaa.com/",
+    title: "材料确认后，去刷 DMV 中文题库",
+    description:
+      "dmv.openaa.com 有各州 DMV 中文题库、模拟考试和错题本，考前练一遍更稳。",
+    label: "开始中文题库练习",
   };
 
   const defaultConfig = {
