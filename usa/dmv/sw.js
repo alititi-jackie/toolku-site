@@ -1,5 +1,5 @@
 /* ToolKu DMV 工具离线缓存：4 个 DMV 页面 + 共享资源 */
-const CACHE = "toolku-dmv-v1";
+const CACHE = "toolku-dmv-v2";
 const SHELL = [
   "./",
   "./6-points-calculator.html",

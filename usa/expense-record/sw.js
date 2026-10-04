@@ -1,4 +1,4 @@
-const CACHE = "toolku-expense-v2";
+const CACHE = "toolku-expense-v3";
 const SHELL = [
   "./",
   "./index.html",

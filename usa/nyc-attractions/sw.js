@@ -1,4 +1,4 @@
-const CACHE = "toolku-nyc-attractions-v2";
+const CACHE = "toolku-nyc-attractions-v3";
 const ASSETS = [
   "./",
   "./manifest.json",
