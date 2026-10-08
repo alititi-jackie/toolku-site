@@ -1,9 +1,11 @@
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import routesConfig from '../config/routesConfig';
 import Navbar from './Navbar';
+import Footer from './Footer';
+import PageSeo from './PageSeo';
 import { Suspense, useState, useEffect } from 'react';
 import Loading from './Loading';
-import { CssBaseline, Theme, ThemeProvider } from '@mui/material';
+import { Box, CssBaseline, Theme, ThemeProvider } from '@mui/material';
 import { CustomSnackBarProvider } from '../contexts/CustomSnackBarContext';
 import { SnackbarProvider } from 'notistack';
 import { tools } from '../tools';
@@ -60,16 +62,28 @@ function App() {
           <CustomSnackBarProvider>
             <UserTypeFilterProvider>
               <BrowserRouter>
-                <Navbar
-                  mode={mode}
-                  onChangeMode={() => {
-                    setMode((prev) => nextMode(prev));
-                    localStorage.setItem('theme', nextMode(mode));
+                <Box
+                  sx={{
+                    minHeight: '100vh',
+                    display: 'flex',
+                    flexDirection: 'column'
                   }}
-                />
-                <Suspense fallback={<Loading />}>
-                  <AppRoutes />
-                </Suspense>
+                >
+                  <Navbar
+                    mode={mode}
+                    onChangeMode={() => {
+                      setMode((prev) => nextMode(prev));
+                      localStorage.setItem('theme', nextMode(mode));
+                    }}
+                  />
+                  <Suspense fallback={null}>
+                    <PageSeo />
+                  </Suspense>
+                  <Suspense fallback={<Loading />}>
+                    <AppRoutes />
+                  </Suspense>
+                  <Footer />
+                </Box>
               </BrowserRouter>
             </UserTypeFilterProvider>
           </CustomSnackBarProvider>

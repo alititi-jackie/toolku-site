@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
 import React, { ReactNode } from 'react';
-import { Helmet } from 'react-helmet';
 import ToolHeader from './ToolHeader';
 import Separator from './Separator';
 import AllTools from './allTools/AllTools';
@@ -61,9 +60,6 @@ export default function ToolLayout({
       alignItems={'center'}
       sx={{ backgroundColor: 'background.default' }}
     >
-      <Helmet>
-        <title>{`${toolTitle} - ToolKu`}</title>
-      </Helmet>
       <Box width={'85%'}>
         <ToolHeader
           title={toolTitle}

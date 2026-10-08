@@ -21,7 +21,6 @@ import React, { useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SearchIcon from '@mui/icons-material/Search';
-import { Helmet } from 'react-helmet';
 import UserTypeFilter from '@components/UserTypeFilter';
 import { useTranslation } from 'react-i18next';
 import { I18nNamespaces, validNamespaces } from '../../i18n';
@@ -63,9 +62,6 @@ export default function ToolsByCategory() {
 
   return (
     <Box sx={{ backgroundColor: 'background.default' }}>
-      <Helmet>
-        <title>{rawTitle}</title>
-      </Helmet>
       <Box
         padding={{ xs: 1, md: 3, lg: 5 }}
         display={'flex'}

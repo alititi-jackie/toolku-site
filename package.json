@@ -1,16 +1,14 @@
 {
   "name": "toolku",
-  "description": "This project offers a variety of online tools to help with everyday tasks, \nall available for free and open for community contributions",
+  "description": "ToolKu: free multilingual tools for everyday tasks, images, PDFs, text and calculations.",
   "version": "0.6.0",
   "private": true,
   "author": {
-    "name": "Ibrahima Gaye Coulibaly",
-    "email": "ibracool99@gmail.com",
-    "url": "https://github.com/iib0011"
+    "name": "OpenAA",
+    "url": "https://openaa.com"
   },
   "bugs": {
-    "url": "https://github.com/iib0011/omni-tools/issues",
-    "email": "ibracool99@gmail.com"
+    "url": "https://github.com/alititi-jackie/toolku-site/issues"
   },
   "scripts": {
     "dev": "vite",
@@ -24,7 +22,7 @@
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "i18n:pull": "locize download --project-id e7156a3e-66fb-4035-a0f0-cebf1c63a3ba --path ./public/locales",
     "i18n:sync": "locize sync --project-id e7156a3e-66fb-4035-a0f0-cebf1c63a3ba --path ./public/locales --update-values true --reference-language-only false -compare-modification-time true",
-    "postbuild": "node scripts/build-pages.mjs"
+    "postbuild": "node scripts/build-pages.mjs && node scripts/verify-seo.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -137,5 +135,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json}": "prettier --write"
-  }
+  },
+  "homepage": "https://toolku.com"
 }

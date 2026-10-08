@@ -15,3 +15,7 @@ Pushes to main deploy the tested dist directory using GitHub Pages.
 
 ToolKu name, logo and favicon are retained from the original ToolKu site.
 Translations are from upstream, with English fallback for untranslated strings.
+
+## SEO and attribution
+
+Every registered tool and category gets its own static title, description, canonical URL, social preview metadata and structured data. The same metadata rules update on client-side navigation and language changes. The public brand and exports use ToolKu; the global footer links to OpenAA. Original upstream copyright and MIT license remain in LICENSE and public/LICENSE.txt.
