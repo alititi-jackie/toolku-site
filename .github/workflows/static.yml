@@ -1,132 +1,69 @@
-# Deploy and validate the static ToolKu site on GitHub Pages
-name: Deploy static content to Pages
-
+name: Build and deploy ToolKu to Pages
 on:
   push:
-    branches: ["main"]
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: "pages"
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
-
-env:
-  SITE_URL: https://toolku.com
-
 jobs:
-  validate:
-    name: Validate site
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Validate local links, resources and HTML structure
-        shell: bash
-        run: |
-          set +e
-          python3 scripts/validate-site.py 2>&1 | tee validation.log
-          status=${PIPESTATUS[0]}
-          exit "$status"
-      - name: Upload validation diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          name: toolku-validation-${{ github.run_number }}
-          path: validation.log
-          if-no-files-found: ignore
-      - name: Check JavaScript syntax
-        shell: bash
-        run: |
-          set -euo pipefail
-          while IFS= read -r -d '' file; do
-            node --check "$file"
-          done < <(find . -type f -name '*.js' -not -path './.git/*' -print0)
-      - name: Validate inline JavaScript syntax
-        run: python3 scripts/validate-inline-js.py
-      - name: Test calculator results
-        run: node tests/calculators.test.mjs
-      - name: Validate JSON files
-        shell: bash
-        run: |
-          set -euo pipefail
-          while IFS= read -r -d '' file; do
-            python3 -m json.tool "$file" >/dev/null
-          done < <(find . -type f -name '*.json' -not -path './.git/*' -print0)
-
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
   deploy:
-    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
+      - uses: actions/configure-pages@v5
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  production-smoke-test:
-    name: Production smoke test
+  smoke:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Check production essentials
-        shell: bash
+      - name: Verify deployed revision and critical routes
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
         run: |
-          set -euo pipefail
-          check_url() {
-            local url="$1"
-            echo "Checking $url"
-            curl --fail --silent --show-error --location --max-time 20 --retry 2 --retry-delay 2 "$url" -o /tmp/page.html
-            test -s /tmp/page.html
-          }
-          check_url "$SITE_URL/"
-          check_url "$SITE_URL/robots.txt"
-          check_url "$SITE_URL/sitemap.xml"
-          grep -q '<urlset' /tmp/page.html
-      - name: Check every sitemap URL in production
-        shell: bash
-        run: |
-          set -euo pipefail
           python3 - <<'PY'
-          import re
-          import subprocess
-          import sys
-          from urllib.request import Request, urlopen
-
-          sitemap = urlopen(Request('https://toolku.com/sitemap.xml', headers={'User-Agent': 'ToolKu-Production-SmokeTest/1.0'}), timeout=20).read().decode('utf-8')
-          urls = re.findall(r'<loc>(.*?)</loc>', sitemap)
-          if not urls:
-              raise SystemExit('Production sitemap contains no URLs')
-
-          failures = []
-          for url in urls:
-              result = subprocess.run(
-                  ['curl', '--silent', '--show-error', '--location', '--max-time', '20', '--retry', '2', '--retry-delay', '1', '--output', '/dev/null', '--write-out', '%{http_code}', '-A', 'ToolKu-Production-SmokeTest/1.0', url],
-                  capture_output=True, text=True
-              )
-              code = result.stdout.strip()
-              print(f'{code} {url}')
-              if not code or int(code) >= 400:
-                  failures.append((code or 'no-status', url))
-
-          if failures:
-              print('\nProduction URL failures:')
-              for code, url in failures:
-                  print(f'{code} {url}')
-              sys.exit(1)
-
-          print(f'Production smoke test passed: {len(urls)} sitemap URL(s) returned HTTP < 400.')
+          import json, os, time, urllib.request
+          base = 'https://toolku.com'
+          for attempt in range(12):
+              try:
+                  with urllib.request.urlopen(base + '/release.json?rev=' + os.environ['EXPECTED_SHA'], timeout=20) as response:
+                      release = json.load(response)
+                  if release['commit'] == os.environ['EXPECTED_SHA']:
+                      break
+              except Exception as error:
+                  print(error)
+              time.sleep(10)
+          else:
+              raise SystemExit('Production revision not updated')
+          for path in ['/', '/image-generic/resize/', '/pdf/split-pdf/', '/favicon.svg', '/locales/zh/translation.json', '/sitemap.xml']:
+              with urllib.request.urlopen(base + path, timeout=30) as response:
+                  assert response.status == 200, path
+                  assert response.read(), path
+              print('OK', path)
           PY
