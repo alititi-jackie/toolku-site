@@ -1,7 +1,6 @@
 import { Box, useTheme } from '@mui/material';
 import Hero from 'components/Hero';
 import Categories from './Categories';
-import { Helmet } from 'react-helmet';
 import { useUserTypeFilter } from 'providers/UserTypeFilterProvider';
 import UserTypeFilter from '@components/UserTypeFilter';
 
@@ -29,7 +28,6 @@ export default function Home() {
       justifyContent={'center'}
       width={'100%'}
     >
-      <Helmet title={'ToolKu'} />
       <Hero />
       <Box my={3}>
         <UserTypeFilter

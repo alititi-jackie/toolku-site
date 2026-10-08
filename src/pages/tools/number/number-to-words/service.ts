@@ -2,7 +2,7 @@ import { toWords } from 'to-words';
 import { InitialValuesType } from './types';
 
 /**
- * Maps omni-tools' i18n language codes (stored in localStorage under 'lang')
+ * Maps ToolKu's i18n language codes (stored in localStorage under 'lang')
  * to the locale codes expected by the `to-words` package.
  * Mirrors the pattern used in tools/time/crontab-guru/service.ts.
  */
