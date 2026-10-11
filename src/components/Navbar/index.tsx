@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Stack, Select, MenuItem, IconButton, Typography } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import AppsIcon from '@mui/icons-material/Apps';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Mode } from '../App';
@@ -21,6 +22,9 @@ export default function Navbar({ mode, onChangeMode }: { mode: Mode; onChangeMod
           <Typography component="span" sx={{ fontSize: { xs: 23, sm: 28 }, fontWeight: 700 }}>ToolKu</Typography>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={0.5}>
+          <IconButton component="a" href="https://go.openaa.com/" aria-label="Open OpenAA navigation" title="Open OpenAA navigation" sx={{ borderRadius: 2 }}>
+            <AppsIcon />
+          </IconButton>
           <Select size="small" value={i18n.resolvedLanguage || 'en'} inputProps={{ 'aria-label': 'Language / 语言' }}
             onChange={(event) => { void i18n.changeLanguage(event.target.value); }}
             sx={{ minWidth: { xs: 98, sm: 120 }, '& fieldset': { border: 0 } }}>
