@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Stack, Select, MenuItem, IconButton, Typography } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import AppsIcon from '@mui/icons-material/Apps';
+import GridViewIcon from '@mui/icons-material/GridView';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Mode } from '../App';
@@ -17,13 +17,25 @@ export default function Navbar({ mode, onChangeMode }: { mode: Mode; onChangeMod
   return (
     <AppBar position="static" color="transparent" elevation={0}>
       <Toolbar sx={{ width: '100%', maxWidth: 1440, mx: 'auto', justifyContent: 'space-between', gap: 1 }}>
-        <Stack component={Link} to="/" direction="row" spacing={1} alignItems="center" sx={{ textDecoration: 'none', color: 'text.primary' }}>
+        <Stack component={Link} to="/" direction="row" spacing={1} alignItems="center" sx={{ textDecoration: 'none', color: 'text.primary', flexShrink: 0 }}>
           <img src="/favicon/apple-touch-icon.png" width="36" height="36" alt="" style={{ borderRadius: 10 }} />
           <Typography component="span" sx={{ fontSize: { xs: 23, sm: 28 }, fontWeight: 700 }}>ToolKu</Typography>
         </Stack>
-        <Stack direction="row" alignItems="center" spacing={0.5}>
-          <IconButton component="a" href="https://go.openaa.com/" aria-label="Open OpenAA navigation" title="Open OpenAA navigation" sx={{ borderRadius: 2 }}>
-            <AppsIcon />
+        <Stack direction="row" alignItems="center" spacing={0.5} sx={{ flexShrink: 0 }}>
+          <IconButton
+            component="a"
+            href="https://go.openaa.com/"
+            aria-label="Open OpenAA navigation"
+            title="Open OpenAA navigation"
+            sx={{
+              borderRadius: 2,
+              color: 'text.primary',
+              width: 40,
+              height: 40,
+              flexShrink: 0
+            }}
+          >
+            <GridViewIcon fontSize="small" />
           </IconButton>
           <Select size="small" value={i18n.resolvedLanguage || 'en'} inputProps={{ 'aria-label': 'Language / 语言' }}
             onChange={(event) => { void i18n.changeLanguage(event.target.value); }}
